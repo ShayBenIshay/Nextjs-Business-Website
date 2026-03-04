@@ -1,0 +1,350 @@
+/* ── Section ── */
+.section {
+  padding: 40px 80px;
+  direction: rtl;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--primary);
+}
+
+/* ── Card ── */
+.card {
+  box-shadow: var(--light-primary-shadow);
+  padding: 24px 48px;
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  flex: 1 1 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16 px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 10px 28px rgba(65, 38, 98, 0.14);
+  scale: 1.005;
+}
+
+/* ── Card Title ── */
+.cardTitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+  color: var(--primary-accent);
+  text-align: center;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+/* ── Card Body ── */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: right;
+}
+
+.cardDescription {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: right;
+}
+
+/* ── Options List ── */
+.optionsList {
+  list-style: none;
+  padding-right: 27px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.optionsList li {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--primary);
+  text-align: right;
+}
+
+/* ── Form Card ── */
+.formCard {
+  cursor: default;
+  background: var(--primary-transparent-bg);
+  border: 1px solid var(--primary);
+  max-width: 450px;
+}
+
+.formCard:hover {
+  scale: 1;
+}
+
+/* ── Form Fields ── */
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: var(--font-body);
+}
+
+.labelText {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.input {
+  width: 100%;
+  text-align: right;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--primary);
+  background: var(--white);
+  border: 2px solid rgba(65, 38, 98, 0.25);
+  border-radius: 12px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: rgba(65, 38, 98, 0.45);
+}
+
+.input:hover {
+  border-color: rgba(65, 38, 98, 0.4);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(71, 98, 38, 0.15);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ── Privacy Consent ── */
+.consentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.consentLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.consentCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border: 2px solid rgba(65, 38, 98, 0.4);
+  border-radius: 5px;
+  background: var(--white);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+  position: relative;
+}
+
+.consentCheckbox:hover {
+  border-color: var(--primary);
+}
+
+.consentCheckbox:checked {
+  background: var(--primary-accent);
+  border-color: var(--primary-accent);
+}
+
+.consentCheckbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  transform: rotate(45deg) scaleX(-1);
+}
+
+.consentCheckbox:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(71, 98, 38, 0.25);
+}
+
+.consentCheckboxError {
+  border-color: #c53030 !important;
+}
+
+.consentText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--primary);
+  text-align: right;
+}
+
+.consentLink {
+  color: var(--primary-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+
+.consentLink:hover {
+  color: var(--hover-primary-accent);
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px 24px;
+}
+
+.inputError {
+  border-color: #c53030 !important;
+}
+
+.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.2);
+}
+
+.fieldError {
+  font-size: 14px;
+  color: #c53030;
+  margin-top: 2px;
+}
+
+.successMessage {
+  padding: 14px 18px;
+  background: rgba(71, 98, 38, 0.15);
+  border: 1px solid var(--primary-accent);
+  border-radius: 12px;
+  color: var(--primary-accent);
+  font-weight: 500;
+  text-align: center;
+}
+
+.errorMessage {
+  padding: 14px 18px;
+  background: rgba(197, 48, 48, 0.1);
+  border: 1px solid #c53030;
+  border-radius: 12px;
+  color: #c53030;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ── Card Footer ── */
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  width: 100%;
+}
+
+/* ── Badge ── */
+.badge {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: var(--primary);
+  text-align: center;
+}
+
+/* ── CTA Button ── */
+.cardCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 24px;
+  background: var(--primary-accent);
+  color: var(--white);
+  border: 1px solid var(--white);
+  border-radius: var(--btn-radius);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.cardCta:hover {
+  background: var(--hover-primary-accent);
+  transform: translateY(-1px);
+  box-shadow: var(--light-green-shadow);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .section {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px;
+  }
+
+  .headline {
+    font-size: 40px;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}

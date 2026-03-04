@@ -1,0 +1,107 @@
+/* ── Section ── */
+.section {
+  background: var(--primary-transparent-bg);
+  padding: 40px 80px;
+  direction: rtl;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--primary);
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ── Card ── */
+.card {
+  background: #ffffff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  padding: 24px;
+  flex: 1 1 380px;
+  max-width: 422px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 10px 28px rgba(65, 38, 98, 0.14);
+}
+
+.lottie {
+  height: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1200px) {
+  .section {
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .headline {
+    font-size: 40px;
+  }
+
+  .card {
+    max-width: 100%;
+    flex: 1 1 100%;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card {
+    max-width: 350px;
+    justify-self: center;
+  }
+
+  .lottie {
+    max-width: 350px;
+  }
+}
