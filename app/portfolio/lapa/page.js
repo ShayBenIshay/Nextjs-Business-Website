@@ -6,7 +6,7 @@ export default function LapaPage() {
   return (
     <main>
       <HeroSection
-        imgScreen="/assets/Portfolio-Lapa.png"
+        imgScreen="/assets/Portfolio-Lapa.webp"
         headline="LAPA – שיפוץ אתר WordPress"
         subtitle="שיפוץ מלא של אתר WordPress – מהירות, עיצוב מחודש ושיפור חוויית המשתמש לתוצאות טובות יותר."
         btnOutline="חזרה לתיק העבודות"

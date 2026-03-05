@@ -1,7 +1,7 @@
 import styles from "./SpecialProjectsSection.module.css";
 
 const paidevoTextLogo = "/assets/PaiDevo-Text-Logo.png";
-const paidevoLogo = "/assets/PaiDevo-Logo.png";
+const paidevoLogo = "/assets/PaiDevo-Logo.webp";
 
 const projects = [
   {

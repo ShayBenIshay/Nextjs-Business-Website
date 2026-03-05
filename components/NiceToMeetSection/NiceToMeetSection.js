@@ -32,7 +32,7 @@ export default function NiceToMeetSection() {
             </div>
           </div>
           <div className={styles.imgWrap}>
-            <img src="/assets/Selfie.png" alt="Nice to meet" />
+            <img src="/assets/Selfie.webp" alt="Nice to meet" />
           </div>
         </div>
       </div>

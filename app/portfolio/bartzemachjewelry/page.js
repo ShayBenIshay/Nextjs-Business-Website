@@ -6,7 +6,7 @@ export default function BarTzemachJewelryPage() {
   return (
     <main>
       <HeroSection
-        imgScreen="/assets/Portfolio-BarTzemach.png"
+        imgScreen="/assets/Portfolio-BarTzemach.webp"
         headline="Bar Tzemach Jewelry – חנות תכשיטים אינטרנטית"
         subtitle="חנות אינטרנטית מלאה לעסק תכשיטים – עם ניהול מוצרים, סליקה מקצועית וחוויית קנייה נוחה."
         btnOutline="חזרה לתיק העבודות"

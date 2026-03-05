@@ -1,10 +1,10 @@
 import styles from "./PortfolioSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
-const imgImage23 = "/assets/Portfolio-BarTzemach.png";
+const imgImage23 = "/assets/Portfolio-BarTzemach.webp";
 const imgLaptop2 = "/assets/Laptop-Mockup.png";
-const imgLapa = "/assets/Portfolio-Lapa.png";
-const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.png";
+const imgLapa = "/assets/Portfolio-Lapa.webp";
+const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.webp";
 
 const portfolioItems = [
   {

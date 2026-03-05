@@ -4,7 +4,7 @@ import OpenContactModalButton from "@/components/ContactModal/OpenContactModalBu
 const imgLaptop = "/assets/Laptop-Mockup.png";
 
 export default function HeroSection({
-  imgScreen = "/assets/Portfolio-BarTzemach.png",
+  imgScreen = "/assets/Portfolio-BarTzemach.webp",
   headline = "בונים את הנוכחות הדיגיטלית של העסק שלך.",
   subtitle = "חנויות אינטרנטיות, שיפוץ אתרים, קידום ממומן ופיתוחים מותאמים – הכל במקום אחד.",
   btnOutline = "לכל השירותים",

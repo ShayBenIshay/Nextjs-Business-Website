@@ -4,10 +4,10 @@ import { useState } from "react";
 import styles from "./FullPortfolioGrid.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
-const imgBarTzemach = "/assets/Portfolio-BarTzemach.png";
+const imgBarTzemach = "/assets/Portfolio-BarTzemach.webp";
 const imgLaptop = "/assets/Laptop-Mockup.png";
-const imgLapa = "/assets/Portfolio-Lapa.png";
-const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.png";
+const imgLapa = "/assets/Portfolio-Lapa.webp";
+const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.webp";
 
 const portfolioItems = [
   {
@@ -44,7 +44,7 @@ const portfolioItems = [
     title: "LAPA",
     type: "שיפוץ אתר",
     category: "Wordpress",
-    cta: "בוא נשפץ",
+    cta: "בואו נשפץ",
     cta2: "לפרויקט המלא",
     screenshot: imgLapa,
     hasRealImage: true,
@@ -54,7 +54,7 @@ const portfolioItems = [
     title: "Hayot",
     type: "שיפוץ אתר",
     category: "Wordpress",
-    cta: "בוא נשפץ",
+    cta: "בואו נשפץ",
     cta2: "לפרויקט המלא",
     screenshot: null,
     hasRealImage: false,

@@ -6,7 +6,7 @@ export default function NewsletterClubPage() {
   return (
     <main>
       <HeroSection
-        imgScreen="/assets/Portfolio-NewsletterClub.png"
+        imgScreen="/assets/Portfolio-NewsletterClub.webp"
         headline="Newsletter Club – תוסף SaaS לניהול רשימות תפוצה"
         subtitle="תוסף מותאם אישית שמאפשר ניהול מנויים, שליחת עדכונים ובניית קהילה – הכל בממשק פשוט וחכם."
         btnOutline="חזרה לתיק העבודות"
