@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./WhyMeSection.module.css";
 
 const imgSupport = "/assets/support-icon.png";

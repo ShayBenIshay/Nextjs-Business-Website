@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./WhatEStoreIncludesSection.module.css";
 
 const mobileIcon = "/assets/mobile-icon.png";
