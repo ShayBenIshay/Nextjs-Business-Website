@@ -1,0 +1,23 @@
+# Hostinger Passenger / Node.js configuration
+PassengerAppRoot /home/u169339062/domains/shaytechsolutions.com/nodejs
+PassengerAppType node
+PassengerNodejs /opt/alt/alt-nodejs22/root/bin/node
+PassengerStartupFile server.js
+PassengerBaseURI /
+PassengerRestartDir /home/u169339062/domains/shaytechsolutions.com/nodejs/tmp
+SetEnv NODE_OPTIONS "--require /home/u169339062/domains/shaytechsolutions.com/public_html/.builds/config/preload-timestamp.js"
+SetEnv LSNODE_CONSOLE_LOG console.log
+SetEnv TOKIO_WORKER_THREADS 2
+
+RewriteEngine On
+
+# Block access to .builds directory
+RewriteRule ^\.builds - [F,L]
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^shaytechsolutions\.com$ [NC]
+RewriteRule ^(.*)$ https://www.shaytechsolutions.com/$1 [R=301,L]
