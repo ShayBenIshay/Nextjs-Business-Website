@@ -46,6 +46,9 @@ export const metadata = {
     description:
       "חנויות, אתרים, קידום, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף ופרסום – הכל במקום אחד.",
   },
+  verification: {
+    google: "SilR_ENvawMTZiLYj1YnXnxJ23hIyezL133kevXDAB8",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -60,23 +63,24 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': ['LocalBusiness', 'ProfessionalService'],
-              name: 'שי טק סולושנס',
-              description: 'בניית אתרים, חנויות אינטרנטיות, קידום ממומן ופיתוח תוכנה מותאם אישית',
-              url: 'https://www.shaytechsolutions.com',
-              telephone: '+972547573914',
-              areaServed: 'IL',
-              inLanguage: 'he',
+              "@context": "https://schema.org",
+              "@type": ["LocalBusiness", "ProfessionalService"],
+              name: "שי טק סולושנס",
+              description:
+                "בניית אתרים, חנויות אינטרנטיות, קידום ממומן ופיתוח תוכנה מותאם אישית",
+              url: "https://www.shaytechsolutions.com",
+              telephone: "+972547573914",
+              areaServed: "IL",
+              inLanguage: "he",
               serviceType: [
-                'בניית אתרים',
-                'חנות אינטרנטית',
-                'קידום ממומן',
-                'פיתוח תוכנה',
-                'אחסון אתרים',
-                'בניית אתרי וורדפרס',
+                "בניית אתרים",
+                "חנות אינטרנטית",
+                "קידום ממומן",
+                "פיתוח תוכנה",
+                "אחסון אתרים",
+                "בניית אתרי וורדפרס",
               ],
-              image: 'https://www.shaytechsolutions.com/assets/fullLogo.png',
+              image: "https://www.shaytechsolutions.com/assets/fullLogo.png",
             }),
           }}
         />

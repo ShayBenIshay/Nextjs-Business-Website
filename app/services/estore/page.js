@@ -7,9 +7,12 @@ import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
 import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
 
 export const metadata = {
-  title: 'בניית חנות אינטרנטית | WooCommerce | שי טק סולושנס',
-  description: 'בניית חנות אינטרנטית מקצועית עם WooCommerce. עיצוב ממיר, חוויית משתמש מעולה ותשתית יציבה לצמיחה. קבלו הצעת מחיר עכשיו.',
-  alternates: { canonical: 'https://www.shaytechsolutions.com/services/estore' },
+  title: "בניית חנות אינטרנטית | WooCommerce | שי טק סולושנס",
+  description:
+    "בניית חנות אינטרנטית מקצועית עם WooCommerce. עיצוב ממיר, חוויית משתמש מעולה ותשתית יציבה לצמיחה. קבלו הצעת מחיר עכשיו.",
+  alternates: {
+    canonical: "https://www.shaytechsolutions.com/services/estore",
+  },
 };
 
 export default function EStorePage() {
@@ -20,12 +23,12 @@ export default function EStorePage() {
         subtitle="חנויות WooCommerce שנבנות עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
       />
       <SingleServiceSection tag="estore" />
+      <WhatEStoreIncludesSection />
       <EStoresSection
         title="שלושה מסלולים - לפי רמת הצורך שלך"
         subtitle="בנייה וניהול חנות אינטרנטית בשלושה מסלולים שונים"
       />
-      <WhatEStoreIncludesSection />
-      <HowIWorkSection showCTA />
+      {/* <HowIWorkSection showCTA /> */}
       <WhyMeSection />
       <CTABannerSection
         headline="מוכן להתחיל למכור אונליין?"

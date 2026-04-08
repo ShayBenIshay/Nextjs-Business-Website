@@ -76,6 +76,7 @@ export default function SpecialProjectsSection() {
                   <a
                     href={project.btnHref}
                     className={`btn-primary ${styles.btn}`}
+                    target="_blank"
                   >
                     {project.btnLabel}
                   </a>
