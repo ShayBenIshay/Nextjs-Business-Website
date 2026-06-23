@@ -4,7 +4,7 @@ import EStoresSection from "@/components/EStoresSection/EStoresSection";
 import PortfolioSection from "@/components/PortfolioSection/PortfolioSection";
 import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
 import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
-import TestimonialsSection from "@/components/TestimonialsSection/TestimonialsSection";
+// import TestimonialsSection from "@/components/TestimonialsSection/TestimonialsSection";
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 
 export const metadata = {
@@ -23,7 +23,7 @@ export default function HomePage() {
       <PortfolioSection />
       <WhyMeSection />
       <HowIWorkSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <CTABannerSection />
     </main>
   );
