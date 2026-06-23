@@ -2,6 +2,7 @@ import styles from "./ServiceTiersSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
 export default function ServiceTiersSection({
+  id = "plans",
   title,
   subtitle,
   plans,
@@ -11,7 +12,7 @@ export default function ServiceTiersSection({
   return (
     <section
       className={`${styles.section} ${tinted ? styles.tinted : ""}`}
-      id="plans"
+      id={id}
     >
       <div className={styles.inner}>
         {(title || subtitle) && (

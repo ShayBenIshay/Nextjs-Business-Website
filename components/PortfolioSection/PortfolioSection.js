@@ -3,46 +3,20 @@
 import Link from "next/link";
 import styles from "./PortfolioSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
+import { caseStudies } from "@/lib/caseStudies";
 
 const imgLaptop = "/assets/Laptop-Mockup.webp";
-const imgBarTzemach = "/assets/Portfolio-BarTzemach.webp";
-const imgLapa = "/assets/Portfolio-Lapa.webp";
-const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.webp";
 
-const portfolioItems = [
-  {
-    title: "Bar Tzemach Jewelry",
-    type: "חנות אינטרנטית",
-    screenshot: imgBarTzemach,
-    hasRealImage: true,
-    cta: "לבניית חנות",
-    href: "/portfolio/bartzemachjewelry",
-  },
-  {
-    title: "Newsletter Club",
-    type: "תוסף",
-    screenshot: imgNewsletterClub,
-    hasRealImage: true,
-    cta: "לבניית תוסף",
-    href: "/portfolio/newsletter-club",
-  },
-  {
-    title: "LAPA",
-    type: "שיפוץ אתר",
-    screenshot: imgLapa,
-    hasRealImage: true,
-    cta: "שיפוץ אתר",
-    href: "/portfolio/lapa",
-  },
-  {
-    title: "Alpha Pro",
-    type: "שיפוץ חנות",
-    screenshot: null,
-    hasRealImage: false,
-    cta: "לשיפוץ חנות",
-    href: "/portfolio/alpha-pro",
-  },
+const FEATURED_SLUGS = [
+  "bartzemachjewelry",
+  "newsletter-club",
+  "lapa",
+  "alpha-pro",
 ];
+
+const portfolioItems = caseStudies.filter((cs) =>
+  FEATURED_SLUGS.includes(cs.slug)
+);
 
 function PortfolioCard({ item }) {
   return (
@@ -75,9 +49,9 @@ function PortfolioCard({ item }) {
       </div>
       <div className={styles.cardActions}>
         <OpenContactModalButton className="btn-primary">
-          {item.cta}
+          {item.ctaLabel}
         </OpenContactModalButton>
-        <Link href={item.href} className="btn-secondary">
+        <Link href={`/portfolio/${item.slug}`} className="btn-secondary">
           עוד מידע
         </Link>
       </div>
@@ -92,7 +66,7 @@ export default function PortfolioSection() {
         <h2 className={`h2 ${styles.sectionTitle}`}>עבודות / דוגמאות</h2>
         <div className={styles.grid}>
           {portfolioItems.map((item) => (
-            <PortfolioCard key={item.href} item={item} />
+            <PortfolioCard key={item.slug} item={item} />
           ))}
         </div>
         <Link href="/portfolio" className="btn-secondary">

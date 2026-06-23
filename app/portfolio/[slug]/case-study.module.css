@@ -204,6 +204,26 @@
   margin-top: 4px;
 }
 
+.designerCredit {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white);
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+.designerLink {
+  color: var(--white);
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.designerLink:hover {
+  opacity: 1;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero,

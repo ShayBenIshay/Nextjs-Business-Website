@@ -2,18 +2,21 @@ import styles from "./TestimonialsSection.module.css";
 
 const testimonials = [
   {
+    id: "t1",
     quote:
       "[ציטוט של לקוח - כאן יופיע מה שהלקוח אמר על השירות, על התהליך ועל התוצאה שקיבל.]",
     name: "[שם הלקוח]",
     business: "[שם העסק]",
   },
   {
+    id: "t2",
     quote:
       "[ציטוט של לקוח - כאן יופיע מה שהלקוח אמר על השירות, על התהליך ועל התוצאה שקיבל.]",
     name: "[שם הלקוח]",
     business: "[שם העסק]",
   },
   {
+    id: "t3",
     quote:
       "[ציטוט של לקוח - כאן יופיע מה שהלקוח אמר על השירות, על התהליך ועל התוצאה שקיבל.]",
     name: "[שם הלקוח]",
@@ -29,8 +32,8 @@ export default function TestimonialsSection() {
           <h2 className={`h2 ${styles.title}`}>מה הלקוחות אומרים</h2>
         </div>
         <div className={styles.cards}>
-          {testimonials.map((t, i) => (
-            <div key={i} className={styles.card}>
+          {testimonials.map((t) => (
+            <div key={t.id} className={styles.card}>
               <p className={styles.quoteIcon}>&ldquo;</p>
               <p className={styles.quote}>{t.quote}</p>
               <div className={styles.author}>

@@ -21,6 +21,7 @@ export default function AdvertisingPage() {
         subtitle="SEO אורגני וקמפיינים ממומנים שנמדדים בלידים ובמכירות - לא בנתונים ריקים."
       />
       <ServiceTiersSection
+        id="seo-plans"
         title="קידום אורגני - SEO"
         subtitle="תשלום חד פעמי. תוצאות לטווח ארוך."
         plans={seoPlans}
@@ -30,6 +31,7 @@ export default function AdvertisingPage() {
         ]}
       />
       <ServiceTiersSection
+        id="campaign-plans"
         title="קמפיינים ממומנים"
         subtitle="גוגל, פייסבוק, אינסטגרם, TikTok - ניהול חודשי מלא"
         plans={campaignPlans}

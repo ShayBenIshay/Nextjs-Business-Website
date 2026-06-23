@@ -103,6 +103,19 @@ export default async function CaseStudyPage({ params }) {
                 </a>
               </div>
             )}
+            {cs.designer && (
+              <p className={styles.designerCredit}>
+                UI/UX של הקוסם {cs.designer.name} -{" "}
+                <a
+                  href={cs.designer.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.designerLink}
+                >
+                  לאתר שלו
+                </a>
+              </p>
+            )}
           </div>
         </div>
       </section>
