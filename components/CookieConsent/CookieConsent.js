@@ -1,32 +1,49 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { updateConsent } from '@/lib/gtag';
 import styles from './CookieConsent.module.css';
 
 const STORAGE_KEY = 'cookie_consent_accepted';
+const SESSION_DISMISS_KEY = 'cookie_consent_dismissed';
+const CONSENT_EVENT = 'cookie-consent-change';
+
+function subscribe(callback) {
+  window.addEventListener('storage', callback);
+  window.addEventListener(CONSENT_EVENT, callback);
+  return () => {
+    window.removeEventListener('storage', callback);
+    window.removeEventListener(CONSENT_EVENT, callback);
+  };
+}
+
+function getSnapshot() {
+  if (localStorage.getItem(STORAGE_KEY) === 'true') return 'accepted';
+  if (sessionStorage.getItem(SESSION_DISMISS_KEY) === 'true') return 'dismissed';
+  return 'pending';
+}
+
+const getServerSnapshot = () => 'accepted';
 
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  const state = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY) === 'true') {
-      updateConsent();
-    } else {
-      setVisible(true);
-    }
-  }, []);
+    if (state === 'accepted') updateConsent();
+  }, [state]);
 
   const handleAccept = () => {
     localStorage.setItem(STORAGE_KEY, 'true');
-    updateConsent();
-    setVisible(false);
+    window.dispatchEvent(new Event(CONSENT_EVENT));
   };
 
-  const handleDismiss = () => setVisible(false);
+  const handleDismiss = () => {
+    sessionStorage.setItem(SESSION_DISMISS_KEY, 'true');
+    window.dispatchEvent(new Event(CONSENT_EVENT));
+  };
 
-  if (!visible) return null;
+  if (state !== 'pending') return null;
 
   return (
     <div className={styles.banner} role="dialog" aria-label="הסכמה לשימוש בעוגיות">

@@ -1,0 +1,259 @@
+/* ── Hero ── */
+.hero {
+  padding: 60px 80px 40px;
+  direction: rtl;
+  background: var(--white);
+}
+
+.heroInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--primary);
+  opacity: 0.6;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  align-self: flex-start;
+}
+
+.backLink:hover {
+  opacity: 1;
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.typeBadge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 52px;
+  border: 1.5px solid var(--primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 52px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--primary);
+}
+
+.heroTagline {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--primary);
+  opacity: 0.75;
+  max-width: 580px;
+}
+
+/* ── Split: cards (right) + laptop (left) ── */
+.split {
+  padding: 0 80px 48px;
+  direction: rtl;
+  background: var(--white);
+}
+
+.splitInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Cards — right column in RTL (first in DOM) */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.block {
+  background: var(--primary-transparent-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.blockTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.blockText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+/* Laptop — left column in RTL (second in DOM) */
+.visualWrap {
+  position: relative;
+  width: 100%;
+}
+
+.screenshotClip {
+  position: absolute;
+  top: 6.3%;
+  left: 16.8%;
+  width: 69.4%;
+  height: 76%;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.laptopImg {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--primary-transparent-bg);
+  border-radius: var(--card-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholderTitle {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--primary);
+  opacity: 0.5;
+}
+
+/* ── Results ── */
+.results {
+  padding: 0 80px 64px;
+  direction: rtl;
+  background: var(--white);
+}
+
+.resultsInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.resultsBlock {
+  background: var(--primary);
+  border-radius: var(--card-radius);
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resultsTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.resultsText {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--white);
+  opacity: 0.9;
+}
+
+.liveLink {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.designerCredit {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white);
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+.designerLink {
+  color: var(--white);
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.designerLink:hover {
+  opacity: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .hero,
+  .split,
+  .results {
+    padding-inline: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .split,
+  .results {
+    padding-inline: 20px;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .splitInner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Laptop first on mobile, then cards below */
+  .visualWrap {
+    order: -1;
+  }
+
+  .resultsBlock {
+    padding: 24px 20px;
+  }
+}

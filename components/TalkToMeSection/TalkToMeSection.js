@@ -5,6 +5,9 @@ import Link from "next/link";
 import styles from "./TalkToMeSection.module.css";
 import { event } from "@/lib/gtag";
 
+const WHATSAPP_URL =
+  "https://wa.me/972547573914?text=%D7%A9%D7%9C%D7%95%D7%9D!%20%D7%A8%D7%90%D7%99%D7%AA%D7%99%20%D7%90%D7%AA%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%99%D7%95%D7%AA%D7%A8%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D";
+
 const isValidIsraeliPhone = (value) => {
   const digits = value.replace(/\D/g, "");
   if (digits.length === 9) return /^5[0-9]{8}$/.test(digits);
@@ -13,14 +16,18 @@ const isValidIsraeliPhone = (value) => {
   return false;
 };
 
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+
 const MAX_NAME = 80;
 const MAX_PHONE = 20;
+const MAX_EMAIL = 120;
 const MAX_MESSAGE = 1500;
 
-export default function TalkToMeSection() {
+export default function TalkToMeSection({ compact = false }) {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
+    email: "",
     message: "",
   });
   const [botcheck, setBotcheck] = useState("");
@@ -47,6 +54,9 @@ export default function TalkToMeSection() {
     } else if (!isValidIsraeliPhone(formData.phone)) {
       newErrors.phone = "מספר טלפון לא תקין (למשל: 050-1234567)";
     }
+    if (formData.email?.trim() && !isValidEmail(formData.email)) {
+      newErrors.email = "כתובת אימייל לא תקינה";
+    }
     if (!privacyConsent) {
       newErrors.privacyConsent = "יש לאשר את מדיניות הפרטיות להמשך";
     }
@@ -68,6 +78,7 @@ export default function TalkToMeSection() {
           subject: `פנייה חדשה מאתר: ${formData.fullName}`,
           name: formData.fullName,
           phone: formData.phone,
+          email: formData.email || "לא צוין",
           message: formData.message || "(לא צוין)",
           botcheck,
         }),
@@ -82,7 +93,7 @@ export default function TalkToMeSection() {
 
       event("contact_form_submit", { method: "web3forms" });
       setIsSent(true);
-      setFormData({ fullName: "", phone: "", message: "" });
+      setFormData({ fullName: "", phone: "", email: "", message: "" });
       setBotcheck("");
       setPrivacyConsent(false);
       setTimeout(() => setIsSent(false), 5000);
@@ -94,20 +105,57 @@ export default function TalkToMeSection() {
   };
 
   return (
-    <section className={styles.section} id="talk-to-me">
-      <div className={styles.inner}>
+    <section
+      className={`${styles.section} ${compact ? styles.compact : ""}`}
+      id="talk-to-me"
+    >
+      <div className={`${styles.inner} ${compact ? styles.innerCompact : ""}`}>
         <div className={styles.titleGroup}>
-          <h2 className={`h2 ${styles.headline}`}>דברו איתי</h2>
+          <h2 className={`h2 ${styles.headline}`}>בואו נדבר</h2>
           <p className={`h3 ${styles.subtitle}`}>
-            תשאירו פרטים ואחזור אליכם בהקדם.
+            אחזור אליכם תוך 24 שעות - בדרך שנוחה לכם.
           </p>
         </div>
+
+        {/* Quick-contact channels */}
+        <div className={styles.quickContactRow}>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.iconLink}
+            aria-label="שלחו הודעה בWhatsApp"
+          >
+            <img
+              src="/assets/whatsapp-icon.png"
+              alt="WhatsApp"
+              className={styles.contactIconImg}
+            />
+            <span className={styles.iconLinkLabel}>WhatsApp</span>
+          </a>
+          <a
+            href="tel:+972547573914"
+            className={styles.iconLink}
+            aria-label="לשיחה טלפונית"
+          >
+            <img
+              src="/assets/phone-icon.png"
+              alt=""
+              className={styles.contactIconImg}
+            />
+            <span className={styles.iconLinkLabel}>054-7573914</span>
+          </a>
+        </div>
+
+        <div className={styles.divider}>
+          <span className={styles.dividerText}>או שלחו הודעה</span>
+        </div>
+
+        {/* Contact form */}
         <form
           className={`${styles.card} ${styles.formCard}`}
           onSubmit={handleSubmit}
         >
-          <h3 className={styles.cardTitle}>השארת פרטים</h3>
-
           {isSent && (
             <div className={styles.successMessage} role="alert">
               ✓ נשלח בהצלחה! אחזור אליכם בהקדם.
@@ -156,6 +204,7 @@ export default function TalkToMeSection() {
                 <span className={styles.fieldError}>{errors.fullName}</span>
               )}
             </label>
+
             <label className={styles.label}>
               <span className={styles.labelText}>מספר טלפון</span>
               <input
@@ -173,6 +222,27 @@ export default function TalkToMeSection() {
                 <span className={styles.fieldError}>{errors.phone}</span>
               )}
             </label>
+
+            <label className={styles.label}>
+              <span className={styles.labelText}>
+                אימייל <span className={styles.optional}>(אופציונלי)</span>
+              </span>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="example@mail.com"
+                className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
+                aria-invalid={!!errors.email}
+                maxLength={MAX_EMAIL}
+                autoComplete="email"
+              />
+              {errors.email && (
+                <span className={styles.fieldError}>{errors.email}</span>
+              )}
+            </label>
+
             <label className={styles.label}>
               <span className={styles.labelText}>במה אפשר לעזור לכם?</span>
               <textarea
@@ -181,11 +251,12 @@ export default function TalkToMeSection() {
                 onChange={handleChange}
                 placeholder="ספרו לי במה אתם צריכים עזרה..."
                 className={`${styles.input} ${styles.textarea}`}
-                rows={4}
+                rows={compact ? 3 : 4}
                 maxLength={MAX_MESSAGE}
               />
             </label>
           </div>
+
           <div className={styles.consentWrapper}>
             <label className={styles.consentLabel}>
               <input
