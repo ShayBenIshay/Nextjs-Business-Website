@@ -362,6 +362,58 @@
   text-align: center;
 }
 
+/* ── Success card (replaces form after submit) ── */
+.successCard {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  min-height: 300px;
+  cursor: default;
+}
+
+.successCard:hover {
+  transform: none;
+  scale: 1;
+}
+
+.successIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary-accent);
+}
+
+.successCheckmark {
+  font-size: 36px;
+  color: var(--white);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.successTitle {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.successSubtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--primary);
+  opacity: 0.65;
+  margin: -8px 0 0;
+}
+
+.resetBtn {
+  margin-top: 8px;
+}
+
 .errorMessage {
   padding: 14px 18px;
   background: rgba(197, 48, 48, 0.1);

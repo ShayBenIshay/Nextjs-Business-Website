@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const DotLottieReact = dynamic(
   () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
-  { ssr: false, loading: () => <div className={styles.lottiePlaceholder} /> }
+  { ssr: false, loading: () => <div className={styles.lottiePlaceholder} /> },
 );
 import styles from "./SingleServiceSection.module.css";
 import { useContactModal } from "@/components/ContactModal/ContactModalContext";
@@ -98,15 +98,6 @@ function ServiceCard({ service }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {service.openModal ? (
-        <button type="button" onClick={open} className="btn-primary">
-          {service.title}
-        </button>
-      ) : (
-        <a href={service.href} className="btn-primary">
-          {service.title}
-        </a>
-      )}
       <div
         className={styles.lottieWrapper}
         style={{
@@ -130,6 +121,15 @@ function ServiceCard({ service }) {
           <div className={styles.lottiePlaceholder} />
         )}
       </div>
+      {service.openModal ? (
+        <button type="button" onClick={open} className="btn-primary">
+          {service.title}
+        </button>
+      ) : (
+        <a href={service.href} className="btn-primary">
+          {service.title}
+        </a>
+      )}
     </div>
   );
 }
