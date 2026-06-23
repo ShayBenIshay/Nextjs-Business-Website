@@ -23,10 +23,10 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/services/wordpress`,
+      url: `${SITE_URL}/services/website`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/services/hosting`,
@@ -34,13 +34,7 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.7,
     },
-    {
-      url: `${SITE_URL}/services/advertising`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
+{
       url: `${SITE_URL}/services/custom-development`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -53,39 +47,45 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/portfolio/be-the-way`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
       url: `${SITE_URL}/portfolio/bartzemachjewelry`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/hayot`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/lapa`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/portfolio/newsletter-club`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${SITE_URL}/portfolio/telegram-bot`,
+      url: `${SITE_URL}/portfolio/big-pet`,
       lastModified: new Date(),
-      changeFrequency: "yearly",
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/portfolio/alpha-pro`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/portfolio/lapa`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/portfolio/be-the-way`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/portfolio/pitbull-petshop`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 0.6,
     },
     {
