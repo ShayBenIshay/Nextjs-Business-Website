@@ -92,11 +92,10 @@ export default function TalkToMeSection({ compact = false }) {
       }
 
       event("contact_form_submit", { method: "web3forms" });
-      setIsSent(true);
       setFormData({ fullName: "", phone: "", email: "", message: "" });
       setBotcheck("");
       setPrivacyConsent(false);
-      setTimeout(() => setIsSent(false), 5000);
+      setIsSent(true);
     } catch {
       setErrors({ submit: "אירעה שגיאה. נסו שוב מאוחר יותר." });
     } finally {
@@ -151,151 +150,173 @@ export default function TalkToMeSection({ compact = false }) {
           <span className={styles.dividerText}>או שלחו הודעה</span>
         </div>
 
-        {/* Contact form */}
-        <form
-          className={`${styles.card} ${styles.formCard}`}
-          onSubmit={handleSubmit}
-        >
-          {isSent && (
-            <div className={styles.successMessage} role="alert">
-              ✓ נשלח בהצלחה! אחזור אליכם בהקדם.
-            </div>
-          )}
-
-          {errors.submit && (
-            <div className={styles.errorMessage} role="alert">
-              {errors.submit}
-            </div>
-          )}
-
-          <input
-            type="checkbox"
-            name="botcheck"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            checked={!!botcheck}
-            onChange={(e) => setBotcheck(e.target.checked ? "true" : "")}
-            style={{
-              position: "absolute",
-              left: "-9999px",
-              width: 1,
-              height: 1,
-              opacity: 0,
-              pointerEvents: "none",
-            }}
-          />
-
-          <div className={styles.formFields}>
-            <label className={styles.label}>
-              <span className={styles.labelText}>שם מלא</span>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="הכנס את שמך המלא"
-                className={`${styles.input} ${errors.fullName ? styles.inputError : ""}`}
-                aria-invalid={!!errors.fullName}
-                maxLength={MAX_NAME}
-                autoComplete="name"
-              />
-              {errors.fullName && (
-                <span className={styles.fieldError}>{errors.fullName}</span>
-              )}
-            </label>
-
-            <label className={styles.label}>
-              <span className={styles.labelText}>מספר טלפון</span>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="050-1234567"
-                className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
-                aria-invalid={!!errors.phone}
-                maxLength={MAX_PHONE}
-                autoComplete="tel"
-              />
-              {errors.phone && (
-                <span className={styles.fieldError}>{errors.phone}</span>
-              )}
-            </label>
-
-            <label className={styles.label}>
-              <span className={styles.labelText}>
-                אימייל <span className={styles.optional}>(אופציונלי)</span>
-              </span>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="example@mail.com"
-                className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
-                aria-invalid={!!errors.email}
-                maxLength={MAX_EMAIL}
-                autoComplete="email"
-              />
-              {errors.email && (
-                <span className={styles.fieldError}>{errors.email}</span>
-              )}
-            </label>
-
-            <label className={styles.label}>
-              <span className={styles.labelText}>במה אפשר לעזור לכם?</span>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="ספרו לי במה אתם צריכים עזרה..."
-                className={`${styles.input} ${styles.textarea}`}
-                rows={compact ? 3 : 4}
-                maxLength={MAX_MESSAGE}
-              />
-            </label>
-          </div>
-
-          <div className={styles.consentWrapper}>
-            <label className={styles.consentLabel}>
-              <input
-                type="checkbox"
-                checked={privacyConsent}
-                onChange={(e) => {
-                  setPrivacyConsent(e.target.checked);
-                  if (errors.privacyConsent)
-                    setErrors((prev) => ({ ...prev, privacyConsent: null }));
-                }}
-                className={`${styles.consentCheckbox} ${errors.privacyConsent ? styles.consentCheckboxError : ""}`}
-                aria-invalid={!!errors.privacyConsent}
-              />
-              <span className={styles.consentText}>
-                אני מאשר/ת את{" "}
-                <Link
-                  href="/privacy-policy"
-                  className={styles.consentLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  מדיניות הפרטיות
-                </Link>{" "}
-                ומסכים/ה לשימוש בפרטי לצורכי קשר ושירות.*
-              </span>
-            </label>
-            {errors.privacyConsent && (
-              <span className={styles.fieldError}>{errors.privacyConsent}</span>
-            )}
-          </div>
-
-          <button
-            type="submit"
-            className={`btn-primary ${styles.submitBtn}`}
-            disabled={isSubmitting}
+        {/* Contact form / success state */}
+        {isSent ? (
+          <div
+            className={`${styles.card} ${styles.formCard} ${styles.successCard}`}
+            role="alert"
+            aria-live="polite"
           >
-            {isSubmitting ? "שולח..." : "שליחה"}
-          </button>
-        </form>
+            <div className={styles.successIconWrap}>
+              <span className={styles.successCheckmark}>✓</span>
+            </div>
+            <p className={styles.successTitle}>ההודעה נשלחה בהצלחה!</p>
+            <p className={styles.successSubtitle}>
+              אחזור אליכם תוך 24 שעות.
+            </p>
+            <button
+              type="button"
+              className={`btn-secondary ${styles.resetBtn}`}
+              onClick={() => setIsSent(false)}
+            >
+              שלח הודעה נוספת
+            </button>
+          </div>
+        ) : (
+          <form
+            className={`${styles.card} ${styles.formCard}`}
+            onSubmit={handleSubmit}
+          >
+            {errors.submit && (
+              <div className={styles.errorMessage} role="alert">
+                {errors.submit}
+              </div>
+            )}
+
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              checked={!!botcheck}
+              onChange={(e) => setBotcheck(e.target.checked ? "true" : "")}
+              style={{
+                position: "absolute",
+                width: 1,
+                height: 1,
+                padding: 0,
+                margin: "-1px",
+                overflow: "hidden",
+                clip: "rect(0,0,0,0)",
+                whiteSpace: "nowrap",
+                border: 0,
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+            />
+
+            <div className={styles.formFields}>
+              <label className={styles.label}>
+                <span className={styles.labelText}>שם מלא</span>
+                <input
+                  type="text"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  placeholder="הכנס את שמך המלא"
+                  className={`${styles.input} ${errors.fullName ? styles.inputError : ""}`}
+                  aria-invalid={!!errors.fullName}
+                  maxLength={MAX_NAME}
+                  autoComplete="name"
+                />
+                {errors.fullName && (
+                  <span className={styles.fieldError}>{errors.fullName}</span>
+                )}
+              </label>
+
+              <label className={styles.label}>
+                <span className={styles.labelText}>מספר טלפון</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  placeholder="050-1234567"
+                  className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
+                  aria-invalid={!!errors.phone}
+                  maxLength={MAX_PHONE}
+                  autoComplete="tel"
+                />
+                {errors.phone && (
+                  <span className={styles.fieldError}>{errors.phone}</span>
+                )}
+              </label>
+
+              <label className={styles.label}>
+                <span className={styles.labelText}>
+                  אימייל <span className={styles.optional}>(אופציונלי)</span>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="example@mail.com"
+                  className={`${styles.input} ${errors.email ? styles.inputError : ""}`}
+                  aria-invalid={!!errors.email}
+                  maxLength={MAX_EMAIL}
+                  autoComplete="email"
+                />
+                {errors.email && (
+                  <span className={styles.fieldError}>{errors.email}</span>
+                )}
+              </label>
+
+              <label className={styles.label}>
+                <span className={styles.labelText}>במה אפשר לעזור לכם?</span>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="ספרו לי במה אתם צריכים עזרה..."
+                  className={`${styles.input} ${styles.textarea}`}
+                  rows={compact ? 3 : 4}
+                  maxLength={MAX_MESSAGE}
+                />
+              </label>
+            </div>
+
+            <div className={styles.consentWrapper}>
+              <label className={styles.consentLabel}>
+                <input
+                  type="checkbox"
+                  checked={privacyConsent}
+                  onChange={(e) => {
+                    setPrivacyConsent(e.target.checked);
+                    if (errors.privacyConsent)
+                      setErrors((prev) => ({ ...prev, privacyConsent: null }));
+                  }}
+                  className={`${styles.consentCheckbox} ${errors.privacyConsent ? styles.consentCheckboxError : ""}`}
+                  aria-invalid={!!errors.privacyConsent}
+                />
+                <span className={styles.consentText}>
+                  אני מאשר/ת את{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className={styles.consentLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    מדיניות הפרטיות
+                  </Link>{" "}
+                  ומסכים/ה לשימוש בפרטי לצורכי קשר ושירות.*
+                </span>
+              </label>
+              {errors.privacyConsent && (
+                <span className={styles.fieldError}>{errors.privacyConsent}</span>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className={`btn-primary ${styles.submitBtn}`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "שולח..." : "שליחה"}
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
