@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./CTABannerSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
@@ -25,8 +26,8 @@ export default function CTABannerSection({
           </div>
         </div>
         <div className={styles.legalLinks}>
-          <a href="/privacy-policy">מדיניות פרטיות</a>
-          <a href="/terms-of-service">תנאי שירות</a>
+          <Link href="/privacy-policy">מדיניות פרטיות</Link>
+          <Link href="/terms-of-service">תנאי שירות</Link>
         </div>
       </div>
     </footer>

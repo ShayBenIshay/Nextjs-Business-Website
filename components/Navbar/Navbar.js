@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
@@ -37,49 +38,49 @@ export default function Navbar() {
         {/* Nav Links */}
         <ul className={styles.navLinks}>
           <li className={styles.dropdown}>
-            <a href="/services" className={styles.dropdownTrigger}>
+            <Link href="/services" className={styles.dropdownTrigger}>
               שירותים
               <span className={styles.dropdownArrow}>▾</span>
-            </a>
+            </Link>
             <div className={styles.dropdownMenu}>
-              <a href="/services/estore" className={styles.dropdownItem}>
+              <Link href="/services/estore" className={styles.dropdownItem}>
                 חנות אינטרנטית
-              </a>
-              <a href="/services/wordpress" className={styles.dropdownItem}>
+              </Link>
+              <Link href="/services/wordpress" className={styles.dropdownItem}>
                 וורדפרס
-              </a>
-              <a href="/services/hosting" className={styles.dropdownItem}>
+              </Link>
+              <Link href="/services/hosting" className={styles.dropdownItem}>
                 אחסון אתרים
-              </a>
-              <a href="/services/advertising" className={styles.dropdownItem}>
+              </Link>
+              <Link href="/services/advertising" className={styles.dropdownItem}>
                 פרסום דיגיטלי
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/services/custom-development"
                 className={styles.dropdownItem}
               >
                 פיתוח אישי
-              </a>
+              </Link>
             </div>
           </li>
           <li>
-            <a href="/portfolio">עבודות</a>
+            <Link href="/portfolio">עבודות</Link>
           </li>
           <li>
-            <a href="/aboutme">קצת עליי</a>
+            <Link href="/aboutme">קצת עליי</Link>
           </li>
           <li>
-            <a href="/contact">צור קשר</a>
+            <Link href="/contact">צור קשר</Link>
           </li>
         </ul>
 
-        <a href="/" className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <img
             src="/assets/fullLogo.png"
             alt="Shay Tech Solutions"
             className={styles.fullLogo}
           />
-        </a>
+        </Link>
       </nav>
     </header>
   );

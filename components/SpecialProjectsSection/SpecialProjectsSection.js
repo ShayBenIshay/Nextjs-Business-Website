@@ -77,6 +77,7 @@ export default function SpecialProjectsSection() {
                     href={project.btnHref}
                     className={`btn-primary ${styles.btn}`}
                     target="_blank"
+                    rel="noreferrer"
                   >
                     {project.btnLabel}
                   </a>

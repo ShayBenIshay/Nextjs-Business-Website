@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./HowCanIHelpSection.module.css";
 
 const cards = [
@@ -58,7 +59,7 @@ export default function HowCanIHelpSection() {
         <h2 className={styles.title}>איך אני יכול לעזור לך?</h2>
         <div className={styles.grid}>
           {cards.map((card) => (
-            <a href={card.href} key={card.title} className={styles.card}>
+            <Link href={card.href} key={card.title} className={styles.card}>
               <div className={styles.cardTop}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
                 <p className={styles.cardTitle}>{card.icon}</p>
@@ -68,8 +69,8 @@ export default function HowCanIHelpSection() {
                   ))}
                 </div>
               </div>
-              <button className={styles.cardCta}>{card.cta}</button>
-            </a>
+              <span className={styles.cardCta}>{card.cta}</span>
+            </Link>
           ))}
         </div>
       </div>

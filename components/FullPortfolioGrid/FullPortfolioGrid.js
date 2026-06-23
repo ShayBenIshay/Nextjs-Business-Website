@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./FullPortfolioGrid.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
@@ -118,9 +119,9 @@ function PortfolioCard({ item }) {
         <OpenContactModalButton className="btn-primary">
           {item.cta}
         </OpenContactModalButton>
-        <a href={item.href} className="btn-secondary">
+        <Link href={item.href} className="btn-secondary">
           {item.cta2}
-        </a>
+        </Link>
       </div>
     </div>
   );

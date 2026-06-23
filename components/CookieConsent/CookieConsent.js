@@ -11,8 +11,7 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const accepted = localStorage.getItem(STORAGE_KEY);
-    if (accepted === 'true') {
+    if (localStorage.getItem(STORAGE_KEY) === 'true') {
       updateConsent();
     } else {
       setVisible(true);

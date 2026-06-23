@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./CoreServicesSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
@@ -57,9 +58,9 @@ function ServiceCard({ service }) {
         <OpenContactModalButton className="btn-primary">
           {service.cta}
         </OpenContactModalButton>
-        <a href={service.href2} className="btn-secondary">
+        <Link href={service.href2} className="btn-secondary">
           {service.cta2}
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -13,12 +13,17 @@ const isValidIsraeliPhone = (value) => {
   return false;
 };
 
+const MAX_NAME = 80;
+const MAX_PHONE = 20;
+const MAX_MESSAGE = 1500;
+
 export default function TalkToMeSection() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
     message: "",
   });
+  const [botcheck, setBotcheck] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -64,6 +69,7 @@ export default function TalkToMeSection() {
           name: formData.fullName,
           phone: formData.phone,
           message: formData.message || "(לא צוין)",
+          botcheck,
         }),
       });
 
@@ -77,6 +83,7 @@ export default function TalkToMeSection() {
       event("contact_form_submit", { method: "web3forms" });
       setIsSent(true);
       setFormData({ fullName: "", phone: "", message: "" });
+      setBotcheck("");
       setPrivacyConsent(false);
       setTimeout(() => setIsSent(false), 5000);
     } catch {
@@ -113,6 +120,24 @@ export default function TalkToMeSection() {
             </div>
           )}
 
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            checked={!!botcheck}
+            onChange={(e) => setBotcheck(e.target.checked ? "true" : "")}
+            style={{
+              position: "absolute",
+              left: "-9999px",
+              width: 1,
+              height: 1,
+              opacity: 0,
+              pointerEvents: "none",
+            }}
+          />
+
           <div className={styles.formFields}>
             <label className={styles.label}>
               <span className={styles.labelText}>שם מלא</span>
@@ -124,6 +149,8 @@ export default function TalkToMeSection() {
                 placeholder="הכנס את שמך המלא"
                 className={`${styles.input} ${errors.fullName ? styles.inputError : ""}`}
                 aria-invalid={!!errors.fullName}
+                maxLength={MAX_NAME}
+                autoComplete="name"
               />
               {errors.fullName && (
                 <span className={styles.fieldError}>{errors.fullName}</span>
@@ -139,6 +166,8 @@ export default function TalkToMeSection() {
                 placeholder="050-1234567"
                 className={`${styles.input} ${errors.phone ? styles.inputError : ""}`}
                 aria-invalid={!!errors.phone}
+                maxLength={MAX_PHONE}
+                autoComplete="tel"
               />
               {errors.phone && (
                 <span className={styles.fieldError}>{errors.phone}</span>
@@ -153,6 +182,7 @@ export default function TalkToMeSection() {
                 placeholder="ספרו לי במה אתם צריכים עזרה..."
                 className={`${styles.input} ${styles.textarea}`}
                 rows={4}
+                maxLength={MAX_MESSAGE}
               />
             </label>
           </div>

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const DotLottieReact = dynamic(
   () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
@@ -124,7 +125,7 @@ function ServiceCard({ service }) {
       }
     : { href: service.href };
 
-  const CardTag = service.openModal ? "div" : "a";
+  const CardTag = service.openModal ? "div" : Link;
 
   return (
     <CardTag

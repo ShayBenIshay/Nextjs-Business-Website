@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
@@ -21,13 +22,13 @@ export default function HeroSection({
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
         <div className={styles.ctaGroup}>
-          <a href={btnOutlineHref} className="btn-secondary">
+          <Link href={btnOutlineHref} className="btn-secondary">
             {btnOutline}
-          </a>
+          </Link>
           {btnPrimaryHref ? (
-            <a href={btnPrimaryHref} className="btn-primary">
+            <Link href={btnPrimaryHref} className="btn-primary">
               {btnPrimary}
-            </a>
+            </Link>
           ) : (
             <OpenContactModalButton className="btn-primary">
               {btnPrimary}

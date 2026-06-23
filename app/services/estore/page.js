@@ -3,7 +3,6 @@ import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import SingleServiceSection from "@/components/SingleServiceSection/SingleServiceSection";
 import EStoresSection from "@/components/EStoresSection/EStoresSection";
 import WhatEStoreIncludesSection from "@/components/WhatEStoreIncludesSection/WhatEStoreIncludesSection";
-import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
 import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
 
 export const metadata = {
