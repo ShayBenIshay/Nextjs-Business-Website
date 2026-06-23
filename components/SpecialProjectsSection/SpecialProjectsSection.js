@@ -1,6 +1,6 @@
 import styles from "./SpecialProjectsSection.module.css";
 
-const paidevoTextLogo = "/assets/PaiDevo-Text-Logo.png";
+const paidevoTextLogo = "/assets/PaiDevo-Text-Logo.webp";
 const paidevoLogo = "/assets/PaiDevo-Logo.webp";
 
 const projects = [
@@ -39,7 +39,7 @@ export default function SpecialProjectsSection() {
         <div className={styles.cards}>
           {projects.map((project) =>
             project.centered ? (
-              /* ---- PAYCASH — centered layout ---- */
+              /* ---- PAYCASH - centered layout ---- */
               <div
                 key={project.id}
                 className={`${styles.card} ${styles.cardCentered}`}
@@ -59,12 +59,12 @@ export default function SpecialProjectsSection() {
                 </a>
               </div>
             ) : (
-              /* ---- PAIDEVO — horizontal split layout ---- */
+              /* ---- PAIDEVO - horizontal split layout ---- */
               <div
                 key={project.id}
                 className={`${styles.card} ${styles.cardSplit}`}
               >
-                {/* Content side — first in JSX = visual right in RTL */}
+                {/* Content side - first in JSX = visual right in RTL */}
                 <div className={styles.contentSide}>
                   <h3 className={styles.projectName}>{project.name}</h3>
                   <p className={styles.subtitle}>{project.subtitle}</p>
@@ -83,7 +83,7 @@ export default function SpecialProjectsSection() {
                   </a>
                 </div>
 
-                {/* Logo side — second in JSX = visual left in RTL */}
+                {/* Logo side - second in JSX = visual left in RTL */}
                 <div className={styles.logoSide}>
                   <img
                     src={paidevoTextLogo}

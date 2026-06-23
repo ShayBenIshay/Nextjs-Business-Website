@@ -1,116 +1,44 @@
+import { caseStudies } from "@/lib/caseStudies";
+
 const SITE_URL = "https://www.shaytechsolutions.com";
+
+const servicePaths = [
+  { path: "/services", priority: 0.9, changeFrequency: "weekly" },
+  { path: "/services/estore", priority: 0.8 },
+  { path: "/services/website", priority: 0.8 },
+  { path: "/services/wordpress", priority: 0.7 },
+  { path: "/services/hosting", priority: 0.7 },
+  { path: "/services/advertising", priority: 0.7 },
+  { path: "/services/custom-development", priority: 0.7 },
+];
 
 export const dynamic = "force-static";
 
 export default function sitemap() {
+  const serviceEntries = servicePaths.map(
+    ({ path, priority = 0.7, changeFrequency = "monthly" }) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified: new Date(),
+      changeFrequency,
+      priority,
+    })
+  );
+
+  const portfolioEntries = caseStudies.map((cs) => ({
+    url: `${SITE_URL}/portfolio/${cs.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
   return [
-    {
-      url: `${SITE_URL}/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/services`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/services/estore`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/services/wordpress`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/services/hosting`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/services/advertising`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/services/custom-development`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/portfolio/be-the-way`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/bartzemachjewelry`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/hayot`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/lapa`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/newsletter-club`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/portfolio/telegram-bot`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/aboutme`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/contact`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
+    { url: `${SITE_URL}/`, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
+    ...serviceEntries,
+    { url: `${SITE_URL}/portfolio`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    ...portfolioEntries,
+    { url: `${SITE_URL}/aboutme`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE_URL}/contact`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.6 },
+    { url: `${SITE_URL}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${SITE_URL}/terms-of-service`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 }
