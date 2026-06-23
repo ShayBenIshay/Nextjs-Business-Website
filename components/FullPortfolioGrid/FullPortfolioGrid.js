@@ -4,27 +4,95 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./FullPortfolioGrid.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
-import { caseStudies } from "@/lib/caseStudies";
 
-const imgLaptop = "/assets/Laptop-Mockup.webp";
+const imgBarTzemach = "/assets/Portfolio-BarTzemach.webp";
+const imgLaptop = "/assets/Laptop-Mockup.png";
+const imgLapa = "/assets/Portfolio-Lapa.webp";
+const imgNewsletterClub = "/assets/Portfolio-NewsletterClub.webp";
+
+const portfolioItems = [
+  {
+    title: "Newsletter Club",
+    type: "תוסף",
+    category: "SaaS",
+    cta: "לבניית תוסף",
+    cta2: "לפרויקט המלא",
+    screenshot: imgNewsletterClub,
+    hasRealImage: true,
+    href: "/portfolio/newsletter-club",
+  },
+  {
+    title: "Bar Tzemach Jewelry",
+    type: "חנות אינטרנטית",
+    category: "חנויות אינטרנטיות",
+    cta: "לבניית חנות",
+    cta2: "לפרויקט המלא",
+    screenshot: imgBarTzemach,
+    hasRealImage: true,
+    href: "/portfolio/bartzemachjewelry",
+  },
+  {
+    title: "Telegram Bot",
+    type: "פיתוח מותאם אישית",
+    category: "פיתוח מותאם אישית",
+    cta: "לבניית בוט",
+    cta2: "לפרויקט המלא",
+    screenshot: null,
+    hasRealImage: false,
+    href: "/portfolio/telegram-bot",
+  },
+  {
+    title: "LAPA",
+    type: "שיפוץ אתר",
+    category: "Wordpress",
+    cta: "בואו נשפץ",
+    cta2: "לפרויקט המלא",
+    screenshot: imgLapa,
+    hasRealImage: true,
+    href: "/portfolio/lapa",
+  },
+  {
+    title: "Hayot",
+    type: "שיפוץ אתר",
+    category: "Wordpress",
+    cta: "בואו נשפץ",
+    cta2: "לפרויקט המלא",
+    screenshot: null,
+    hasRealImage: false,
+    href: "/portfolio/hayot",
+  },
+  {
+    title: "Be The Way",
+    type: "פיתוח מותאם אישית",
+    category: "פיתוח מותאם אישית",
+    cta: "לפיתוח מותאם",
+    cta2: "לפרויקט המלא",
+    screenshot: null,
+    hasRealImage: false,
+    href: "/portfolio/be-the-way",
+  },
+];
 
 const filters = [
   { label: "הכל", value: "הכל" },
   { label: "חנויות אינטרנטיות", value: "חנויות אינטרנטיות" },
-  { label: "תוסף WordPress", value: "תוסף WordPress" },
+  { label: "Wordpress", value: "Wordpress" },
   { label: "פיתוח מותאם אישית", value: "פיתוח מותאם אישית" },
-  { label: "אתר אישי", value: "אתר אישי" },
+  { label: "SaaS", value: "SaaS" },
 ];
 
 function PortfolioCard({ item }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardMedia}>
+        {/* Title block above laptop */}
         <div className={styles.titleBlock}>
           <p className={styles.cardTitle}>{item.title}</p>
           <p className={styles.cardType}>{item.type}</p>
         </div>
+        {/* Laptop frame on top */}
         <div className={styles.laptopWrap}>
+          {/* Screenshot clipped inside laptop screen area */}
           <div className={styles.screenshotClip}>
             {item.hasRealImage ? (
               <img
@@ -49,10 +117,10 @@ function PortfolioCard({ item }) {
       </div>
       <div className={styles.cardActions}>
         <OpenContactModalButton className="btn-primary">
-          {item.ctaLabel}
+          {item.cta}
         </OpenContactModalButton>
-        <Link href={`/portfolio/${item.slug}`} className="btn-secondary">
-          לפרויקט המלא
+        <Link href={item.href} className="btn-secondary">
+          {item.cta2}
         </Link>
       </div>
     </div>
@@ -64,17 +132,19 @@ export default function FullPortfolioGrid() {
 
   const filteredItems =
     activeFilter === "הכל"
-      ? caseStudies
-      : caseStudies.filter((item) => item.category === activeFilter);
+      ? portfolioItems
+      : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
+        {/* Section header */}
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>עבודות נבחרות</h2>
           <p className={styles.sectionSubtitle}>פרויקטים שבנויים לעבוד</p>
         </div>
 
+        {/* Filter Bar */}
         <div className={styles.filterBar}>
           {filters.map((filter) => (
             <button
@@ -89,11 +159,17 @@ export default function FullPortfolioGrid() {
           ))}
         </div>
 
+        {/* Grid */}
         <div className={styles.grid}>
           {filteredItems.map((item) => (
-            <PortfolioCard key={item.slug} item={item} />
+            <PortfolioCard key={item.title} item={item} />
           ))}
         </div>
+
+        {/* Load more */}
+        {/* <a href="#portfolio" className="btn-secondary">
+          עוד עבודות
+        </a> */}
       </div>
     </section>
   );

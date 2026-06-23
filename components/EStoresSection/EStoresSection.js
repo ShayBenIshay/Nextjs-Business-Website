@@ -8,7 +8,6 @@ const plans = [
   {
     // badge: '⏱️ הכי מהיר',
     title: "חנות אינטרנטית – התחלה חכמה",
-    price: "החל מ-₪6,000",
     description:
       "פתרון מהיר ויעיל לעסקים שרוצים להתחיל למכור אונליין בלי להסתבך.",
     whatIncluded: [
@@ -25,7 +24,6 @@ const plans = [
   {
     badge: "⭐ הכי פופולרי",
     title: "חנות שמוכרת מעל המצופה",
-    price: "החל מ-₪12,000",
     description:
       'חנות שנבנית עם מחשבה שיווקית ומניעה לפעולה – לא רק "יפה", אלא עובדת.',
     whatIncluded: [
@@ -45,7 +43,6 @@ const plans = [
   {
     // badge: "🌱 צמיחה עסקית",
     title: "חנות פרימיום שנבנית במיוחד בשבילך",
-    price: "החל מ-₪25,000",
     description: "לא תבנית שמותאמת – אלא חנות שמתוכננת עבורך מהיסוד.",
     whatIncluded: [
       "אפיון מלא של החנות והצרכים העסקיים",
@@ -87,9 +84,6 @@ export default function EStoresSection({
               )}
               <div className={styles.cardBody}>
                 <p className={styles.cardSubtitle}>{plan.title}</p>
-                {plan.price && (
-                  <p className={styles.price}>{plan.price}</p>
-                )}
                 <div className={styles.cardDescWrapper}>
                   <div className={styles.cardDesc}>
                     <p>{plan.description}</p>

@@ -36,7 +36,7 @@ export default function ContactModal() {
         <button className={styles.closeBtn} onClick={close} aria-label="סגור">
           ✕
         </button>
-        <TalkToMeSection compact />
+        <TalkToMeSection />
       </div>
     </div>
   );

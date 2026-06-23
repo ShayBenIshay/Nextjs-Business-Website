@@ -79,20 +79,11 @@
 
 .cardSubtitle {
   font-family: var(--font-body);
-  font-size: 28px;
-  line-height: 34px;
+  font-size: 32px;
+  line-height: 36px;
   font-weight: 400;
   color: var(--primary-accent);
   text-align: center;
-}
-
-.price {
-  font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--primary);
-  text-align: center;
-  letter-spacing: 0.5px;
 }
 
 .cardDescWrapper {

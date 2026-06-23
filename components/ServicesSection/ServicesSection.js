@@ -40,7 +40,15 @@ const services = [
     showLastFrame: true,
     openModal: true,
   },
-{
+  {
+    title: "קידום ממומן",
+    lottieSrc:
+      "https://lottie.host/59a72b50-8b50-4c27-9c9c-efe954c87795/aomd8YgN2I.lottie",
+    // lottieScale: 0.9,
+    // lottieMarginLeft: "16px",
+    openModal: true,
+  },
+  {
     title: "רוצה לראות דוגמאות",
     lottieSrc:
       "https://lottie.host/93c4fa5b-82ef-47f0-a3ba-f04eda19034d/XOtUJ2cvZ5.lottie",

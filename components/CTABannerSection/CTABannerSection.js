@@ -3,8 +3,8 @@ import styles from "./CTABannerSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
 export default function CTABannerSection({
-  headline = "מוכנים לצעד הבא?",
-  sub = "שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות.",
+  headline = "מוכן לשדרג את האתר או להתחיל למכור אונליין?",
+  sub = "בואו נדבר ונראה איך אפשר להתקדם – בקלות, מקצועיות וללא התחייבות.",
 }) {
   return (
     <footer className={styles.footer} id="cta">

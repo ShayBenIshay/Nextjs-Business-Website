@@ -2,7 +2,7 @@ import Link from "next/link";
 import styles from "./HeroSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
 
-const imgLaptop = "/assets/Laptop-Mockup.webp";
+const imgLaptop = "/assets/Laptop-Mockup.png";
 
 export default function HeroSection({
   imgScreen = "/assets/Portfolio-BarTzemach.webp",

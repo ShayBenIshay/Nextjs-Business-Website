@@ -46,13 +46,16 @@ export default function Navbar() {
               <Link href="/services/estore" className={styles.dropdownItem}>
                 חנות אינטרנטית
               </Link>
-              <Link href="/services/website" className={styles.dropdownItem}>
-                בניית אתרים
+              <Link href="/services/wordpress" className={styles.dropdownItem}>
+                וורדפרס
               </Link>
               <Link href="/services/hosting" className={styles.dropdownItem}>
                 אחסון אתרים
               </Link>
-<Link
+              <Link href="/services/advertising" className={styles.dropdownItem}>
+                פרסום דיגיטלי
+              </Link>
+              <Link
                 href="/services/custom-development"
                 className={styles.dropdownItem}
               >
@@ -73,7 +76,7 @@ export default function Navbar() {
 
         <Link href="/" className={styles.logo}>
           <img
-            src="/assets/fullLogo.webp"
+            src="/assets/fullLogo.png"
             alt="Shay Tech Solutions"
             className={styles.fullLogo}
           />

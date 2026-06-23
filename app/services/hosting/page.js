@@ -1,39 +1,24 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
-import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
-import { hostingPlans } from "@/lib/services";
 
 export const metadata = {
-  title: "אחסון אתרים מהיר ואמין | שי טק סולושנס",
-  description:
-    "שירותי אחסון אתרים מנוהלים לעסקים. כולל SSL, גיבויים יומיים, ניהול תוכן ו-5 שעות פיתוח חודשיות לפי בחירה. מחירים מ-₪250/חודש.",
-  alternates: {
-    canonical: "https://www.shaytechsolutions.com/services/hosting",
-  },
+  title: 'אחסון אתרים מהיר ואמין | שי טק סולושנס',
+  description: 'שירותי אחסון אתרים מהירים, אמינים ומנוהלים לעסקים. ניהול שוטף, עדכונים ותחזוקה שוטפת כדי שהאתר שלך תמיד יעבוד.',
+  alternates: { canonical: 'https://www.shaytechsolutions.com/services/hosting' },
 };
+import ComingSoonSection from "@/components/ComingSoonSection/ComingSoonSection";
+import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 
 export default function HostingPage() {
   return (
     <main>
       <HeroSection
-        headline="האתר שלכם רץ. תמיד."
-        subtitle="אחסון מנוהל עם SSL, גיבויים יומיים ותמיכה טכנית - כדי שלא תצטרכו לחשוב על זה."
+        headline="אחסון אתרים מהיר ואמין"
+        subtitle="תשתית אחסון מקצועית עם ביצועים גבוהים, אבטחה ותמיכה שוטפת."
       />
-      <ServiceTiersSection
-        title="חבילות אחסון"
-        subtitle="בחרו את הרמה שמתאימה לצרכי העסק שלכם"
-        plans={hostingPlans}
-        notes={[
-          "חוזה חודשי - ללא התחייבות שנתית",
-          "כל החבילות כוללות SSL חינם וגיבויים יומיים",
-          "שעות ריטיינר אינן מצטברות",
-        ]}
-      />
-      <WhyMeSection />
+      <ComingSoonSection />
       <CTABannerSection
-        headline="מוכנים לאחסון שעובד בשבילכם?"
-        sub="שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
+        headline="מוכן לעבור לאחסון מקצועי?"
+        sub="נתחיל בשיחה קצרה להבין מה מתאים לך."
       />
     </main>
   );

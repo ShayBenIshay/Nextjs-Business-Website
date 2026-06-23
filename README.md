@@ -1,4 +1,4 @@
-# Shay Tech Solutions - Marketing Site
+# Shay Tech Solutions — Marketing Site
 
 Next.js 16 (App Router) + React 19 marketing site for shaytechsolutions.com.
 Hebrew/RTL, statically exported, deployed to Hostinger via git.
@@ -26,11 +26,11 @@ npm run build   # outputs to ./out
 
 ## Project layout
 
-- `app/` - App Router pages (Hebrew, RTL). `layout.js` wires GA4 with Google
+- `app/` — App Router pages (Hebrew, RTL). `layout.js` wires GA4 with Google
   Consent Mode v2 (denied by default until cookie banner accept).
-- `components/` - one folder per component, co-located CSS modules.
-- `lib/gtag.js` - GA4 helpers (`pageview`, `event`, `updateConsent`).
-- `public/` - static assets and the production `.htaccess`.
+- `components/` — one folder per component, co-located CSS modules.
+- `lib/gtag.js` — GA4 helpers (`pageview`, `event`, `updateConsent`).
+- `public/` — static assets and the production `.htaccess`.
 
 ## Contact form
 

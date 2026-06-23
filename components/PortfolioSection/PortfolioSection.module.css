@@ -18,13 +18,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  justify-content: center;
   width: 100%;
 }
 
 .card {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 16px;
   transition: transform 0.2s ease;
@@ -39,12 +42,13 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  color: var(--primary);
   width: 100%;
 }
 
 .cardTitle {
   font-family: "Aboreto", serif;
-  font-size: 24px;
+  font-size: 32px;
   text-align: center;
   color: var(--primary);
   width: 100%;
@@ -52,29 +56,18 @@
 
 .cardType {
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.4;
-  color: var(--secondary);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--primary);
   text-align: center;
   width: 100%;
 }
 
-/* Laptop mockup — same structure as FullPortfolioGrid */
-.laptopWrap {
-  position: relative;
+.mockupContainer {
   width: 100%;
 }
 
-.screenshotClip {
-  position: absolute;
-  top: 6.3%;
-  left: 16.8%;
-  width: 69.4%;
-  height: 76%;
-  overflow: hidden;
-  border-radius: 4px;
-}
-
+/* Screenshot scrolls from top to bottom of the full-page image */
 .screenshot {
   width: 100%;
   height: auto;
@@ -83,24 +76,9 @@
 }
 
 @keyframes scrollUp {
-  0%,
-  8% {
-    transform: translateY(0);
-  }
-  80%,
-  90% {
-    transform: translateY(-82%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.laptopImg {
-  width: 100%;
-  display: block;
-  position: relative;
-  z-index: 1;
+  0%, 8%   { transform: translateY(0); }        /* pause at top */
+  80%, 90% { transform: translateY(-82%); }     /* pause at bottom */
+  100%     { transform: translateY(0); }        /* snap back */
 }
 
 .placeholderScreen {
@@ -114,7 +92,7 @@
 
 .placeholderText {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--primary);
   opacity: 0.4;
@@ -132,31 +110,30 @@
 
 @media (max-width: 1024px) {
   .section {
-    padding: 24px 32px;
+    padding: 24px 16px;
   }
   .cardTitle {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 32px 20px;
+    padding: 32px;
   }
   .grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   .cardTitle {
-    font-size: 18px;
+    font-size: 20px;
   }
   .cardType {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 500px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
 }

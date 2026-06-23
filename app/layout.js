@@ -1,6 +1,6 @@
 import "./globals.css";
 import Script from "next/script";
-import { Rubik, Assistant, DM_Serif_Display } from "next/font/google";
+import { Rubik, Assistant } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import ContactIcons from "@/components/ContactIcons/ContactIcons";
@@ -23,41 +23,28 @@ const assistant = Assistant({
   display: "swap",
 });
 
-const dmSerifDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-display",
-  display: "swap",
-});
-
 export const metadata = {
-  title: "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות ופיתוחים אישיים",
+  title:
+    "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות, קידום אתרים ממומן ופיתוחים אישיים",
   description:
-    "חנויות, אתרים, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף - הכל במקום אחד.",
+    "חנויות, אתרים, קידום, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף ופרסום – הכל במקום אחד.",
   metadataBase: new URL("https://www.shaytechsolutions.com"),
   openGraph: {
-    title: "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות ופיתוחים אישיים",
+    title:
+      "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות, קידום אתרים ממומן ופיתוחים אישיים",
     description:
-      "חנויות, אתרים, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף - הכל במקום אחד.",
+      "חנויות, אתרים, קידום, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף ופרסום – הכל במקום אחד.",
     url: "https://www.shaytechsolutions.com",
     siteName: "שי טק סולושנס",
     locale: "he_IL",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "שי טק סולושנס",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות ופיתוחים אישיים",
+    title:
+      "שי טק סולושנס | בניית אתרים, חנויות אינטרנטיות, קידום אתרים ממומן ופיתוחים אישיים",
     description:
-      "חנויות, אתרים, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף - הכל במקום אחד.",
-    images: ["/opengraph-image.png"],
+      "חנויות, אתרים, קידום, אחסון ופיתוחים אישיים. מתכנון ופיתוח ועד ניהול שוטף ופרסום – הכל במקום אחד.",
   },
   verification: {
     google: "SilR_ENvawMTZiLYj1YnXnxJ23hIyezL133kevXDAB8",
@@ -69,8 +56,7 @@ export default function RootLayout({ children }) {
     <html
       lang="he"
       dir="rtl"
-      data-scroll-behavior="smooth"
-      className={`${rubik.variable} ${assistant.variable} ${dmSerifDisplay.variable}`}
+      className={`${rubik.variable} ${assistant.variable}`}
     >
       <body>
         <script
@@ -89,12 +75,12 @@ export default function RootLayout({ children }) {
               serviceType: [
                 "בניית אתרים",
                 "חנות אינטרנטית",
-                "דפי תדמית",
-                "דפי נחיתה",
+                "קידום ממומן",
                 "פיתוח תוכנה",
                 "אחסון אתרים",
+                "בניית אתרי וורדפרס",
               ],
-              image: "https://www.shaytechsolutions.com/assets/fullLogo.webp",
+              image: "https://www.shaytechsolutions.com/assets/fullLogo.png",
             }),
           }}
         />
