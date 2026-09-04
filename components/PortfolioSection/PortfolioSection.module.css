@@ -103,23 +103,193 @@
   z-index: 1;
 }
 
-.placeholderScreen {
+.descriptionFrame {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1236 / 643;
   background: var(--primary-transparent-bg);
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6% 10%;
+  box-sizing: border-box;
 }
 
-.placeholderText {
-  font-family: var(--font-heading);
+.descriptionText {
+  font-family: var(--font-body);
   font-size: 14px;
+  color: var(--primary);
+  opacity: 0.75;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Phone mockup (visual: "phone") ── */
+.phoneOuter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.phoneFrame {
+  width: 44%;
+  max-width: 200px;
+  aspect-ratio: 9 / 18;
+  background: #1a1a1a;
+  border-radius: 32px;
+  padding: 10px 8px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.18);
+}
+
+.phoneNotch {
+  width: 34%;
+  height: 6px;
+  background: #1a1a1a;
+  border-radius: 0 0 8px 8px;
+  margin: 0 auto 6px;
+  position: relative;
+}
+
+.phoneNotch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 40%;
+  height: 3px;
+  background: #3a3a3a;
+  border-radius: 2px;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: calc(100% - 16px);
+  background: var(--primary-transparent-bg);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10%;
+  box-sizing: border-box;
+}
+
+.phoneScreenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 22px;
+}
+
+/* ── Email mockup (visual: "email") ── */
+.emailFrame {
+  width: 100%;
+  aspect-ratio: 1236 / 643;
+  background: #ffffff;
+  border: 1px solid var(--primary-transparent-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.emailHeader {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--primary-transparent-bg);
+}
+
+.emailDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.25;
+}
+
+.emailBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6% 10%;
+  box-sizing: border-box;
+  background: var(--primary-transparent-bg);
+}
+
+.emailScreenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ── Diagram / flow treatment (visual: "diagram") ── */
+.diagramFrame {
+  width: 100%;
+  aspect-ratio: 1236 / 643;
+  background: var(--primary-transparent-bg);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6% 10%;
+  box-sizing: border-box;
+}
+
+.diagramFlow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.diagramNode {
+  font-family: var(--font-body);
+  font-size: 13px;
   font-weight: 500;
   color: var(--primary);
-  opacity: 0.4;
-  text-align: center;
-  padding: 8px;
+  background: #ffffff;
+  border: 1.5px solid var(--primary);
+  border-radius: 52px;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.diagramArrow {
+  font-size: 20px;
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+/* Hub-and-spoke layout, used instead of .diagramFlow when stack.length > 2 */
+.diagramHub {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--primary);
+  border-radius: 52px;
+  padding: 9px 18px;
+  white-space: nowrap;
+}
+
+.diagramConnector {
+  width: 1.5px;
+  height: 12px;
+  background: var(--primary);
+  opacity: 0.35;
+}
+
+.diagramSpokes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .cardActions {

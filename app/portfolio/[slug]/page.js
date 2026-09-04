@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
+import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
 import { caseStudies, getCaseStudy } from "@/lib/caseStudies";
 import styles from "./case-study.module.css";
-
-const imgLaptop = "/assets/Laptop-Mockup.webp";
 
 export async function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -21,6 +20,58 @@ export async function generateMetadata({ params }) {
       canonical: `https://www.shaytechsolutions.com/portfolio/${cs.slug}`,
     },
   };
+}
+
+const RELATED_VISIBLE_COUNT = 3;
+
+function RelatedProjects({ cs }) {
+  const related = (cs.relatedSlugs ?? [])
+    .map((slug) => getCaseStudy(slug))
+    .filter(Boolean);
+
+  if (related.length === 0) return null;
+
+  const visible = related.slice(0, RELATED_VISIBLE_COUNT);
+  const rest = related.slice(RELATED_VISIBLE_COUNT);
+
+  return (
+    <section className={styles.related}>
+      <div className={styles.relatedInner}>
+        <h2 className={styles.relatedTitle}>חלק מאותו הפרויקט</h2>
+        <ul className={styles.relatedList}>
+          {visible.map((r) => (
+            <li key={r.slug}>
+              <Link
+                href={`/portfolio/${r.slug}`}
+                className={styles.relatedLink}
+              >
+                {r.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {rest.length > 0 && (
+          <details className={styles.relatedMore}>
+            <summary>
+              ועוד {rest.length} {rest.length === 1 ? "נוסף" : "נוספים"}
+            </summary>
+            <ul className={styles.relatedList}>
+              {rest.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    href={`/portfolio/${r.slug}`}
+                    className={styles.relatedLink}
+                  >
+                    {r.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
+      </div>
+    </section>
+  );
 }
 
 export default async function CaseStudyPage({ params }) {
@@ -40,6 +91,15 @@ export default async function CaseStudyPage({ params }) {
             <span className={styles.typeBadge}>{cs.type}</span>
             <h1 className={styles.heroTitle}>{cs.title}</h1>
             <p className={styles.heroTagline}>{cs.tagline}</p>
+            {cs.stack && cs.stack.length > 0 && (
+              <div className={styles.stackChips}>
+                {cs.stack.map((tech) => (
+                  <span key={tech} className={styles.stackChip}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -55,32 +115,23 @@ export default async function CaseStudyPage({ params }) {
             </div>
             <div className={styles.block}>
               <h2 className={styles.blockTitle}>מה בנינו</h2>
-              <p className={styles.blockText}>{cs.solution}</p>
+              <ul className={styles.blockList}>
+                {cs.solution.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
             </div>
+            {cs.techNote && (
+              <div className={styles.techNote}>
+                <p className={styles.techNoteLabel}>לקוראים טכניים</p>
+                <p className={styles.techNoteText}>{cs.techNote}</p>
+              </div>
+            )}
           </div>
 
           {/* Laptop on the left in RTL (second in DOM) */}
           <div className={styles.visualWrap}>
-            {cs.hasRealImage ? (
-              <>
-                <div className={styles.screenshotClip}>
-                  <img
-                    src={cs.screenshot}
-                    alt={cs.title}
-                    className={styles.screenshot}
-                  />
-                </div>
-                <img
-                  src={imgLaptop}
-                  alt="laptop mockup"
-                  className={styles.laptopImg}
-                />
-              </>
-            ) : (
-              <div className={styles.placeholder}>
-                <span className={styles.placeholderTitle}>{cs.title}</span>
-              </div>
-            )}
+            <PortfolioMedia item={cs} styles={styles} eager />
           </div>
         </div>
       </section>
@@ -90,7 +141,11 @@ export default async function CaseStudyPage({ params }) {
         <div className={styles.resultsInner}>
           <div className={styles.resultsBlock}>
             <h2 className={styles.resultsTitle}>התוצאה</h2>
-            <p className={styles.resultsText}>{cs.results}</p>
+            <ul className={styles.resultsList}>
+              {cs.results.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
             {cs.liveUrl && (
               <div className={styles.liveLink}>
                 <a
@@ -105,14 +160,14 @@ export default async function CaseStudyPage({ params }) {
             )}
             {cs.designer && (
               <p className={styles.designerCredit}>
-                UI/UX של הקוסם {cs.designer.name} -{" "}
+                קרדיט לעיצוב UI/UX {cs.designer.name} הקוסם -{" "}
                 <a
                   href={cs.designer.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.designerLink}
                 >
-                  לאתר שלו
+                  לאתר העסק שלו
                 </a>
               </p>
             )}
@@ -120,9 +175,11 @@ export default async function CaseStudyPage({ params }) {
         </div>
       </section>
 
+      <RelatedProjects cs={cs} />
+
       <CTABannerSection
         headline="רוצים פרויקט כזה?"
-        sub="שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות."
+        sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות."
       />
     </main>
   );

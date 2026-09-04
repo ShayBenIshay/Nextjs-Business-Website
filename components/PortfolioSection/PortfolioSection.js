@@ -3,9 +3,8 @@
 import Link from "next/link";
 import styles from "./PortfolioSection.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
+import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
 import { caseStudies } from "@/lib/caseStudies";
-
-const imgLaptop = "/assets/Laptop-Mockup.webp";
 
 const FEATURED_SLUGS = [
   "bartzemachjewelry",
@@ -25,28 +24,7 @@ function PortfolioCard({ item }) {
         <p className={styles.cardTitle}>{item.title}</p>
         <p className={styles.cardType}>{item.type}</p>
       </div>
-      <div className={styles.laptopWrap}>
-        <div className={styles.screenshotClip}>
-          {item.hasRealImage ? (
-            <img
-              src={item.screenshot}
-              alt={item.title}
-              className={styles.screenshot}
-              loading="lazy"
-            />
-          ) : (
-            <div className={styles.placeholderScreen}>
-              <span className={styles.placeholderText}>{item.title}</span>
-            </div>
-          )}
-        </div>
-        <img
-          src={imgLaptop}
-          alt="laptop"
-          className={styles.laptopImg}
-          loading="lazy"
-        />
-      </div>
+      <PortfolioMedia item={item} styles={styles} />
       <div className={styles.cardActions}>
         <OpenContactModalButton className="btn-primary">
           {item.ctaLabel}

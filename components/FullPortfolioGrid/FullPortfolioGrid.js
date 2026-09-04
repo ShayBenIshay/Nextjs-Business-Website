@@ -4,16 +4,17 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./FullPortfolioGrid.module.css";
 import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
-import { caseStudies } from "@/lib/caseStudies";
+import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
+import { caseStudies, PORTFOLIO_CATEGORY } from "@/lib/caseStudies";
 
-const imgLaptop = "/assets/Laptop-Mockup.webp";
+const ALL_FILTER = "הכל";
 
 const filters = [
-  { label: "הכל", value: "הכל" },
-  { label: "חנויות אינטרנטיות", value: "חנויות אינטרנטיות" },
-  { label: "תוסף WordPress", value: "תוסף WordPress" },
-  { label: "פיתוח מותאם אישית", value: "פיתוח מותאם אישית" },
-  { label: "אתר אישי", value: "אתר אישי" },
+  { label: ALL_FILTER, value: ALL_FILTER },
+  ...Object.values(PORTFOLIO_CATEGORY).map((category) => ({
+    label: category,
+    value: category,
+  })),
 ];
 
 function PortfolioCard({ item }) {
@@ -24,28 +25,9 @@ function PortfolioCard({ item }) {
           <p className={styles.cardTitle}>{item.title}</p>
           <p className={styles.cardType}>{item.type}</p>
         </div>
-        <div className={styles.laptopWrap}>
-          <div className={styles.screenshotClip}>
-            {item.hasRealImage ? (
-              <img
-                src={item.screenshot}
-                alt={item.title}
-                className={styles.screenshot}
-                loading="lazy"
-              />
-            ) : (
-              <div className={styles.placeholderScreen}>
-                <span className={styles.placeholderText}>{item.title}</span>
-              </div>
-            )}
-          </div>
-          <img
-            src={imgLaptop}
-            alt="laptop"
-            className={styles.laptop}
-            loading="lazy"
-          />
-        </div>
+        <Link href={`/portfolio/${item.slug}`} className={styles.mediaLink}>
+          <PortfolioMedia item={item} styles={styles} />
+        </Link>
       </div>
       <div className={styles.cardActions}>
         <OpenContactModalButton className="btn-primary">
@@ -60,10 +42,10 @@ function PortfolioCard({ item }) {
 }
 
 export default function FullPortfolioGrid() {
-  const [activeFilter, setActiveFilter] = useState("הכל");
+  const [activeFilter, setActiveFilter] = useState(ALL_FILTER);
 
   const filteredItems =
-    activeFilter === "הכל"
+    activeFilter === ALL_FILTER
       ? caseStudies
       : caseStudies.filter((item) => item.category === activeFilter);
 

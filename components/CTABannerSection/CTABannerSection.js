@@ -4,7 +4,7 @@ import OpenContactModalButton from "@/components/ContactModal/OpenContactModalBu
 
 export default function CTABannerSection({
   headline = "מוכנים לצעד הבא?",
-  sub = "שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות.",
+  sub = "שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות.",
 }) {
   return (
     <footer className={styles.footer} id="cta">

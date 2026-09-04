@@ -33,7 +33,7 @@ export default function WordpressPage() {
       <WhyMeSection />
       <CTABannerSection
         headline="מוכנים לאתר שעושה עבודה?"
-        sub="שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
+        sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />
     </main>
   );
