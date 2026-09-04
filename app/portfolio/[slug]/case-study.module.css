@@ -1,6 +1,6 @@
 /* ── Hero ── */
 .hero {
-  padding: 60px 80px 40px;
+  padding: 20px 80px 40px;
   direction: rtl;
   background: var(--white);
 }
@@ -66,6 +66,22 @@
   max-width: 580px;
 }
 
+.stackChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.stackChip {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--primary);
+  background: var(--primary-transparent-bg);
+  border-radius: 52px;
+  padding: 4px 14px;
+}
+
 /* ── Split: cards (right) + laptop (left) ── */
 .split {
   padding: 0 80px 48px;
@@ -93,7 +109,7 @@
   background: var(--primary-transparent-bg);
   border: var(--card-border);
   border-radius: var(--card-radius);
-  padding: 28px 32px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -112,6 +128,47 @@
   line-height: 1.75;
   color: var(--primary);
   opacity: 0.85;
+}
+
+.blockList {
+  margin: 0;
+  padding-inline-start: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blockList li {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--primary);
+  opacity: 0.85;
+}
+
+/* Secondary block for technically-inclined readers — visually separate from the main copy */
+.techNote {
+  border-inline-start: 3px solid var(--primary);
+  padding-inline-start: 16px;
+  opacity: 0.75;
+}
+
+.techNoteLabel {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 4px;
+}
+
+.techNoteText {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--primary);
+  margin: 0;
 }
 
 /* Laptop — left column in RTL (second in DOM) */
@@ -162,9 +219,178 @@
   opacity: 0.5;
 }
 
+/* ── Phone mockup (visual: "phone") ── */
+.phoneOuter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.phoneFrame {
+  width: 55%;
+  max-width: 260px;
+  aspect-ratio: 9 / 18;
+  background: #1a1a1a;
+  border-radius: 36px;
+  padding: 12px 9px;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
+.phoneNotch {
+  width: 34%;
+  height: 7px;
+  background: #1a1a1a;
+  border-radius: 0 0 8px 8px;
+  margin: 0 auto 8px;
+  position: relative;
+}
+
+.phoneNotch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 40%;
+  height: 3px;
+  background: #3a3a3a;
+  border-radius: 2px;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: calc(100% - 20px);
+  background: var(--primary-transparent-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10%;
+  box-sizing: border-box;
+}
+
+.phoneScreenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 26px;
+}
+
+/* ── Email mockup (visual: "email") ── */
+.emailFrame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--white);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.emailHeader {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--primary-transparent-bg);
+  border-bottom: var(--card-border);
+}
+
+.emailDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.25;
+}
+
+.emailBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: var(--primary-transparent-bg);
+}
+
+.emailScreenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ── Diagram / flow treatment (visual: "diagram") — no screenshot exists by nature ── */
+.diagramFrame {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--primary-transparent-bg);
+  border-radius: var(--card-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 6% 10%;
+  box-sizing: border-box;
+}
+
+.diagramFlow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.diagramNode {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: 52px;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.diagramArrow {
+  font-size: 24px;
+  color: var(--primary);
+  opacity: 0.6;
+}
+
+/* Hub-and-spoke layout, used instead of .diagramFlow when stack.length > 2 */
+.diagramHub {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--primary);
+  border-radius: 52px;
+  padding: 10px 22px;
+  white-space: nowrap;
+}
+
+.diagramConnector {
+  width: 1.5px;
+  height: 16px;
+  background: var(--primary);
+  opacity: 0.35;
+}
+
+.diagramSpokes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
 /* ── Results ── */
 .results {
-  padding: 0 80px 64px;
+  padding: 0 56px 40px;
   direction: rtl;
   background: var(--white);
 }
@@ -177,7 +403,7 @@
 .resultsBlock {
   background: var(--primary);
   border-radius: var(--card-radius);
-  padding: 32px 40px;
+  padding: 20px 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -190,7 +416,15 @@
   color: var(--white);
 }
 
-.resultsText {
+.resultsList {
+  margin: 0;
+  padding-inline-start: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.resultsList li {
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.7;
@@ -224,11 +458,82 @@
   opacity: 1;
 }
 
+/* ── Related projects ("part of the same build") ── */
+.related {
+  padding: 0 80px 64px;
+  direction: rtl;
+  background: var(--white);
+}
+
+.relatedInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--primary-transparent-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 28px 32px;
+}
+
+.relatedTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 14px;
+}
+
+.relatedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.relatedLink {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--primary);
+  background: var(--white);
+  border: 1px solid var(--primary);
+  border-radius: 52px;
+  padding: 6px 16px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.relatedLink:hover {
+  opacity: 0.7;
+}
+
+.relatedMore {
+  margin-top: 12px;
+}
+
+.relatedMore summary {
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--primary);
+  opacity: 0.75;
+}
+
+.relatedMore summary:hover {
+  opacity: 1;
+}
+
+.relatedMore .relatedList {
+  margin-top: 10px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero,
   .split,
-  .results {
+  .results,
+  .related {
     padding-inline: 32px;
   }
 }
@@ -236,7 +541,8 @@
 @media (max-width: 768px) {
   .hero,
   .split,
-  .results {
+  .results,
+  .related {
     padding-inline: 20px;
   }
 

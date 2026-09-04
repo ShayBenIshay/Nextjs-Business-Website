@@ -47,7 +47,7 @@ export default function CustomDevelopmentPage() {
             </ul>
             <div className={styles.consultPricing}>
               <p className={styles.consultPrice}>
-                שיחת ייעוץ ראשונית
+                שיחת התאמה ראשונית
                 <span className={styles.consultPriceAmount}>₪250</span>
               </p>
               <p className={styles.consultPriceNote}>
@@ -61,7 +61,7 @@ export default function CustomDevelopmentPage() {
       <WhyMeSection />
       <CTABannerSection
         headline="יש לכם רעיון? בואו נבנה אותו."
-        sub="שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
+        sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />
     </main>
   );

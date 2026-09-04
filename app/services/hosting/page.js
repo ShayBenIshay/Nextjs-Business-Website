@@ -33,7 +33,7 @@ export default function HostingPage() {
       <WhyMeSection />
       <CTABannerSection
         headline="מוכנים לאחסון שעובד בשבילכם?"
-        sub="שיחת ייעוץ של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
+        sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />
     </main>
   );
