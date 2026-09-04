@@ -177,6 +177,11 @@
   width: 100%;
 }
 
+.laptopWrap {
+  position: relative;
+  width: 100%;
+}
+
 .screenshotClip {
   position: absolute;
   top: 6.3%;
@@ -201,7 +206,7 @@
   z-index: 1;
 }
 
-.placeholder {
+.descriptionFrame {
   width: 100%;
   aspect-ratio: 16 / 10;
   background: var(--primary-transparent-bg);
@@ -209,14 +214,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6% 10%;
+  box-sizing: border-box;
 }
 
-.placeholderTitle {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  font-weight: 600;
+.descriptionText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--primary);
-  opacity: 0.5;
+  opacity: 0.75;
+  text-align: center;
+  margin: 0;
 }
 
 /* ── Phone mockup (visual: "phone") ── */

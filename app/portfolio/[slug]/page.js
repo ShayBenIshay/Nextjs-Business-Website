@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
+import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
 import { caseStudies, getCaseStudy } from "@/lib/caseStudies";
 import styles from "./case-study.module.css";
-
-const imgLaptop = "/assets/Laptop-Mockup.webp";
 
 export async function generateStaticParams() {
   return caseStudies.map((cs) => ({ slug: cs.slug }));
@@ -21,100 +20,6 @@ export async function generateMetadata({ params }) {
       canonical: `https://www.shaytechsolutions.com/portfolio/${cs.slug}`,
     },
   };
-}
-
-function CaseStudyMedia({ cs }) {
-  const hasScreenshot = cs.screenshot !== null;
-
-  if (cs.visual === "diagram") {
-    const stack = cs.stack ?? [];
-    const isHub = stack.length > 2;
-    return (
-      <div className={styles.diagramFrame}>
-        {isHub ? (
-          <>
-            <span className={styles.diagramHub}>{stack[0]}</span>
-            <div className={styles.diagramConnector} />
-            <div className={styles.diagramSpokes}>
-              {stack.slice(1).map((node) => (
-                <span key={node} className={styles.diagramNode}>
-                  {node}
-                </span>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className={styles.diagramFlow}>
-            <span className={styles.diagramNode}>{stack[0] ?? "מערכת א׳"}</span>
-            <span className={styles.diagramArrow}>⇄</span>
-            <span className={styles.diagramNode}>{stack[1] ?? "מערכת ב׳"}</span>
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  if (cs.visual === "phone") {
-    return (
-      <div className={styles.phoneOuter}>
-        <div className={styles.phoneFrame}>
-          <div className={styles.phoneNotch} />
-          <div className={styles.phoneScreen}>
-            {hasScreenshot ? (
-              <img
-                src={cs.screenshot}
-                alt={cs.title}
-                className={styles.phoneScreenshot}
-              />
-            ) : (
-              <span className={styles.placeholderTitle}>{cs.title}</span>
-            )}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (cs.visual === "email") {
-    return (
-      <div className={styles.emailFrame}>
-        <div className={styles.emailHeader}>
-          <span className={styles.emailDot} />
-          <span className={styles.emailDot} />
-          <span className={styles.emailDot} />
-        </div>
-        <div className={styles.emailBody}>
-          {hasScreenshot ? (
-            <img
-              src={cs.screenshot}
-              alt={cs.title}
-              className={styles.emailScreenshot}
-            />
-          ) : (
-            <span className={styles.placeholderTitle}>{cs.title}</span>
-          )}
-        </div>
-      </div>
-    );
-  }
-
-  // visual === "laptop" (default)
-  if (!hasScreenshot) {
-    return (
-      <div className={styles.placeholder}>
-        <span className={styles.placeholderTitle}>{cs.title}</span>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <div className={styles.screenshotClip}>
-        <img src={cs.screenshot} alt={cs.title} className={styles.screenshot} />
-      </div>
-      <img src={imgLaptop} alt="laptop mockup" className={styles.laptopImg} />
-    </>
-  );
 }
 
 const RELATED_VISIBLE_COUNT = 3;
@@ -147,7 +52,9 @@ function RelatedProjects({ cs }) {
         </ul>
         {rest.length > 0 && (
           <details className={styles.relatedMore}>
-            <summary>ועוד {rest.length} נוספים</summary>
+            <summary>
+              ועוד {rest.length} {rest.length === 1 ? "נוסף" : "נוספים"}
+            </summary>
             <ul className={styles.relatedList}>
               {rest.map((r) => (
                 <li key={r.slug}>
@@ -224,7 +131,7 @@ export default async function CaseStudyPage({ params }) {
 
           {/* Laptop on the left in RTL (second in DOM) */}
           <div className={styles.visualWrap}>
-            <CaseStudyMedia cs={cs} />
+            <PortfolioMedia item={cs} styles={styles} eager />
           </div>
         </div>
       </section>

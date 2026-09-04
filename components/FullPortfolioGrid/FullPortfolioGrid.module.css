@@ -45,6 +45,10 @@
 }
 
 /* ── Filter Bar ── */
+/* .section sets direction: rtl, so `row` alone puts the first filter (in
+   source order) on the right — do not change to row-reverse, that would
+   flip it back to the left. Verified this order holds when it wraps to a
+   second line at narrow widths (flex-wrap below). */
 .filterBar {
   display: flex;
   flex-direction: row;
@@ -101,7 +105,6 @@
   align-items: center;
   gap: 12px;
   padding: 8px;
-  cursor: pointer;
   transition: transform 0.2s ease;
   animation: fadeIn 0.3s ease;
 }
@@ -133,6 +136,7 @@
 .mediaLink {
   display: block;
   width: 100%;
+  cursor: pointer;
 }
 
 .screenshotClip {
@@ -175,20 +179,6 @@
   margin: 0;
 }
 
-/* Same short description, hidden until the future hover-reveal animation is wired up */
-.hoverDescription {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, #fbf9f8 0%, #ece6f7 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10% 8%;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .titleBlock {
   display: flex;
   flex-direction: column;
@@ -228,7 +218,7 @@
   z-index: 2;
 }
 
-.laptop {
+.laptopImg {
   width: 100%;
   height: 100%;
   object-fit: contain;
