@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import styles from "./FullPortfolioGrid.module.css";
-import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
-import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
+import PortfolioCard from "@/components/PortfolioCard/PortfolioCard";
 import { caseStudies, PORTFOLIO_CATEGORY } from "@/lib/caseStudies";
 
 const ALL_FILTER = "הכל";
@@ -16,30 +14,6 @@ const filters = [
     value: category,
   })),
 ];
-
-function PortfolioCard({ item }) {
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardMedia}>
-        <div className={styles.titleBlock}>
-          <p className={styles.cardTitle}>{item.title}</p>
-          <p className={styles.cardType}>{item.type}</p>
-        </div>
-        <Link href={`/portfolio/${item.slug}`} className={styles.mediaLink}>
-          <PortfolioMedia item={item} styles={styles} />
-        </Link>
-      </div>
-      <div className={styles.cardActions}>
-        <OpenContactModalButton className="btn-primary">
-          {item.ctaLabel}
-        </OpenContactModalButton>
-        <Link href={`/portfolio/${item.slug}`} className="btn-secondary">
-          לפרויקט המלא
-        </Link>
-      </div>
-    </div>
-  );
-}
 
 export default function FullPortfolioGrid() {
   const [activeFilter, setActiveFilter] = useState(ALL_FILTER);
@@ -73,7 +47,12 @@ export default function FullPortfolioGrid() {
 
         <div className={styles.grid}>
           {filteredItems.map((item) => (
-            <PortfolioCard key={item.slug} item={item} />
+            <PortfolioCard
+              key={item.slug}
+              item={item}
+              styles={styles}
+              ctaLabel="לפרויקט המלא"
+            />
           ))}
         </div>
       </div>

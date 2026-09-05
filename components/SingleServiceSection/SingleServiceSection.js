@@ -1,14 +1,5 @@
-"use client";
-
-import { useRef } from "react";
-import dynamic from "next/dynamic";
-
-const DotLottieReact = dynamic(
-  () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
-  { ssr: false, loading: () => <div className={styles.lottiePlaceholder} /> },
-);
 import styles from "./SingleServiceSection.module.css";
-import { useContactModal } from "@/components/ContactModal/ContactModalContext";
+import ServiceLottieCard from "@/components/ServiceLottieCard/ServiceLottieCard";
 
 const services = [
   {
@@ -55,87 +46,6 @@ const services = [
   },
 ];
 
-function ServiceCard({ service }) {
-  const dotLottieRef = useRef(null);
-  const timerRef = useRef(null);
-  const { open } = useContactModal();
-
-  const dotLottieRefCallback = (dotLottie) => {
-    dotLottieRef.current = dotLottie;
-
-    if (service.showLastFrame && dotLottie) {
-      dotLottie.addEventListener("load", () => {
-        const lastFrame = dotLottie.totalFrames - 1;
-        dotLottie.setFrame(lastFrame);
-        dotLottie.pause();
-      });
-    }
-  };
-
-  const handleMouseEnter = () => {
-    const delay = service.instantPlay ? 0 : 250;
-    timerRef.current = setTimeout(() => {
-      if (service.showLastFrame) {
-        dotLottieRef.current?.setFrame(0);
-      }
-      dotLottieRef.current?.play();
-    }, delay);
-  };
-
-  const handleMouseLeave = () => {
-    clearTimeout(timerRef.current);
-    if (service.showLastFrame) {
-      dotLottieRef.current?.pause();
-      const lastFrame = (dotLottieRef.current?.totalFrames ?? 1) - 1;
-      dotLottieRef.current?.setFrame(lastFrame);
-    } else {
-      dotLottieRef.current?.stop();
-    }
-  };
-
-  return (
-    <div
-      className={styles.card}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div
-        className={styles.lottieWrapper}
-        style={{
-          ...(service.lottieScale
-            ? { transform: `scale(${service.lottieScale})` }
-            : {}),
-          ...(service.lottieMarginLeft
-            ? { marginLeft: service.lottieMarginLeft }
-            : {}),
-        }}
-      >
-        {service.lottieSrc ? (
-          <DotLottieReact
-            src={service.lottieSrc}
-            loop
-            autoplay={false}
-            dotLottieRefCallback={dotLottieRefCallback}
-            className={styles.lottie}
-          />
-        ) : (
-          <div className={styles.lottiePlaceholder} />
-        )}
-      </div>
-      {service.openModal ? (
-        <button type="button" onClick={open} className="btn-primary">
-          {service.title}
-        </button>
-      ) : (
-        <a href={service.href} className="btn-primary">
-          {service.title}
-        </a>
-      )}
-    </div>
-  );
-}
-16;
-
 export default function SingleServiceSection({
   title = "חנויות אינטרנטיות שמוכרות",
   subtitle = "אני בונה חנויות WooCommerce עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה.",
@@ -153,8 +63,8 @@ export default function SingleServiceSection({
           <p className={`h3 ${styles.subtitle}`}>{subtitle}</p>
         </div>
         <div className={styles.grid}>
-          <ServiceCard key={service.title} service={service} />
-          <ServiceCard key={moreExamples.title} service={moreExamples} />
+          <ServiceLottieCard key={service.title} service={service} styles={styles} />
+          <ServiceLottieCard key={moreExamples.title} service={moreExamples} styles={styles} />
         </div>
       </div>
     </section>
