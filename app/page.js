@@ -2,8 +2,8 @@ import HeroSection from "@/components/HeroSection/HeroSection";
 import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
 import PortfolioSection from "@/components/PortfolioSection/PortfolioSection";
-import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
-import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
+import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
+import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import { estorePlans } from "@/lib/services";
 
@@ -33,8 +33,8 @@ export default function HomePage() {
         ]}
       />
       <PortfolioSection />
-      <WhyMeSection />
-      <HowIWorkSection />
+      <PartnershipSection />
+      <ProcessJourneySection />
       <CTABannerSection />
     </main>
   );
