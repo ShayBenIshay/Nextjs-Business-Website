@@ -1,7 +1,7 @@
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CoreServicesSection from "@/components/CoreServicesSection/CoreServicesSection";
-import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
+import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
 
 export const metadata = {
   title: "שירותים | בניית אתרים, חנויות ופיתוח מותאם | שי טק סולושנס",
@@ -20,7 +20,7 @@ export default function ServicesPage() {
         btnOutline="רוצה לשמוע עוד"
       />
       <CoreServicesSection />
-      <WhyMeSection />
+      <PartnershipSection variant="lighthouse" />
       <CTABannerSection
         headline="לא בטוח מה מתאים?"
         sub="בשיחה קצרה נבין את הצורך ונכוון לפתרון הנכון."
