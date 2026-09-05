@@ -7,7 +7,7 @@ export const metadata = {
 };
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import FullPortfolioGrid from "@/components/FullPortfolioGrid/FullPortfolioGrid";
-import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
+import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
 import SpecialProjectsSection from "@/components/SpecialProjectsSection/SpecialProjectsSection";
 
 export default function PortfolioPage() {
@@ -20,7 +20,7 @@ export default function PortfolioPage() {
       />
       <FullPortfolioGrid />
       <SpecialProjectsSection />
-      <HowIWorkSection />
+      <ProcessJourneySection />
       <CTABannerSection
         headline="רוצים להיות הפרויקט הבא?"
         sub="כל פרויקט מתחיל בשיחה קצרה להבין אם ואיך אפשר לעבוד יחד."
