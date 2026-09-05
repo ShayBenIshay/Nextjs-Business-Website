@@ -6,7 +6,6 @@ const servicePaths = [
   { path: "/services", priority: 0.9, changeFrequency: "weekly" },
   { path: "/services/estore", priority: 0.8 },
   { path: "/services/website", priority: 0.8 },
-  { path: "/services/wordpress", priority: 0.7 },
   { path: "/services/hosting", priority: 0.7 },
   { path: "/services/advertising", priority: 0.7 },
   { path: "/services/custom-development", priority: 0.7 },

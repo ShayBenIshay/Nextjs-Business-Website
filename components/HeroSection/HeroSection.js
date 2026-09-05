@@ -9,7 +9,7 @@ export default function HeroSection({
   headline = "בונים את הנוכחות הדיגיטלית של העסק שלך.",
   subtitle = "חנויות אינטרנטיות, שיפוץ אתרים, קידום ממומן ופיתוחים מותאמים – הכל במקום אחד.",
   btnOutline = "לכל השירותים",
-  btnOutlineHref = "/services#main-services",
+  btnOutlineHref = "/services#core-services",
   btnPrimary = "לתיאום שיחה",
   btnPrimaryHref = null,
 }) {

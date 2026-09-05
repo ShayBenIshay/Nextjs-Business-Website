@@ -1,15 +1,5 @@
-"use client";
-
-import { useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
-import Link from "next/link";
-
-const DotLottieReact = dynamic(
-  () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
-  { ssr: false, loading: () => <div className={styles.lottiePlaceholder} /> },
-);
 import styles from "./ServicesSection.module.css";
-import { useContactModal } from "@/components/ContactModal/ContactModalContext";
+import ServiceLottieCard from "@/components/ServiceLottieCard/ServiceLottieCard";
 
 const services = [
   {
@@ -22,15 +12,12 @@ const services = [
     title: " יש לי אתר – רוצה לשפר",
     lottieSrc:
       "https://lottie.host/15438a5d-51d9-454d-9ccd-75849b3398b1/w9APeUlSOo.lottie",
-    // lottieScale: 1.125,
-    // lottieMarginLeft: "-100px",
     openModal: true,
   },
   {
     title: "אחסון וניהול",
     lottieSrc:
       "https://lottie.host/20ff22f3-4577-4c82-99a0-aaa42890a364/pTq16Aiimj.lottie",
-    // lottieScale: 0.8,
     openModal: true,
   },
   {
@@ -40,7 +27,7 @@ const services = [
     showLastFrame: true,
     openModal: true,
   },
-{
+  {
     title: "רוצה לראות דוגמאות",
     lottieSrc:
       "https://lottie.host/93c4fa5b-82ef-47f0-a3ba-f04eda19034d/XOtUJ2cvZ5.lottie",
@@ -49,109 +36,6 @@ const services = [
     href: "/portfolio",
   },
 ];
-
-function ServiceCard({ service }) {
-  const dotLottieRef = useRef(null);
-  const timerRef = useRef(null);
-  const isMobileRef = useRef(false);
-  const { open } = useContactModal();
-
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 499px)");
-    isMobileRef.current = mq.matches;
-    if (mq.matches && dotLottieRef.current) {
-      dotLottieRef.current.play();
-    }
-    const handler = (e) => {
-      isMobileRef.current = e.matches;
-    };
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  const dotLottieRefCallback = (dotLottie) => {
-    dotLottieRef.current = dotLottie;
-
-    if (dotLottie) {
-      dotLottie.addEventListener("load", () => {
-        if (isMobileRef.current) {
-          dotLottie.play();
-          return;
-        }
-        if (service.showLastFrame) {
-          const lastFrame = dotLottie.totalFrames - 1;
-          dotLottie.setFrame(lastFrame);
-          dotLottie.pause();
-        }
-      });
-    }
-  };
-
-  const handleMouseEnter = () => {
-    const delay = service.instantPlay ? 0 : 250;
-    timerRef.current = setTimeout(() => {
-      if (service.showLastFrame) {
-        dotLottieRef.current?.setFrame(0);
-      }
-      dotLottieRef.current?.play();
-    }, delay);
-  };
-
-  const handleMouseLeave = () => {
-    clearTimeout(timerRef.current);
-    if (service.showLastFrame) {
-      dotLottieRef.current?.pause();
-      const lastFrame = (dotLottieRef.current?.totalFrames ?? 1) - 1;
-      dotLottieRef.current?.setFrame(lastFrame);
-    } else {
-      dotLottieRef.current?.stop();
-    }
-  };
-
-  const cardProps = service.openModal
-    ? {
-        role: "button",
-        tabIndex: 0,
-        onClick: open,
-        onKeyDown: (e) => e.key === "Enter" && open(),
-      }
-    : { href: service.href };
-
-  const CardTag = service.openModal ? "div" : Link;
-
-  return (
-    <CardTag
-      {...cardProps}
-      className={styles.card}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* <div
-        className={styles.lottieWrapper}
-        style={{
-          ...(service.lottieScale
-            ? { transform: `scale(${service.lottieScale})` }
-            : {}),
-          ...(service.lottieMarginLeft
-            ? { marginLeft: service.lottieMarginLeft }
-            : {}),
-        }} */}
-      {/* > */}
-      {service.lottieSrc ? (
-        <DotLottieReact
-          src={service.lottieSrc}
-          loop
-          autoplay={false}
-          dotLottieRefCallback={dotLottieRefCallback}
-          className={styles.lottie}
-        />
-      ) : (
-        <div className={styles.lottiePlaceholder} />
-      )}
-      <button className="btn-primary">{service.title}</button>
-    </CardTag>
-  );
-}
 
 export default function ServicesSection() {
   return (
@@ -167,7 +51,11 @@ export default function ServicesSection() {
         </div>
         <div className={styles.grid}>
           {services.map((service) => (
-            <ServiceCard key={service.title} service={service} />
+            <ServiceLottieCard
+              key={service.title}
+              service={service}
+              styles={styles}
+            />
           ))}
         </div>
       </div>

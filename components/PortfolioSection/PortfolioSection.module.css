@@ -26,12 +26,39 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 8px;
   transition: transform 0.2s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardMedia {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+
+.mediaLink {
+  display: block;
+  width: 100%;
+  cursor: pointer;
 }
 
 .titleBlock {
@@ -39,75 +66,71 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
+  color: #412662;
   width: 100%;
+  position: relative;
+  z-index: 0;
 }
 
 .cardTitle {
-  font-family: "Aboreto", serif;
-  font-size: 24px;
+  font-family: var(--font-display), serif;
+  font-size: 36px;
+  line-height: 1.1;
+  letter-spacing: 0px;
   text-align: center;
-  color: var(--primary);
+  color: #412662;
   width: 100%;
+  margin: 0;
 }
 
 .cardType {
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.4;
-  color: var(--secondary);
+  font-family: var(--font-body, "Oldenburg", serif);
+  font-size: 18px;
+  line-height: 26px;
+  color: #412662;
   text-align: center;
   width: 100%;
+  margin: 0;
 }
 
 /* Laptop mockup — same structure as FullPortfolioGrid */
 .laptopWrap {
-  position: relative;
   width: 100%;
+  aspect-ratio: 1236 / 643;
+  position: relative;
+  z-index: 2;
 }
 
 .screenshotClip {
   position: absolute;
-  top: 6.3%;
-  left: 16.8%;
-  width: 69.4%;
-  height: 76%;
+  top: 7%;
+  left: 16%;
+  width: 70%;
+  height: 85%;
   overflow: hidden;
-  border-radius: 4px;
+  z-index: 1;
 }
 
 .screenshot {
   width: 100%;
-  height: auto;
-  display: block;
-  animation: scrollUp 16s ease-in-out infinite;
-}
-
-@keyframes scrollUp {
-  0%,
-  8% {
-    transform: translateY(0);
-  }
-  80%,
-  90% {
-    transform: translateY(-82%);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .laptopImg {
   width: 100%;
-  display: block;
+  height: 100%;
+  object-fit: contain;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .descriptionFrame {
   width: 100%;
   aspect-ratio: 1236 / 643;
-  background: var(--primary-transparent-bg);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #fbf9f8 0%, #ece6f7 100%);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,12 +139,12 @@
 }
 
 .descriptionText {
-  font-family: var(--font-body);
-  font-size: 14px;
-  color: var(--primary);
-  opacity: 0.75;
-  text-align: center;
+  font-family: "Assistant", sans-serif;
+  font-size: 18px;
   line-height: 1.5;
+  color: #412662;
+  opacity: 1;
+  text-align: center;
   margin: 0;
 }
 
@@ -134,13 +157,13 @@
 
 .phoneFrame {
   width: 44%;
-  max-width: 200px;
+  max-width: 220px;
   aspect-ratio: 9 / 18;
   background: #1a1a1a;
   border-radius: 32px;
   padding: 10px 8px;
   box-sizing: border-box;
-  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 0px 4px 14px 0px rgba(65, 38, 98, 0.18);
 }
 
 .phoneNotch {
@@ -166,13 +189,12 @@
 .phoneScreen {
   width: 100%;
   height: calc(100% - 16px);
-  background: var(--primary-transparent-bg);
+  background: linear-gradient(135deg, #fbf9f8 0%, #ece6f7 100%);
   border-radius: 22px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10%;
   box-sizing: border-box;
 }
 
@@ -189,9 +211,10 @@
   width: 100%;
   aspect-ratio: 1236 / 643;
   background: #ffffff;
-  border: 1px solid var(--primary-transparent-bg);
-  border-radius: 4px;
+  border: 1px solid #e2ddec;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0px 4px 14px 0px rgba(65, 38, 98, 0.08);
   display: flex;
   flex-direction: column;
 }
@@ -201,15 +224,15 @@
   gap: 6px;
   align-items: center;
   padding: 10px 14px;
-  background: var(--primary-transparent-bg);
+  background: #f5f2fa;
+  border-bottom: 1px solid #e2ddec;
 }
 
 .emailDot {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: var(--primary);
-  opacity: 0.25;
+  background: #ddd6ef;
 }
 
 .emailBody {
@@ -217,9 +240,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6% 10%;
   box-sizing: border-box;
-  background: var(--primary-transparent-bg);
+  background: linear-gradient(135deg, #fbf9f8 0%, #ece6f7 100%);
 }
 
 .emailScreenshot {
@@ -229,15 +251,17 @@
   object-position: top;
 }
 
-/* ── Diagram / flow treatment (visual: "diagram") ── */
+/* ── Diagram / flow treatment (visual: "diagram") — no screenshot exists by nature ── */
 .diagramFrame {
   width: 100%;
   aspect-ratio: 1236 / 643;
-  background: var(--primary-transparent-bg);
-  border-radius: 4px;
+  background: linear-gradient(135deg, #fbf9f8 0%, #ece6f7 100%);
+  border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 16px;
   padding: 6% 10%;
   box-sizing: border-box;
 }
@@ -249,39 +273,38 @@
 }
 
 .diagramNode {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--primary);
+  color: #412662;
   background: #ffffff;
-  border: 1.5px solid var(--primary);
+  border: 1.5px solid #412662;
   border-radius: 52px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   white-space: nowrap;
 }
 
 .diagramArrow {
-  font-size: 20px;
-  color: var(--primary);
-  opacity: 0.6;
+  font-size: 22px;
+  color: #456025;
 }
 
 /* Hub-and-spoke layout, used instead of .diagramFlow when stack.length > 2 */
 .diagramHub {
-  font-family: var(--font-body);
-  font-size: 13px;
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  background: var(--primary);
+  background: #412662;
   border-radius: 52px;
-  padding: 9px 18px;
+  padding: 9px 20px;
   white-space: nowrap;
 }
 
 .diagramConnector {
   width: 1.5px;
-  height: 12px;
-  background: var(--primary);
+  height: 14px;
+  background: #412662;
   opacity: 0.35;
 }
 

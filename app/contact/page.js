@@ -8,7 +8,14 @@ export const metadata = {
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import TalkToMeSection from "@/components/TalkToMeSection/TalkToMeSection";
-import WhatsAfterContactSection from "@/components/WhatsAfterContactSection/WhatsAfterContactSection";
+import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
+
+const afterContactSteps = [
+  { img: "/assets/introductionIcon.png", label: "נבין את הצורך שלכם" },
+  { img: "/assets/offerIcon.png", label: "נכין הצעת עבודה מסודרת" },
+  { img: "/assets/development-icon.png", label: "פיתוח הפיתרון המדויק לכם" },
+  { img: "/assets/growth-icon.png", label: "ליווי להמשך צמיחה" },
+];
 
 export default function ContactPage() {
   return (
@@ -19,7 +26,11 @@ export default function ContactPage() {
       />
       <TalkToMeSection />
       <ServicesSection />
-      <WhatsAfterContactSection />
+      <HowIWorkSection
+        title="מה קורה אחרי שמשאירים פרטים?"
+        steps={afterContactSteps}
+        noBackground
+      />
       <CTABannerSection
         headline="רוצים להיות הפרויקט הבא?"
         sub="כל פרויקט מתחיל בשיחה קצרה להבין אם ואיך אפשר לעבוד יחד."

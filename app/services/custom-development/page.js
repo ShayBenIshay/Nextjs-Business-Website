@@ -29,6 +29,7 @@ export default function CustomDevelopmentPage() {
           "שעות אינן מצטברות חודש לחודש",
           "כל טכנולוגיה - React, Next.js, Node.js, Python, PHP, WordPress",
           "אפשר לשנות חבילה בכל חודש לפי הצורך",
+          "מעדיפים לפי שעה בלי ריטיינר? ₪250 לשעה, ללא התחייבות מראש",
         ]}
       />
       <section className={styles.consultSection}>

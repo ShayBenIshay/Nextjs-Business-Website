@@ -1,4 +1,4 @@
-import styles from "./WhatEStoreIncludesSection.module.css";
+import IconRowSection from "@/components/IconRowSection/IconRowSection";
 
 const mobileIcon = "/assets/mobile-icon.png";
 const paymentIcon = "/assets/payment-icon.png";
@@ -14,20 +14,12 @@ const items = [
 
 export default function WhatEStoreIncludesSection() {
   return (
-    <section className={styles.section} id="whats-included-estore">
-      <div className={styles.inner}>
-        <h2 className={styles.headline}>מה כל חנות כוללת? </h2>
-        <div className={styles.iconsRow}>
-          {items.map((item) => (
-            <div key={item.label} className={styles.iconItem}>
-              <div className={styles.iconWrap}>
-                <img src={item.src} alt={item.label} className={styles.icon} />
-              </div>
-              <p className={styles.iconLabel}>{item.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <IconRowSection
+      id="whats-included-estore"
+      title="מה כל חנות כוללת? "
+      items={items}
+      iconSize={75}
+      itemWidth={185}
+    />
   );
 }

@@ -7,19 +7,18 @@ const offerIcon = "/assets/offerIcon.png";
 const buildIcon = "/assets/buildIcon.png";
 const supportIcon = "/assets/support2Icon.png";
 
-const steps = [
+const defaultSteps = [
   { img: introductionIcon, label: "שיחת היכרות ואפיון" },
   { img: offerIcon, label: "הצעת מחיר מסודרת" },
   { img: buildIcon, label: "בנייה / שיפוץ / פיתוח" },
   { img: supportIcon, label: "עלייה לאוויר + ליווי" },
 ];
 
-// const arrows = [imgVector3, imgVector2, imgVector1];
-
 export default function HowIWorkSection({
   showCTA = false,
   title = "איך זה עובד בפועל?",
   noBackground = false,
+  steps = defaultSteps,
 }) {
   return (
     <section
@@ -43,11 +42,6 @@ export default function HowIWorkSection({
               </div>
               {idx < steps.length - 1 && (
                 <p className={styles.arrow}>←</p>
-                // <img
-                //   src={arrows[idx]}
-                //   alt=""
-                //   className={styles.arrow}
-                // />
               )}
             </Fragment>
           ))}
