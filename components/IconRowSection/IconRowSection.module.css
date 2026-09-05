@@ -45,12 +45,13 @@
   align-items: center;
   gap: 12px;
   padding: 8px;
+  width: var(--item-width, auto);
 }
 
 /* ── Icon Image ── */
 .iconWrap {
-  width: 64px;
-  height: 64px;
+  width: var(--icon-size, 64px);
+  height: var(--icon-size, 64px);
   position: relative;
   flex-shrink: 0;
 }

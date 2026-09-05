@@ -51,6 +51,7 @@ const services = [
     showLastFrame: true,
     lottieScale: 0.7,
     tag: "more-examples",
+    href: "/portfolio",
   },
 ];
 
