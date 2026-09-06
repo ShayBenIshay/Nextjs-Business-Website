@@ -18,7 +18,11 @@ export default function Services({
   sectionId = "services",
 }) {
   const selectedCards = cards
-    .map((id) => serviceCards.find((card) => card.id === id))
+    .map((id) => {
+      const card = serviceCards.find((c) => c.id === id);
+      if (!card) console.warn(`Services: no serviceCards entry for id "${id}"`);
+      return card;
+    })
     .filter(Boolean);
 
   return (

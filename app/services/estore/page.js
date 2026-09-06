@@ -43,7 +43,6 @@ export default function EStorePage() {
           "המחיר נקבע בהתאם להיקף ולצרכים (בשקיפות מלאה)",
         ]}
       />
-      {/* <ProcessJourney showCTA /> */}
       <WhyMe />
       <CTABanner
         headline="מוכן להתחיל למכור אונליין?"

@@ -73,7 +73,12 @@ export default function ServiceLottieCard({ service, styles }) {
         role: "button",
         tabIndex: 0,
         onClick: open,
-        onKeyDown: (e) => e.key === "Enter" && open(),
+        onKeyDown: (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            open();
+          }
+        },
       }
     : { href: service.href };
 

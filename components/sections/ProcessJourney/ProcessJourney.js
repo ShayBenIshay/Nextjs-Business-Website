@@ -154,6 +154,11 @@ export default function ProcessJourney({
         <div className={styles.panels}>
           {steps.map((step, i) => {
             const Scene = step.scene ? SCENES[step.scene] : null;
+            if (step.scene && !Scene) {
+              console.warn(
+                `ProcessJourney: no scene "${step.scene}" for step "${step.label}"`,
+              );
+            }
             return (
               <div
                 key={step.label}

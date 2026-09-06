@@ -34,7 +34,7 @@ export default function CardGridSection({ title, cards, id, variant = "light" })
   return (
     <section className={`${styles.section} ${dark ? styles.sectionDark : ""}`} id={id}>
       <div className={styles.inner}>
-        <h2 className={`${styles.headline} ${dark ? styles.headlineDark : ""}`}>
+        <h2 className={`h2 ${styles.headline} ${dark ? styles.headlineDark : ""}`}>
           {title}
         </h2>
         <div className={`${styles.grid} ${dark ? styles.gridDark : ""}`}>

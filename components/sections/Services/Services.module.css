@@ -23,6 +23,10 @@
   color: var(--primary);
 }
 
+.subtitle {
+  opacity: 0.85;
+}
+
 /* ── Grid ── */
 .grid {
   display: grid;
