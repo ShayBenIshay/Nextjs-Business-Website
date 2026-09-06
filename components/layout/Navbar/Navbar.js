@@ -1,36 +1,32 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
+import { useScrollListener } from "@/lib/useScrollListener";
 
 export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const peakScrollY = useRef(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const revealThreshold = window.innerHeight * 0.4;
+  useScrollListener(() => {
+    const currentScrollY = window.scrollY;
+    const revealThreshold = window.innerHeight * 0.4;
 
-      if (currentScrollY > lastScrollY.current) {
-        peakScrollY.current = currentScrollY;
-        if (currentScrollY > 80) {
-          setHidden(true);
-        }
-      } else {
-        const scrolledUp = peakScrollY.current - currentScrollY;
-        if (currentScrollY === 0 || scrolledUp >= revealThreshold) {
-          setHidden(false);
-        }
+    if (currentScrollY > lastScrollY.current) {
+      peakScrollY.current = currentScrollY;
+      if (currentScrollY > 80) {
+        setHidden(true);
       }
+    } else {
+      const scrolledUp = peakScrollY.current - currentScrollY;
+      if (currentScrollY === 0 || scrolledUp >= revealThreshold) {
+        setHidden(false);
+      }
+    }
 
-      lastScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    lastScrollY.current = currentScrollY;
+  });
 
   return (
     <header className={`${styles.header} ${hidden ? styles.headerHidden : ""}`}>

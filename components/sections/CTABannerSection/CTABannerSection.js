@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./CTABannerSection.module.css";
 import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
+import { PHONE_DISPLAY, EMAIL } from "@/lib/contactInfo";
 
 export default function CTABannerSection({
   headline = "מוכנים לצעד הבא?",
@@ -21,8 +22,8 @@ export default function CTABannerSection({
         <div className={styles.contactDetails}>
           <p>פרטים ליצירת קשר: </p>
           <div className={styles.contactDetailsRow}>
-            <p className={styles.phone}>054-7573914</p>
-            <p className={styles.email}>shaybishay@gmail.com</p>
+            <p className={styles.phone}>{PHONE_DISPLAY}</p>
+            <p className={styles.email}>{EMAIL}</p>
           </div>
         </div>
         <div className={styles.legalLinks}>

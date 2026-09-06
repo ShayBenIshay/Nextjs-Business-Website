@@ -1,4 +1,5 @@
 import LegalSection from "@/components/sections/LegalSection/LegalSection";
+import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL, EMAIL_HREF } from "@/lib/contactInfo";
 
 export const metadata = {
   title: "מדיניות פרטיות | שי טק סולושנס",
@@ -102,8 +103,8 @@ export default function PrivacyPolicyPage() {
           לכל שאלה או בקשה בנושא מדיניות פרטיות זו, ניתן לפנות אלינו:
         </p>
         <ul>
-          <li>אימייל: <a href="mailto:shaybishay@gmail.com">shaybishay@gmail.com</a></li>
-          <li>טלפון: <a href="tel:0547573914">054-7573914</a></li>
+          <li>אימייל: <a href={EMAIL_HREF}>{EMAIL}</a></li>
+          <li>טלפון: <a href={PHONE_TEL_HREF}>{PHONE_DISPLAY}</a></li>
         </ul>
         <p>נשתדל להשיב לכל פנייה בתוך 14 ימי עסקים.</p>
       </div>

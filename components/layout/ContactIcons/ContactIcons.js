@@ -2,12 +2,13 @@
 
 import styles from "./ContactIcons.module.css";
 import { event } from "@/lib/gtag";
+import { PHONE_TEL_HREF, WHATSAPP_URL } from "@/lib/contactInfo";
 
 export default function ContactIcons() {
   return (
     <section className={styles.contactIcons}>
       <a
-        href="tel:0547573914"
+        href={PHONE_TEL_HREF}
         className={`${styles.link} ${styles.phoneIcon}`}
         aria-label="לשיחה טלפונית"
         onClick={() => event('click_phone', { link_type: 'tel' })}
@@ -18,7 +19,7 @@ export default function ContactIcons() {
         <span className={styles.text}>לשיחה טלפונית</span>
       </a>
       <a
-        href="https://wa.me/972547573914"
+        href={WHATSAPP_URL}
         className={`${styles.link} ${styles.whatsappIcon}`}
         aria-label="לשליחת הודעה"
         onClick={() => event('click_whatsapp', { link_type: 'whatsapp' })}
