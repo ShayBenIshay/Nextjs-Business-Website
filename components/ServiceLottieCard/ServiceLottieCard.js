@@ -109,7 +109,7 @@ export default function ServiceLottieCard({ service, styles }) {
           <div className={styles.lottiePlaceholder} />
         )}
       </div>
-      <button className="btn-primary">{service.title}</button>
+      <span className="btn-primary">{service.title}</span>
     </CardTag>
   );
 }

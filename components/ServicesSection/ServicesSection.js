@@ -1,61 +1,38 @@
 import styles from "./ServicesSection.module.css";
 import ServiceLottieCard from "@/components/ServiceLottieCard/ServiceLottieCard";
+import { serviceCards } from "@/lib/serviceCards";
 
-const services = [
-  {
-    title: "הקמת חנות אינטרנטית",
-    lottieSrc:
-      "https://lottie.host/322352d4-b7b7-4561-ad01-317dedecd706/vLVKojJfar.lottie",
-    openModal: true,
-  },
-  {
-    title: " יש לי אתר – רוצה לשפר",
-    lottieSrc:
-      "https://lottie.host/15438a5d-51d9-454d-9ccd-75849b3398b1/w9APeUlSOo.lottie",
-    openModal: true,
-  },
-  {
-    title: "אחסון וניהול",
-    lottieSrc:
-      "https://lottie.host/20ff22f3-4577-4c82-99a0-aaa42890a364/pTq16Aiimj.lottie",
-    openModal: true,
-  },
-  {
-    title: "פיתוח מותאם אישית",
-    lottieSrc:
-      "https://lottie.host/043e412f-ab60-4068-ad45-a14bb82721fc/8iPnpccCah.lottie",
-    showLastFrame: true,
-    openModal: true,
-  },
-  {
-    title: "רוצה לראות דוגמאות",
-    lottieSrc:
-      "https://lottie.host/93c4fa5b-82ef-47f0-a3ba-f04eda19034d/XOtUJ2cvZ5.lottie",
-    showLastFrame: true,
-    lottieScale: 0.7,
-    href: "/portfolio",
-  },
+const defaultCards = [
+  "estore",
+  "website-improve",
+  "hosting",
+  "custom-development",
+  "portfolio-examples",
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({
+  title = "בונה אתרים, חנויות ומערכות שעובדות בשבילך",
+  subtitle = "ליווי מלא: מתכנון, דרך פיתוח מקצועי ועד ניהול שוטף ופרסום.",
+  cards = defaultCards,
+  variant = "grid",
+  sectionId = "services",
+}) {
+  const selectedCards = cards
+    .map((id) => serviceCards.find((card) => card.id === id))
+    .filter(Boolean);
+
   return (
-    <section className={styles.section} id="services">
+    <section className={styles.section} id={sectionId}>
       <div className={styles.inner}>
         <div className={styles.titleGroup}>
-          <h2 className={`h2 ${styles.headline}`}>
-            בונה אתרים, חנויות ומערכות שעובדות בשבילך
-          </h2>
-          <p className={`h3 ${styles.subtitle}`}>
-            ליווי מלא: מתכנון, דרך פיתוח מקצועי ועד ניהול שוטף ופרסום.
-          </p>
+          <h2 className={`h2 ${styles.headline}`}>{title}</h2>
+          <p className={`h3 ${styles.subtitle}`}>{subtitle}</p>
         </div>
-        <div className={styles.grid}>
-          {services.map((service) => (
-            <ServiceLottieCard
-              key={service.title}
-              service={service}
-              styles={styles}
-            />
+        <div
+          className={`${styles.grid} ${variant === "pair" ? styles.gridPair : ""}`}
+        >
+          {selectedCards.map((card) => (
+            <ServiceLottieCard key={card.id} service={card} styles={styles} />
           ))}
         </div>
       </div>

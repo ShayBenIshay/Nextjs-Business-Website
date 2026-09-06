@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection/HeroSection";
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import SingleServiceSection from "@/components/SingleServiceSection/SingleServiceSection";
+import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
 import WhatEStoreIncludesSection from "@/components/WhatEStoreIncludesSection/WhatEStoreIncludesSection";
 import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
@@ -22,7 +22,13 @@ export default function EStorePage() {
         headline="בונים חנויות אינטרנטיות שמביאות תוצאות."
         subtitle="חנויות WooCommerce שנבנות עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
       />
-      <SingleServiceSection tag="estore" />
+      <ServicesSection
+        title="חנויות אינטרנטיות שמוכרות"
+        subtitle="אני בונה חנויות WooCommerce עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
+        cards={["estore-pair", "portfolio-examples"]}
+        variant="pair"
+        sectionId="estore"
+      />
       <WhatEStoreIncludesSection />
       <ServiceTiersSection
         id="estore-plans"
