@@ -1,7 +1,7 @@
-import HeroSection from "@/components/sections/HeroSection/HeroSection";
-import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
-import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
+import Hero from "@/components/sections/Hero/Hero";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
+import WhyMe from "@/components/sections/WhyMe/WhyMe";
 import { customDevRetainers } from "@/lib/services";
 import styles from "./custom-development.module.css";
 
@@ -17,11 +17,11 @@ export const metadata = {
 export default function CustomDevelopmentPage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="פיתוח מותאם לצרכים שלכם - לא לכולם."
         subtitle="מבוטים ואוטומציות ועד מערכות מורכבות. React, Node.js, Python, WordPress ו-WooCommerce."
       />
-      <ServiceTiersSection
+      <ServiceTiers
         title="ריטיינר פיתוח חודשי"
         subtitle="שעות פיתוח חודשיות ללא התחייבות לפרויקט מסוים"
         plans={customDevRetainers}
@@ -59,8 +59,8 @@ export default function CustomDevelopmentPage() {
           </div>
         </div>
       </section>
-      <WhyMeSection />
-      <CTABannerSection
+      <WhyMe />
+      <CTABanner
         headline="יש לכם רעיון? בואו נבנה אותו."
         sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />

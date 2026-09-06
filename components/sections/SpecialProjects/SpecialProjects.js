@@ -1,4 +1,4 @@
-import styles from "./SpecialProjectsSection.module.css";
+import styles from "./SpecialProjects.module.css";
 
 const paidevoTextLogo = "/assets/PaiDevo-Text-Logo.webp";
 const paidevoLogo = "/assets/PaiDevo-Logo.webp";
@@ -30,7 +30,7 @@ const projects = [
   },
 ];
 
-export default function SpecialProjectsSection() {
+export default function SpecialProjects() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>

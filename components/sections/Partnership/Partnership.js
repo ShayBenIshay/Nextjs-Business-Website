@@ -1,4 +1,4 @@
-import styles from "./PartnershipSection.module.css";
+import styles from "./Partnership.module.css";
 import IllustrationSection from "@/components/shared/IllustrationSection/IllustrationSection";
 
 function TreeScene() {
@@ -144,7 +144,7 @@ const SCENES = {
   lighthouse: LighthouseScene,
 };
 
-export default function PartnershipSection({
+export default function Partnership({
   title = "למה לעבוד איתי?",
   subtitle = "לא סתם ספק - שותף אמיתי שנשאר לצידך גם אחרי שהאתר עולה לאוויר: עבודה שקופה, תקשורת ישירה ומחויבות מלאה לטווח הארוך.",
   variant = "tree",

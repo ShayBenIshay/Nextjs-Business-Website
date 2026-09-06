@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./PortfolioSection.module.css";
+import styles from "./Portfolio.module.css";
 import PortfolioCard from "@/components/shared/PortfolioCard/PortfolioCard";
 import { caseStudies } from "@/lib/caseStudies";
 
@@ -14,7 +14,7 @@ const portfolioItems = caseStudies.filter((cs) =>
   FEATURED_SLUGS.includes(cs.slug)
 );
 
-export default function PortfolioSection() {
+export default function Portfolio() {
   return (
     <section className={styles.section} id="portfolio">
       <div className={styles.inner}>

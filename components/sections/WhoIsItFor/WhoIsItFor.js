@@ -19,7 +19,7 @@ const cards = [
   },
 ];
 
-export default function WhoIsItForSection() {
+export default function WhoIsItFor() {
   return (
     <CardGridSection id="advanced-services" title="למי זה מתאים?" cards={cards} />
   );

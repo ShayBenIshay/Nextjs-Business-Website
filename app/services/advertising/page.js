@@ -1,7 +1,7 @@
-import HeroSection from "@/components/sections/HeroSection/HeroSection";
-import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
-import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
+import Hero from "@/components/sections/Hero/Hero";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
+import WhyMe from "@/components/sections/WhyMe/WhyMe";
 import { seoPlans, campaignPlans } from "@/lib/services";
 
 export const metadata = {
@@ -16,11 +16,11 @@ export const metadata = {
 export default function AdvertisingPage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="פרסום שמביא לקוחות. לא רק קליקים."
         subtitle="SEO אורגני וקמפיינים ממומנים שנמדדים בלידים ובמכירות - לא בנתונים ריקים."
       />
-      <ServiceTiersSection
+      <ServiceTiers
         id="seo-plans"
         title="קידום אורגני - SEO"
         subtitle="תשלום חד פעמי. תוצאות לטווח ארוך."
@@ -30,7 +30,7 @@ export default function AdvertisingPage() {
           "ניתן לשלב SEO עם קמפיין ממומן לכיסוי מקסימלי",
         ]}
       />
-      <ServiceTiersSection
+      <ServiceTiers
         id="campaign-plans"
         title="קמפיינים ממומנים"
         subtitle="גוגל, פייסבוק, אינסטגרם, TikTok - ניהול חודשי מלא"
@@ -42,8 +42,8 @@ export default function AdvertisingPage() {
           "כולל דוח ביצועים חודשי שקוף",
         ]}
       />
-      <WhyMeSection />
-      <CTABannerSection
+      <WhyMe />
+      <CTABanner
         headline="מוכנים להתחיל לפרסם?"
         sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./ServiceTiersSection.module.css";
+import styles from "./ServiceTiers.module.css";
 import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
-export default function ServiceTiersSection({
+export default function ServiceTiers({
   id = "plans",
   title,
   subtitle,

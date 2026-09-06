@@ -1,6 +1,6 @@
-import styles from "./LegalSection.module.css";
+import styles from "./Legal.module.css";
 
-export default function LegalSection({ title, lastUpdated, children }) {
+export default function Legal({ title, lastUpdated, children }) {
   return (
     <main className={styles.page}>
       <header className={styles.header}>

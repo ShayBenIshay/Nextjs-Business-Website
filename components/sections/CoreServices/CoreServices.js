@@ -50,7 +50,7 @@ const cards = [
   },
 ];
 
-export default function CoreServicesSection() {
+export default function CoreServices() {
   return (
     <CardGridSection
       id="core-services"

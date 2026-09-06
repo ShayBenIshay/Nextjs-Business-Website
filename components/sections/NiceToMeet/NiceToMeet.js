@@ -1,6 +1,6 @@
-import styles from "./NiceToMeetSection.module.css";
+import styles from "./NiceToMeet.module.css";
 
-export default function NiceToMeetSection() {
+export default function NiceToMeet() {
   return (
     <section id="nice-to-meet" className={styles.section}>
       <div className={styles.inner}>

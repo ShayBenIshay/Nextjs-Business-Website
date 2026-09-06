@@ -1,4 +1,4 @@
-import LegalSection from "@/components/sections/LegalSection/LegalSection";
+import Legal from "@/components/sections/Legal/Legal";
 import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL, EMAIL_HREF } from "@/lib/contactInfo";
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <LegalSection title="מדיניות פרטיות" lastUpdated="מרץ 2026">
+    <Legal title="מדיניות פרטיות" lastUpdated="מרץ 2026">
 
       <div className="legal-section">
         <h2>1. מידע כללי</h2>
@@ -118,6 +118,6 @@ export default function PrivacyPolicyPage() {
         </p>
       </div>
 
-    </LegalSection>
+    </Legal>
   );
 }

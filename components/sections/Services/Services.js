@@ -1,4 +1,4 @@
-import styles from "./ServicesSection.module.css";
+import styles from "./Services.module.css";
 import ServiceLottieCard from "@/components/shared/ServiceLottieCard/ServiceLottieCard";
 import { serviceCards } from "@/lib/serviceCards";
 
@@ -10,7 +10,7 @@ const defaultCards = [
   "portfolio-examples",
 ];
 
-export default function ServicesSection({
+export default function Services({
   title = "בונה אתרים, חנויות ומערכות שעובדות בשבילך",
   subtitle = "ליווי מלא: מתכנון, דרך פיתוח מקצועי ועד ניהול שוטף ופרסום.",
   cards = defaultCards,

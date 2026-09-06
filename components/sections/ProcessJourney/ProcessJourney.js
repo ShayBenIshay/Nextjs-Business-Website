@@ -1,4 +1,4 @@
-import styles from "./ProcessJourneySection.module.css";
+import styles from "./ProcessJourney.module.css";
 import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
 const defaultSteps = [
@@ -137,7 +137,7 @@ const SCENES = {
   launch: LaunchScene,
 };
 
-export default function ProcessJourneySection({
+export default function ProcessJourney({
   showCTA = false,
   title = "איך זה עובד בפועל?",
   noBackground = false,

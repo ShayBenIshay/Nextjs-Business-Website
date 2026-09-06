@@ -1,9 +1,9 @@
-import HeroSection from "@/components/sections/HeroSection/HeroSection";
-import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
-import ServicesSection from "@/components/sections/ServicesSection/ServicesSection";
-import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
-import WhatEStoreIncludesSection from "@/components/sections/WhatEStoreIncludesSection/WhatEStoreIncludesSection";
-import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
+import Hero from "@/components/sections/Hero/Hero";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import Services from "@/components/sections/Services/Services";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
+import WhatEStoreIncludes from "@/components/sections/WhatEStoreIncludes/WhatEStoreIncludes";
+import WhyMe from "@/components/sections/WhyMe/WhyMe";
 import { estorePlans } from "@/lib/services";
 
 export const metadata = {
@@ -18,19 +18,19 @@ export const metadata = {
 export default function EStorePage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="בונים חנויות אינטרנטיות שמביאות תוצאות."
         subtitle="חנויות WooCommerce שנבנות עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
       />
-      <ServicesSection
+      <Services
         title="חנויות אינטרנטיות שמוכרות"
         subtitle="אני בונה חנויות WooCommerce עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
         cards={["estore-pair", "portfolio-examples"]}
         variant="pair"
         sectionId="estore"
       />
-      <WhatEStoreIncludesSection />
-      <ServiceTiersSection
+      <WhatEStoreIncludes />
+      <ServiceTiers
         id="estore-plans"
         title="שלושה מסלולים - לפי רמת הצורך שלך"
         subtitle="בנייה וניהול חנות אינטרנטית בשלושה מסלולים שונים"
@@ -43,9 +43,9 @@ export default function EStorePage() {
           "המחיר נקבע בהתאם להיקף ולצרכים (בשקיפות מלאה)",
         ]}
       />
-      {/* <ProcessJourneySection showCTA /> */}
-      <WhyMeSection />
-      <CTABannerSection
+      {/* <ProcessJourney showCTA /> */}
+      <WhyMe />
+      <CTABanner
         headline="מוכן להתחיל למכור אונליין?"
         sub="נתחיל בשיחה קצרה להבין מה מתאים לך."
       />

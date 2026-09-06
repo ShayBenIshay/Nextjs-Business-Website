@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./TalkToMeSection.module.css";
+import styles from "./TalkToMe.module.css";
 import { event } from "@/lib/gtag";
 import { PHONE_DISPLAY, PHONE_TEL_HREF, buildWhatsAppUrl } from "@/lib/contactInfo";
 
@@ -25,7 +25,7 @@ const MAX_PHONE = 20;
 const MAX_EMAIL = 120;
 const MAX_MESSAGE = 1500;
 
-export default function TalkToMeSection({ compact = false }) {
+export default function TalkToMe({ compact = false }) {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",

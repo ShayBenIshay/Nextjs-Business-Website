@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useContactModal } from "./ContactModalContext";
-import TalkToMeSection from "@/components/sections/TalkToMeSection/TalkToMeSection";
+import TalkToMe from "@/components/sections/TalkToMe/TalkToMe";
 import styles from "./ContactModal.module.css";
 
 export default function ContactModal() {
@@ -36,7 +36,7 @@ export default function ContactModal() {
         <button className={styles.closeBtn} onClick={close} aria-label="סגור">
           ✕
         </button>
-        <TalkToMeSection compact />
+        <TalkToMe compact />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import HeroSection from "@/components/sections/HeroSection/HeroSection";
-import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
-import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
+import Hero from "@/components/sections/Hero/Hero";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
+import WhyMe from "@/components/sections/WhyMe/WhyMe";
 import { hostingPlans } from "@/lib/services";
 
 export const metadata = {
@@ -16,11 +16,11 @@ export const metadata = {
 export default function HostingPage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="האתר שלכם רץ. תמיד."
         subtitle="אחסון מנוהל עם SSL, גיבויים יומיים ותמיכה טכנית - כדי שלא תצטרכו לחשוב על זה."
       />
-      <ServiceTiersSection
+      <ServiceTiers
         title="חבילות אחסון"
         subtitle="בחרו את הרמה שמתאימה לצרכי העסק שלכם"
         plans={hostingPlans}
@@ -30,8 +30,8 @@ export default function HostingPage() {
           "שעות ריטיינר אינן מצטברות",
         ]}
       />
-      <WhyMeSection />
-      <CTABannerSection
+      <WhyMe />
+      <CTABanner
         headline="מוכנים לאחסון שעובד בשבילכם?"
         sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />

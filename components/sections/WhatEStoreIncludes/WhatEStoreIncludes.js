@@ -1,7 +1,7 @@
-import styles from "./WhatEStoreIncludesSection.module.css";
+import styles from "./WhatEStoreIncludes.module.css";
 import IllustrationSection from "@/components/shared/IllustrationSection/IllustrationSection";
 
-export default function WhatEStoreIncludesSection({
+export default function WhatEStoreIncludes({
   title = "מה כל חנות כוללת?",
   subtitle = "כל חנות שאני בונה מוכנה למכירה מהיום הראשון: מותאמת לנייד, מחוברת לסליקה ומשלוחים, עם הדרכה מלאה לניהול - ותשתית שגדלה יחד איתכם.",
 }) {

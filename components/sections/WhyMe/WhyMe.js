@@ -17,6 +17,6 @@ const items = [
   { src: imgDirectCommunication, label: "תקשורת ישירה" },
 ];
 
-export default function WhyMeSection() {
+export default function WhyMe() {
   return <IconRowSection id="why-me" title="למה לעבוד איתי?" items={items} />;
 }

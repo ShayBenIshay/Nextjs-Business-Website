@@ -1,10 +1,10 @@
 import Link from "next/link";
-import styles from "./HeroSection.module.css";
+import styles from "./Hero.module.css";
 import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
 const imgLaptop = "/assets/Laptop-Mockup.webp";
 
-export default function HeroSection({
+export default function Hero({
   imgScreen = "/assets/Portfolio-BarTzemach.webp",
   headline = "בונים את הנוכחות הדיגיטלית של העסק שלך.",
   subtitle = "חנויות אינטרנטיות, שיפוץ אתרים, קידום ממומן ופיתוחים מותאמים – הכל במקום אחד.",

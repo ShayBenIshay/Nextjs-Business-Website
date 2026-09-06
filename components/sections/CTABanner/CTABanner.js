@@ -1,9 +1,9 @@
 import Link from "next/link";
-import styles from "./CTABannerSection.module.css";
+import styles from "./CTABanner.module.css";
 import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 import { PHONE_DISPLAY, EMAIL } from "@/lib/contactInfo";
 
-export default function CTABannerSection({
+export default function CTABanner({
   headline = "מוכנים לצעד הבא?",
   sub = "שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות.",
 }) {
