@@ -153,14 +153,22 @@ export default function ProcessJourneySection({
 
         <div className={styles.panels}>
           {steps.map((step, i) => {
-            const Scene = SCENES[step.scene];
+            const Scene = step.scene ? SCENES[step.scene] : null;
             return (
               <div
                 key={step.label}
                 className={styles.panel}
                 style={{ "--i": i }}
               >
-                <div className={styles.sceneWrap}>{Scene && <Scene />}</div>
+                <div className={styles.sceneWrap}>
+                  {Scene ? (
+                    <Scene />
+                  ) : step.icon ? (
+                    <div className={styles.iconPanel}>
+                      <img src={step.icon} alt="" className={styles.icon} />
+                    </div>
+                  ) : null}
+                </div>
                 <p className={styles.label}>{step.label}</p>
               </div>
             );

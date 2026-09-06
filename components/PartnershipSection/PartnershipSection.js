@@ -1,8 +1,9 @@
 import styles from "./PartnershipSection.module.css";
+import IllustrationSection from "@/components/IllustrationSection/IllustrationSection";
 
 function TreeScene() {
   return (
-    <svg viewBox="0 0 500 300" className={styles.illustration} aria-hidden="true">
+    <svg viewBox="0 0 500 300" aria-hidden="true">
       <ellipse cx="250" cy="272" rx="150" ry="24" fill="#E3A857" opacity="0.35" />
 
       <path
@@ -67,7 +68,7 @@ function TreeScene() {
 
 function LighthouseScene() {
   return (
-    <svg viewBox="0 0 500 300" className={styles.illustration} aria-hidden="true">
+    <svg viewBox="0 0 500 300" aria-hidden="true">
       <circle className={styles.twinkleSlow} cx="80" cy="46" r="2.2" fill="#412662" opacity="0.5" />
       <circle
         className={styles.twinkleSlow}
@@ -151,15 +152,8 @@ export default function PartnershipSection({
   const Scene = SCENES[variant] ?? TreeScene;
 
   return (
-    <section className={styles.section} id="why-me">
-      <div className={styles.inner}>
-        <h2 className={`h2 ${styles.title}`}>{title}</h2>
-        <p className={`h3 ${styles.subtitle}`}>{subtitle}</p>
-
-        <div className={styles.illustrationWrap}>
-          <Scene />
-        </div>
-      </div>
-    </section>
+    <IllustrationSection id="why-me" title={title} subtitle={subtitle}>
+      <Scene />
+    </IllustrationSection>
   );
 }

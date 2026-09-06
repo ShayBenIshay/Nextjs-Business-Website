@@ -43,7 +43,7 @@ export default function EStorePage() {
           "המחיר נקבע בהתאם להיקף ולצרכים (בשקיפות מלאה)",
         ]}
       />
-      {/* <HowIWorkSection showCTA /> */}
+      {/* <ProcessJourneySection showCTA /> */}
       <WhyMeSection />
       <CTABannerSection
         headline="מוכן להתחיל למכור אונליין?"

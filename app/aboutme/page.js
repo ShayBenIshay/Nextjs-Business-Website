@@ -7,7 +7,7 @@ export const metadata = {
 };
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import NiceToMeetSection from "@/components/NiceToMeetSection/NiceToMeetSection";
-import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
+import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
 import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
 import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import WhoIsItForSection from "@/components/WhoIsItForSection/WhoIsItForSection";
@@ -21,7 +21,7 @@ export default function AboutMePage() {
       />
       <NiceToMeetSection />
       <WhyMeSection />
-      <HowIWorkSection showCTA title="איך אני עובד" noBackground={true} />
+      <ProcessJourneySection showCTA title="איך אני עובד" noBackground={true} />
       <WhoIsItForSection />
       <ServicesSection />
       <CTABannerSection

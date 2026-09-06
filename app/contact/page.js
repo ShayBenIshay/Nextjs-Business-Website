@@ -8,13 +8,13 @@ export const metadata = {
 import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
 import ServicesSection from "@/components/ServicesSection/ServicesSection";
 import TalkToMeSection from "@/components/TalkToMeSection/TalkToMeSection";
-import HowIWorkSection from "@/components/HowIWorkSection/HowIWorkSection";
+import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
 
 const afterContactSteps = [
-  { img: "/assets/introductionIcon.png", label: "נבין את הצורך שלכם" },
-  { img: "/assets/offerIcon.png", label: "נכין הצעת עבודה מסודרת" },
-  { img: "/assets/development-icon.png", label: "פיתוח הפיתרון המדויק לכם" },
-  { img: "/assets/growth-icon.png", label: "ליווי להמשך צמיחה" },
+  { icon: "/assets/introductionIcon.png", label: "נבין את הצורך שלכם" },
+  { icon: "/assets/offerIcon.png", label: "נכין הצעת עבודה מסודרת" },
+  { icon: "/assets/development-icon.png", label: "פיתוח הפיתרון המדויק לכם" },
+  { icon: "/assets/growth-icon.png", label: "ליווי להמשך צמיחה" },
 ];
 
 export default function ContactPage() {
@@ -26,7 +26,7 @@ export default function ContactPage() {
       />
       <TalkToMeSection />
       <ServicesSection />
-      <HowIWorkSection
+      <ProcessJourneySection
         title="מה קורה אחרי שמשאירים פרטים?"
         steps={afterContactSteps}
         noBackground

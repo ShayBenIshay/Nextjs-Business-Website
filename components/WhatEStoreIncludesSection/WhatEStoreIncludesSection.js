@@ -1,17 +1,18 @@
 import styles from "./WhatEStoreIncludesSection.module.css";
+import IllustrationSection from "@/components/IllustrationSection/IllustrationSection";
 
 export default function WhatEStoreIncludesSection({
   title = "מה כל חנות כוללת?",
   subtitle = "כל חנות שאני בונה מוכנה למכירה מהיום הראשון: מותאמת לנייד, מחוברת לסליקה ומשלוחים, עם הדרכה מלאה לניהול - ותשתית שגדלה יחד איתכם.",
 }) {
   return (
-    <section className={styles.section} id="whats-included-estore">
-      <div className={styles.inner}>
-        <h2 className={`h2 ${styles.title}`}>{title}</h2>
-        <p className={`h3 ${styles.subtitle}`}>{subtitle}</p>
-
-        <div className={styles.illustrationWrap}>
-          <svg viewBox="0 0 400 260" className={styles.illustration} aria-hidden="true">
+    <IllustrationSection
+      id="whats-included-estore"
+      title={title}
+      subtitle={subtitle}
+      maxWidth="420px"
+    >
+      <svg viewBox="0 0 400 260" aria-hidden="true">
             <ellipse cx="195" cy="236" rx="150" ry="14" fill="#E3A857" opacity="0.3" />
 
             {/* awning */}
@@ -83,8 +84,6 @@ export default function WhatEStoreIncludesSection({
               <circle className={styles.twinkleSlow} cx="30" cy="-40" r="3" fill="#476226" opacity="0.5" />
             </g>
           </svg>
-        </div>
-      </div>
-    </section>
+    </IllustrationSection>
   );
 }
