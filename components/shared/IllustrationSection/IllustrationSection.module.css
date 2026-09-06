@@ -1,6 +1,6 @@
 .section {
   background: rgba(65, 38, 98, 0.06);
-  padding: 56px 80px;
+  padding: 16px 24px;
   direction: rtl;
 }
 
@@ -28,7 +28,6 @@
 .illustrationWrap {
   width: 100%;
   max-width: var(--illustration-max-width, 460px);
-  margin-top: 24px;
 }
 
 .illustrationWrap svg {

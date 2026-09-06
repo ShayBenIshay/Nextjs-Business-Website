@@ -18,16 +18,6 @@ const projects = [
     hasLogo: true,
     centered: false,
   },
-  {
-    id: "paycash",
-    name: "PAYCASH",
-    subtitle: "מערכת חכמה לתשלום במזומן - באינטרנט",
-    description: ["גם כן מוצר בהתהוות - כרגע בשלבי תכנון - פרטים נוספים בהמשך"],
-    btnLabel: "לעמוד החברה",
-    btnHref: "#",
-    hasLogo: false,
-    centered: true,
-  },
 ];
 
 export default function SpecialProjects() {
