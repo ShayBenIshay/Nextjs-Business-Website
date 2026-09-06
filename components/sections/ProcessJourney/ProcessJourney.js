@@ -165,7 +165,7 @@ export default function ProcessJourney({
                     <Scene />
                   ) : step.icon ? (
                     <div className={styles.iconPanel}>
-                      <img src={step.icon} alt="" className={styles.icon} />
+                      <img src={step.icon} alt={step.label} className={styles.icon} />
                     </div>
                   ) : null}
                 </div>
