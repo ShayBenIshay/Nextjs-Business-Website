@@ -6,6 +6,7 @@ import PortfolioCard from "@/components/shared/PortfolioCard/PortfolioCard";
 import { caseStudies, PORTFOLIO_CATEGORY } from "@/lib/caseStudies";
 
 const ALL_FILTER = "הכל";
+const PAGE_SIZE = 6;
 
 const filters = [
   { label: ALL_FILTER, value: ALL_FILTER },
@@ -17,11 +18,20 @@ const filters = [
 
 export default function FullPortfolioGrid() {
   const [activeFilter, setActiveFilter] = useState(ALL_FILTER);
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const filteredItems =
     activeFilter === ALL_FILTER
       ? caseStudies
       : caseStudies.filter((item) => item.category === activeFilter);
+
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredItems.length;
+
+  function handleFilterChange(value) {
+    setActiveFilter(value);
+    setVisibleCount(PAGE_SIZE);
+  }
 
   return (
     <section className={styles.section}>
@@ -38,7 +48,7 @@ export default function FullPortfolioGrid() {
               className={`${styles.filterBtn} ${
                 activeFilter === filter.value ? styles.filterBtnActive : ""
               }`}
-              onClick={() => setActiveFilter(filter.value)}
+              onClick={() => handleFilterChange(filter.value)}
             >
               {filter.label}
             </button>
@@ -46,7 +56,7 @@ export default function FullPortfolioGrid() {
         </div>
 
         <div className={styles.grid}>
-          {filteredItems.map((item) => (
+          {visibleItems.map((item) => (
             <PortfolioCard
               key={item.slug}
               item={item}
@@ -55,6 +65,16 @@ export default function FullPortfolioGrid() {
             />
           ))}
         </div>
+
+        {hasMore && (
+          <button
+            type="button"
+            className={`btn-secondary ${styles.loadMore}`}
+            onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
+          >
+            עוד עבודות
+          </button>
+        )}
       </div>
     </section>
   );
