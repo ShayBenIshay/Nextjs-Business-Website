@@ -1,0 +1,74 @@
+.signSwing {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: pjSwing 3.2s ease-in-out infinite;
+}
+
+@keyframes pjSwing {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+.packageBob {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pjPackageBob 2.4s ease-in-out infinite;
+}
+
+@keyframes pjPackageBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.leafSway {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: pjSway 4s ease-in-out infinite;
+}
+
+@keyframes pjSway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.twinkleSlow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pjTwinkleSlow 3s ease-in-out infinite;
+}
+
+@keyframes pjTwinkleSlow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signSwing,
+  .packageBob,
+  .leafSway,
+  .twinkleSlow {
+    animation: none;
+  }
+}

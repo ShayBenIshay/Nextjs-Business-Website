@@ -1,10 +1,10 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import ServicesSection from "@/components/ServicesSection/ServicesSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
-import PortfolioSection from "@/components/PortfolioSection/PortfolioSection";
-import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
-import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
+import Hero from "@/components/sections/Hero/Hero";
+import Services from "@/components/sections/Services/Services";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
+import Portfolio from "@/components/sections/Portfolio/Portfolio";
+import Partnership from "@/components/sections/Partnership/Partnership";
+import ProcessJourney from "@/components/sections/ProcessJourney/ProcessJourney";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
 import { estorePlans } from "@/lib/services";
 
 export const metadata = {
@@ -17,9 +17,9 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main>
-      <HeroSection />
-      <ServicesSection />
-      <ServiceTiersSection
+      <Hero />
+      <Services />
+      <ServiceTiers
         id="estore-plans-home"
         title="חנויות WooCommerce"
         subtitle="חנות אינטרנטית – בשלושה מסלולים ברורים"
@@ -32,10 +32,10 @@ export default function HomePage() {
           "המחיר נקבע בהתאם להיקף ולצרכים (בשקיפות מלאה)",
         ]}
       />
-      <PortfolioSection />
-      <PartnershipSection />
-      <ProcessJourneySection />
-      <CTABannerSection />
+      <Portfolio />
+      <Partnership />
+      <ProcessJourney />
+      <CTABanner />
     </main>
   );
 }

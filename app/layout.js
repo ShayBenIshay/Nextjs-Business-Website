@@ -1,13 +1,14 @@
 import "./globals.css";
 import Script from "next/script";
 import { Rubik, Assistant, DM_Serif_Display } from "next/font/google";
-import Navbar from "@/components/Navbar/Navbar";
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
-import ContactIcons from "@/components/ContactIcons/ContactIcons";
-import { ContactModalProvider } from "@/components/ContactModal/ContactModalContext";
-import ContactModal from "@/components/ContactModal/ContactModal";
-import CookieConsent from "@/components/CookieConsent/CookieConsent";
+import Navbar from "@/components/layout/Navbar/Navbar";
+import ScrollToTop from "@/components/layout/ScrollToTop/ScrollToTop";
+import ContactIcons from "@/components/layout/ContactIcons/ContactIcons";
+import { ContactModalProvider } from "@/components/layout/ContactModal/ContactModalContext";
+import ContactModal from "@/components/layout/ContactModal/ContactModal";
+import CookieConsent from "@/components/layout/CookieConsent/CookieConsent";
 import { GA_ID } from "@/lib/gtag";
+import { PHONE_INTL } from "@/lib/contactInfo";
 
 const rubik = Rubik({
   subsets: ["latin", "hebrew"],
@@ -83,7 +84,7 @@ export default function RootLayout({ children }) {
               description:
                 "בניית אתרים, חנויות אינטרנטיות, קידום ממומן ופיתוח תוכנה מותאם אישית",
               url: "https://www.shaytechsolutions.com",
-              telephone: "+972547573914",
+              telephone: PHONE_INTL,
               areaServed: "IL",
               inLanguage: "he",
               serviceType: [

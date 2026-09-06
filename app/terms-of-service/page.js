@@ -1,4 +1,5 @@
-import LegalSection from "@/components/LegalSection/LegalSection";
+import Legal from "@/components/sections/Legal/Legal";
+import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL, EMAIL_HREF } from "@/lib/contactInfo";
 
 export const metadata = {
   title: "תנאי שימוש באתר | שי טק סולושנס",
@@ -8,7 +9,7 @@ export const metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <LegalSection title="תנאי שימוש באתר" lastUpdated="מרץ 2026">
+    <Legal title="תנאי שימוש באתר" lastUpdated="מרץ 2026">
       <div className="legal-section">
         <h2>1. הסכמה לתנאים</h2>
         <p>
@@ -139,13 +140,13 @@ export default function TermsOfServicePage() {
         <ul>
           <li>
             אימייל:{" "}
-            <a href="mailto:shaybishay@gmail.com">shaybishay@gmail.com</a>
+            <a href={EMAIL_HREF}>{EMAIL}</a>
           </li>
           <li>
-            טלפון: <a href="tel:0547573914">054-7573914</a>
+            טלפון: <a href={PHONE_TEL_HREF}>{PHONE_DISPLAY}</a>
           </li>
         </ul>
       </div>
-    </LegalSection>
+    </Legal>
   );
 }

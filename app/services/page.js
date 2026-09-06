@@ -1,7 +1,7 @@
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import HeroSection from "@/components/HeroSection/HeroSection";
-import CoreServicesSection from "@/components/CoreServicesSection/CoreServicesSection";
-import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import Hero from "@/components/sections/Hero/Hero";
+import CoreServices from "@/components/sections/CoreServices/CoreServices";
+import Partnership from "@/components/sections/Partnership/Partnership";
 
 export const metadata = {
   title: "שירותים | בניית אתרים, חנויות ופיתוח מותאם | שי טק סולושנס",
@@ -13,15 +13,15 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="כל מה שהעסק שלך צריך כדי לגדול אונליין."
         subtitle="חנויות, אתרים, אחסון ופיתוחים מותאמים - הכל במקום אחד."
         imgScreen="/assets/storeLottie.png"
         btnOutline="רוצה לשמוע עוד"
       />
-      <CoreServicesSection />
-      <PartnershipSection variant="lighthouse" />
-      <CTABannerSection
+      <CoreServices />
+      <Partnership variant="lighthouse" />
+      <CTABanner
         headline="לא בטוח מה מתאים?"
         sub="בשיחה קצרה נבין את הצורך ונכוון לפתרון הנכון."
       />

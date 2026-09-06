@@ -1,6 +1,6 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
+import Hero from "@/components/sections/Hero/Hero";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import ServiceTiers from "@/components/sections/ServiceTiers/ServiceTiers";
 import {
   websiteRenovationPlans,
   websiteLandingPlans,
@@ -19,12 +19,12 @@ export const metadata = {
 export default function WebsitePage() {
   return (
     <main>
-      <HeroSection
+      <Hero
         headline="אתר שעובד בשבילך - לא רק נראה יפה."
         subtitle="דפי תדמית, וורדפרס, דפי נחיתה ופיתוח React. שיפוצים ובנייה מחדש."
       />
 
-      <ServiceTiersSection
+      <ServiceTiers
         title="שיפוץ אתרים קיימים"
         subtitle="יש לכם אתר - בואו נגרום לו לעבוד."
         plans={websiteRenovationPlans}
@@ -35,7 +35,7 @@ export default function WebsitePage() {
         ]}
       />
 
-      <ServiceTiersSection
+      <ServiceTiers
         title="דפי נחיתה"
         subtitle="דף אחד. מטרה אחת. תוצאות."
         plans={websiteLandingPlans}
@@ -43,7 +43,7 @@ export default function WebsitePage() {
         notes={["המחיר הסופי תלוי בהיקף הפרויקט", "ניתן לשלב עם קמפיין פרסומי"]}
       />
 
-      <ServiceTiersSection
+      <ServiceTiers
         title="דפי תדמית"
         subtitle="נוכחות דיגיטלית שמייצגת את העסק שלך."
         plans={websiteBrandingPlans}
@@ -54,7 +54,7 @@ export default function WebsitePage() {
         ]}
       />
 
-      <CTABannerSection
+      <CTABanner
         headline="מוכנים לאתר שעושה עבודה?"
         sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות. אחזור אליכם תוך 24 שעות."
       />

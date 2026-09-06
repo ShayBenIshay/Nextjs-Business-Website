@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
+import CTABanner from "@/components/sections/CTABanner/CTABanner";
+import PortfolioMedia from "@/components/shared/PortfolioMedia/PortfolioMedia";
 import { caseStudies, getCaseStudy } from "@/lib/caseStudies";
 import styles from "./case-study.module.css";
 
@@ -177,7 +177,7 @@ export default async function CaseStudyPage({ params }) {
 
       <RelatedProjects cs={cs} />
 
-      <CTABannerSection
+      <CTABanner
         headline="רוצים פרויקט כזה?"
         sub="שיחת התאמה של 20 דקות - חינם, ללא התחייבות."
       />
