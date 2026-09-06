@@ -1,10 +1,10 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import ServicesSection from "@/components/ServicesSection/ServicesSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
-import PortfolioSection from "@/components/PortfolioSection/PortfolioSection";
-import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
-import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection/ServicesSection";
+import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
+import PortfolioSection from "@/components/sections/PortfolioSection/PortfolioSection";
+import PartnershipSection from "@/components/sections/PartnershipSection/PartnershipSection";
+import ProcessJourneySection from "@/components/sections/ProcessJourneySection/ProcessJourneySection";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
 import { estorePlans } from "@/lib/services";
 
 export const metadata = {

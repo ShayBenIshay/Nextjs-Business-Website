@@ -1,4 +1,4 @@
-import CardGridSection from "@/components/CardGridSection/CardGridSection";
+import CardGridSection from "@/components/shared/CardGridSection/CardGridSection";
 
 const cards = [
   {

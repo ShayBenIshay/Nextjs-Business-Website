@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import styles from "./FullPortfolioGrid.module.css";
-import PortfolioCard from "@/components/PortfolioCard/PortfolioCard";
+import PortfolioCard from "@/components/shared/PortfolioCard/PortfolioCard";
 import { caseStudies, PORTFOLIO_CATEGORY } from "@/lib/caseStudies";
 
 const ALL_FILTER = "הכל";

@@ -1,16 +1,16 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
 
 export const metadata = {
   title: 'קצת עליי | שי טק סולושנס',
   description: 'בונה אתרים ומפתח תוכנה עצמאי. עובד עם עסקים קטנים ובינוניים על בניית אתרים, חנויות אינטרנטיות, קידום ממומן ופיתוח מותאם אישית.',
   alternates: { canonical: 'https://www.shaytechsolutions.com/aboutme' },
 };
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import NiceToMeetSection from "@/components/NiceToMeetSection/NiceToMeetSection";
-import ProcessJourneySection from "@/components/ProcessJourneySection/ProcessJourneySection";
-import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
-import ServicesSection from "@/components/ServicesSection/ServicesSection";
-import WhoIsItForSection from "@/components/WhoIsItForSection/WhoIsItForSection";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
+import NiceToMeetSection from "@/components/sections/NiceToMeetSection/NiceToMeetSection";
+import ProcessJourneySection from "@/components/sections/ProcessJourneySection/ProcessJourneySection";
+import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
+import ServicesSection from "@/components/sections/ServicesSection/ServicesSection";
+import WhoIsItForSection from "@/components/sections/WhoIsItForSection/WhoIsItForSection";
 
 export default function AboutMePage() {
   return (

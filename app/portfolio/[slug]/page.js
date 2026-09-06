@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
+import PortfolioMedia from "@/components/shared/PortfolioMedia/PortfolioMedia";
 import { caseStudies, getCaseStudy } from "@/lib/caseStudies";
 import styles from "./case-study.module.css";
 

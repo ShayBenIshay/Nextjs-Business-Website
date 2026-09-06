@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useContactModal } from "./ContactModalContext";
-import TalkToMeSection from "@/components/TalkToMeSection/TalkToMeSection";
+import TalkToMeSection from "@/components/sections/TalkToMeSection/TalkToMeSection";
 import styles from "./ContactModal.module.css";
 
 export default function ContactModal() {

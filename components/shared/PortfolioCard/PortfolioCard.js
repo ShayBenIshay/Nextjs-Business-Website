@@ -1,6 +1,6 @@
 import Link from "next/link";
-import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
-import PortfolioMedia from "@/components/PortfolioMedia/PortfolioMedia";
+import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
+import PortfolioMedia from "@/components/shared/PortfolioMedia/PortfolioMedia";
 
 export default function PortfolioCard({ item, styles, ctaLabel }) {
   return (

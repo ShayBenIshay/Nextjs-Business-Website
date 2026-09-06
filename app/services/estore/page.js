@@ -1,9 +1,9 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import ServicesSection from "@/components/ServicesSection/ServicesSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
-import WhatEStoreIncludesSection from "@/components/WhatEStoreIncludesSection/WhatEStoreIncludesSection";
-import WhyMeSection from "@/components/WhyMeSection/WhyMeSection";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
+import ServicesSection from "@/components/sections/ServicesSection/ServicesSection";
+import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
+import WhatEStoreIncludesSection from "@/components/sections/WhatEStoreIncludesSection/WhatEStoreIncludesSection";
+import WhyMeSection from "@/components/sections/WhyMeSection/WhyMeSection";
 import { estorePlans } from "@/lib/services";
 
 export const metadata = {

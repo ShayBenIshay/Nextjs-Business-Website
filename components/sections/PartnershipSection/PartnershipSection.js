@@ -1,5 +1,5 @@
 import styles from "./PartnershipSection.module.css";
-import IllustrationSection from "@/components/IllustrationSection/IllustrationSection";
+import IllustrationSection from "@/components/shared/IllustrationSection/IllustrationSection";
 
 function TreeScene() {
   return (

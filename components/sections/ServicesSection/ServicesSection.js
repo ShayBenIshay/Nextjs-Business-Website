@@ -1,5 +1,5 @@
 import styles from "./ServicesSection.module.css";
-import ServiceLottieCard from "@/components/ServiceLottieCard/ServiceLottieCard";
+import ServiceLottieCard from "@/components/shared/ServiceLottieCard/ServiceLottieCard";
 import { serviceCards } from "@/lib/serviceCards";
 
 const defaultCards = [

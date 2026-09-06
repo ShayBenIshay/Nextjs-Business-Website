@@ -1,6 +1,6 @@
-import HeroSection from "@/components/HeroSection/HeroSection";
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import ServiceTiersSection from "@/components/ServiceTiersSection/ServiceTiersSection";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
+import ServiceTiersSection from "@/components/sections/ServiceTiersSection/ServiceTiersSection";
 import {
   websiteRenovationPlans,
   websiteLandingPlans,

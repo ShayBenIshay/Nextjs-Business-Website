@@ -1,5 +1,5 @@
 import styles from "./WhatEStoreIncludesSection.module.css";
-import IllustrationSection from "@/components/IllustrationSection/IllustrationSection";
+import IllustrationSection from "@/components/shared/IllustrationSection/IllustrationSection";
 
 export default function WhatEStoreIncludesSection({
   title = "מה כל חנות כוללת?",

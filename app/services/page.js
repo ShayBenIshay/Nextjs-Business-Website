@@ -1,7 +1,7 @@
-import CTABannerSection from "@/components/CTABannerSection/CTABannerSection";
-import HeroSection from "@/components/HeroSection/HeroSection";
-import CoreServicesSection from "@/components/CoreServicesSection/CoreServicesSection";
-import PartnershipSection from "@/components/PartnershipSection/PartnershipSection";
+import CTABannerSection from "@/components/sections/CTABannerSection/CTABannerSection";
+import HeroSection from "@/components/sections/HeroSection/HeroSection";
+import CoreServicesSection from "@/components/sections/CoreServicesSection/CoreServicesSection";
+import PartnershipSection from "@/components/sections/PartnershipSection/PartnershipSection";
 
 export const metadata = {
   title: "שירותים | בניית אתרים, חנויות ופיתוח מותאם | שי טק סולושנס",

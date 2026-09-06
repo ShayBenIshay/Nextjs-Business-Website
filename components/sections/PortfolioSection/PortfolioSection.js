@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./PortfolioSection.module.css";
-import PortfolioCard from "@/components/PortfolioCard/PortfolioCard";
+import PortfolioCard from "@/components/shared/PortfolioCard/PortfolioCard";
 import { caseStudies } from "@/lib/caseStudies";
 
 const FEATURED_SLUGS = [

@@ -1,4 +1,4 @@
-import IconRowSection from "@/components/IconRowSection/IconRowSection";
+import IconRowSection from "@/components/shared/IconRowSection/IconRowSection";
 
 const imgSupport = "/assets/support-icon.png";
 const imgTransparent = "/assets/transparent-icon.png";

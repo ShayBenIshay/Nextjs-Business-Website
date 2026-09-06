@@ -1,6 +1,6 @@
 import Link from "next/link";
-import CardGridSection from "@/components/CardGridSection/CardGridSection";
-import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
+import CardGridSection from "@/components/shared/CardGridSection/CardGridSection";
+import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
 function Footer({ ctaLink, href }) {
   return (

@@ -1,4 +1,4 @@
-import LegalSection from "@/components/LegalSection/LegalSection";
+import LegalSection from "@/components/sections/LegalSection/LegalSection";
 
 export const metadata = {
   title: "תנאי שימוש באתר | שי טק סולושנס",

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import styles from "./ServiceTiersSection.module.css";
-import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
+import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
 export default function ServiceTiersSection({
   id = "plans",

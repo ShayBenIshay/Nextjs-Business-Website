@@ -1,5 +1,5 @@
 import styles from "./ProcessJourneySection.module.css";
-import OpenContactModalButton from "@/components/ContactModal/OpenContactModalButton";
+import OpenContactModalButton from "@/components/layout/ContactModal/OpenContactModalButton";
 
 const defaultSteps = [
   { scene: "intro", label: "שיחת היכרות ואפיון" },

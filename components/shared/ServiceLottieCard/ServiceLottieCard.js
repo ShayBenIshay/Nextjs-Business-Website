@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useContactModal } from "@/components/ContactModal/ContactModalContext";
+import { useContactModal } from "@/components/layout/ContactModal/ContactModalContext";
 
 const DotLottieReact = dynamic(
   () => import("@lottiefiles/dotlottie-react").then((m) => m.DotLottieReact),
