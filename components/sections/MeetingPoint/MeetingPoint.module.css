@@ -1,0 +1,107 @@
+.section {
+  background: var(--white);
+  padding: 24px 80px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  max-width: 900px;
+  width: 100%;
+}
+
+.scene {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  fill: var(--primary);
+  opacity: 0.7;
+}
+
+.sway {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mpSway 5s ease-in-out infinite;
+}
+
+@keyframes mpSway {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mpPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes mpPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mpTwinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes mpTwinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.stemSway {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: mpStemSway 4.5s ease-in-out infinite;
+}
+
+@keyframes mpStemSway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 16px 24px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sway,
+  .pulse,
+  .twinkle,
+  .stemSway {
+    animation: none;
+  }
+}

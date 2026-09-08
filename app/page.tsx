@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Hero from "@/components/sections/Hero/Hero";
+import MeetingPoint from "@/components/sections/MeetingPoint/MeetingPoint";
 import CardGridSection, {
   type GridCard,
 } from "@/components/shared/CardGridSection/CardGridSection";
@@ -174,6 +175,8 @@ export default function HomePage() {
         btnPrimary="בואו נבדוק מה מתאים לעסק שלכם"
         btnPrimaryHref="#home-plans-preview"
       />
+
+      <MeetingPoint />
 
       <CardGridSection
         id="home-pain"
