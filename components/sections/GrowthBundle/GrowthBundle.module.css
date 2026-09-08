@@ -8,8 +8,7 @@
 .box {
   max-width: 720px;
   width: 100%;
-  background: linear-gradient(165deg, rgba(227, 168, 87, 0.16), rgba(227, 168, 87, 0.05));
-  border: 1px solid rgba(227, 168, 87, 0.4);
+  background: #fbf1e4;
   color: var(--primary);
   border-radius: var(--card-radius);
   padding: 48px;
@@ -18,15 +17,15 @@
   align-items: center;
   gap: 16px;
   text-align: center;
-  box-shadow: 0 10px 26px rgba(227, 168, 87, 0.28);
+  box-shadow: var(--card-shadow);
 }
 
 .eyebrow {
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 600;
-  color: #c98a34;
-  background: rgba(227, 168, 87, 0.18);
+  color: #ffffff;
+  background: #e3a857;
   padding: 6px 16px;
   border-radius: var(--btn-radius);
 }
@@ -48,7 +47,7 @@
   font-family: var(--font-display), serif;
   font-weight: 400;
   font-size: 44px;
-  color: var(--primary);
+  color: #c98a34;
 }
 
 .priceNote {
