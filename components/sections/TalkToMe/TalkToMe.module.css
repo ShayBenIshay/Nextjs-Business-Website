@@ -115,7 +115,7 @@
 /* ── Card ── */
 .card {
   box-shadow: var(--light-primary-shadow);
-  padding: 12px 24px;
+  padding: 24px 48px;
   border: var(--card-border);
   border-radius: var(--card-radius);
   flex: 1 1 380px;
@@ -244,7 +244,7 @@
 .input {
   width: 100%;
   text-align: right;
-  padding: 4px 12px;
+  padding: 14px 18px;
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 26px;
