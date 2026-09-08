@@ -113,23 +113,30 @@ function DeliveryScene() {
   );
 }
 
-// Continuous Work: the closing loop, echoing the logo's oval-and-chevrons meeting point.
+// Continuous Work: a two-arrow refresh/cycle — the standard "this keeps going" icon.
 function ContinuousScene() {
   return (
     <svg viewBox="0 0 76 76" className={styles.scene}>
       <circle cx="38" cy="38" r="38" fill="#E9F3E3" />
       <g className={styles.spinSlow} style={{ transformOrigin: "38px 38px" }}>
         <path
-          d="M38 16 A22 22 0 1 1 17.5 29"
+          d="M19.2 31.2 A20 20 0 0 1 56.8 31.2"
           fill="none"
-          stroke="#476226"
-          strokeWidth="3"
+          stroke="#412662"
+          strokeWidth="3.4"
           strokeLinecap="round"
         />
-        <path d="M13 24 L17.5 29 L23 25" fill="none" stroke="#476226" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <polygon points="58.5,35.9 53,32.6 60.6,29.8" fill="#412662" />
+        <path
+          d="M56.8 44.8 A20 20 0 0 1 19.2 44.8"
+          fill="none"
+          stroke="#476226"
+          strokeWidth="3.4"
+          strokeLinecap="round"
+        />
+        <polygon points="17.5,40.1 23,43.4 15.4,46.2" fill="#476226" />
       </g>
-      <ellipse cx="38" cy="38" rx="10" ry="9" fill="#412662" />
-      <circle cx="38" cy="38" r="3.4" fill="#E3A857" />
+      <circle cx="38" cy="38" r="3" fill="#E3A857" />
     </svg>
   );
 }
