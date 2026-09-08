@@ -8,8 +8,9 @@
 .box {
   max-width: 720px;
   width: 100%;
-  background: var(--primary);
-  color: var(--white);
+  background: linear-gradient(165deg, rgba(227, 168, 87, 0.16), rgba(227, 168, 87, 0.05));
+  border: 1px solid rgba(227, 168, 87, 0.4);
+  color: var(--primary);
   border-radius: var(--card-radius);
   padding: 48px;
   display: flex;
@@ -17,44 +18,44 @@
   align-items: center;
   gap: 16px;
   text-align: center;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 10px 26px rgba(227, 168, 87, 0.28);
 }
 
 .eyebrow {
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 600;
-  color: var(--white);
-  background: var(--primary-accent);
+  color: #c98a34;
+  background: rgba(227, 168, 87, 0.18);
   padding: 6px 16px;
   border-radius: var(--btn-radius);
 }
 
 .title {
-  color: var(--white);
+  color: var(--primary);
 }
 
 .lead {
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 26px;
-  color: var(--white);
-  opacity: 0.9;
+  color: var(--primary);
+  opacity: 0.85;
   max-width: 520px;
 }
 
 .priceTag {
-  font-family: var(--font-heading);
-  font-size: 40px;
-  font-weight: 600;
-  color: var(--white);
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: 44px;
+  color: var(--primary);
 }
 
 .priceNote {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
-  opacity: 0.75;
+  opacity: 0.7;
   margin-inline-start: 8px;
 }
 
@@ -70,8 +71,8 @@
 .features li {
   font-family: var(--font-body);
   font-size: 16px;
-  color: var(--white);
-  opacity: 0.9;
+  color: var(--primary);
+  opacity: 0.85;
   text-align: right;
 }
 

@@ -32,10 +32,23 @@
   gap: 24px;
   position: relative;
   padding-bottom: 40px;
+  animation: popIn 0.5s ease both;
+  animation-delay: calc(var(--i) * 120ms);
 }
 
 .step:last-child {
   padding-bottom: 0;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .marker {
@@ -46,28 +59,96 @@
   position: relative;
 }
 
-.markerNumber {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--primary-accent);
-  color: var(--white);
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.medallion {
+  width: 76px;
+  height: 76px;
+  position: relative;
   z-index: 1;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.markerNumber {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid rgba(65, 38, 98, 0.15);
+  border-radius: var(--btn-radius);
+  padding: 1px 8px;
+  font-family: var(--font-display), serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #c98a34;
 }
 
 .step:not(:last-child) .marker::after {
   content: "";
   position: absolute;
-  top: 48px;
+  top: 76px;
   bottom: -40px;
   width: 2px;
   background: rgba(65, 38, 98, 0.15);
+}
+
+/* ── Per-scene animation accents ── */
+.pulse {
+  animation: ltPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes ltPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.spin {
+  animation: ltSpin 5s linear infinite;
+}
+
+.spinSlow {
+  animation: ltSpin 9s linear infinite;
+}
+
+@keyframes ltSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bob {
+  animation: ltBob 2.4s ease-in-out infinite;
+}
+
+@keyframes ltBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .pulse,
+  .spin,
+  .spinSlow,
+  .bob {
+    animation: none;
+  }
 }
 
 .content {
@@ -120,13 +201,17 @@
     gap: 16px;
   }
 
+  .medallion {
+    width: 60px;
+    height: 60px;
+  }
+
   .markerNumber {
-    width: 40px;
-    height: 40px;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 0px 6px;
   }
 
   .step:not(:last-child) .marker::after {
-    top: 40px;
+    top: 60px;
   }
 }
