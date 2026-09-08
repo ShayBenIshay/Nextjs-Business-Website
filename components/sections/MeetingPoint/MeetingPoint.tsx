@@ -32,7 +32,13 @@ export default function MeetingPoint() {
           />
 
           <g className={styles.sway}>
-            <ellipse cx="90" cy="60" rx="44" ry="38" fill="rgba(65,38,98,0.12)" />
+            <ellipse
+              cx="90"
+              cy="60"
+              rx="44"
+              ry="38"
+              fill="rgba(65,38,98,0.12)"
+            />
             <circle cx="90" cy="60" r="13" fill="#412662" />
           </g>
           <text x="90" y="118" textAnchor="middle" className={styles.label}>
@@ -40,7 +46,13 @@ export default function MeetingPoint() {
           </text>
 
           <g className={styles.sway} style={{ animationDelay: "-2.6s" }}>
-            <ellipse cx="550" cy="60" rx="44" ry="38" fill="rgba(71,98,38,0.09)" />
+            <ellipse
+              cx="550"
+              cy="60"
+              rx="44"
+              ry="38"
+              fill="rgba(71,98,38,0.09)"
+            />
             <circle cx="550" cy="60" r="13" fill="#476226" />
           </g>
           <text x="550" y="118" textAnchor="middle" className={styles.label}>
@@ -48,7 +60,13 @@ export default function MeetingPoint() {
           </text>
 
           <circle cx="322" cy="152" r="30" fill="rgba(227,168,87,0.16)" />
-          <circle className={styles.pulse} cx="322" cy="152" r="14" fill="#E3A857" />
+          <circle
+            className={styles.pulse}
+            cx="322"
+            cy="152"
+            r="14"
+            fill="#E3A857"
+          />
           <circle
             className={styles.twinkle}
             cx="322"
@@ -64,29 +82,6 @@ export default function MeetingPoint() {
             r="2.4"
             fill="#E3A857"
             style={{ animationDelay: "-2s" }}
-          />
-
-          <path
-            d="M322,138 C322,110 322,88 322,68"
-            fill="none"
-            stroke="#476226"
-            strokeWidth="3"
-            strokeLinecap="round"
-            className={styles.stemSway}
-          />
-          <path
-            d="M322,84 C302,76 292,60 298,48"
-            fill="none"
-            stroke="#476226"
-            strokeWidth="3"
-            strokeLinecap="round"
-          />
-          <path
-            d="M322,72 C342,64 352,50 348,38"
-            fill="none"
-            stroke="#476226"
-            strokeWidth="3"
-            strokeLinecap="round"
           />
         </svg>
       </div>
