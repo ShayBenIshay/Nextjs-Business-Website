@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Hero from "@/components/sections/Hero/Hero";
+import MeetingPoint from "@/components/sections/MeetingPoint/MeetingPoint";
 import CardGridSection, {
   type GridCard,
 } from "@/components/shared/CardGridSection/CardGridSection";
@@ -14,7 +15,8 @@ import styles from "./page.module.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shay Tech Solutions | בית אחד לניהול, תחזוקה ופיתוח האתר והמערכות שלך",
+  title:
+    "Shay Tech Solutions | בית אחד לניהול, תחזוקה ופיתוח האתר והמערכות שלך",
   description:
     "בית טכנולוגי אחד לעסק: ניהול, אחסון, פיתוח ופרויקטים מותאמים אישית (React, Node.js, WordPress) במחיר שקוף וקבוע מראש.",
   alternates: { canonical: "https://www.shaytechsolutions.com" },
@@ -76,11 +78,13 @@ const howItWorksSteps: JourneyStep[] = [
   },
   {
     scene: "quote",
-    label: "02. הצעה ברורה למסלול המתאים — מחיר חודשי קבוע שמתאים בדיוק לצרכים שלכם, בלי הפתעות",
+    label:
+      "02. הצעה ברורה למסלול המתאים — מחיר חודשי קבוע שמתאים בדיוק לצרכים שלכם, בלי הפתעות",
   },
   {
     scene: "build",
-    label: "03. מעבר חלק ויישור קו — מיגרציה שקטה, בדיקת אבטחה וביצועים, והתחלה נקייה",
+    label:
+      "03. מעבר חלק ויישור קו — מיגרציה שקטה, בדיקת אבטחה וביצועים, והתחלה נקייה",
   },
   {
     scene: "launch",
@@ -175,6 +179,8 @@ export default function HomePage() {
         btnPrimaryHref="#home-plans-preview"
       />
 
+      <MeetingPoint />
+
       <CardGridSection
         id="home-pain"
         title="מכירים את הרגע הזה שהאתר נופל... בדיוק כשיש קמפיין באוויר?"
@@ -185,21 +191,21 @@ export default function HomePage() {
         <div className={styles.solutionInner}>
           <h2 className="h2">STS: כתובת אחת. מעטפת אחת. שקט נפשי מלא.</h2>
           <p className="body-text">
-            אנחנו לא עוד חברת אחסון גנרית ולא פרילנסר מזדמן. STS פועלת כזרוע הטכנולוגית של
-            העסק שלכם.
+            אנחנו לא עוד חברת אחסון גנרית ולא פרילנסר מזדמן. STS פועלת כזרוע
+            הטכנולוגית של העסק שלכם.
           </p>
           <ul className={styles.solutionList}>
             <li>
-              כתובת אחת לכל שאלה: לא צריך לנחש למי להתקשר. אנחנו מנהלים את האחסון, התחזוקה,
-              האבטחה והפיתוח.
+              כתובת אחת לכל שאלה: לא צריך לנחש למי להתקשר. אנחנו מנהלים את
+              האחסון, התחזוקה, האבטחה והפיתוח.
             </li>
             <li>
-              תקציב ידוע מראש: מודל מנויים וריטיינרים שקוף. אתם יודעים בדיוק מה העלויות שלכם
-              בכל חודש.
+              תקציב ידוע מראש: מודל מנויים וריטיינרים שקוף. אתם יודעים בדיוק מה
+              העלויות שלכם בכל חודש.
             </li>
             <li>
-              עבודה אקטיבית ברצף: האתר והמערכות שלכם נשארים מעודכנים, מאובטחים ומהירים –
-              באופן קבוע.
+              עבודה אקטיבית ברצף: האתר והמערכות שלכם נשארים מעודכנים, מאובטחים
+              ומהירים – באופן קבוע.
             </li>
           </ul>
           <Link href="/plans" className="btn-secondary">
@@ -209,7 +215,7 @@ export default function HomePage() {
       </section>
 
       <ProcessJourney
-        title="3 צעדים פשוטים לשקט טכנולוגי"
+        title="4 צעדים פשוטים לשקט טכנולוגי"
         steps={howItWorksSteps}
         noBackground
       />
@@ -223,11 +229,13 @@ export default function HomePage() {
 
       <section className={styles.projectPreview} id="home-project-preview">
         <div className={styles.projectPreviewInner}>
-          <h2 className="h2">צריכים לבנות מערכת, אפליקציה או אתר מותאם אישית?</h2>
+          <h2 className="h2">
+            צריכים לבנות מערכת, אפליקציה או אתר מותאם אישית?
+          </h2>
           <p className="body-text">
-            פיתוח מוצלח לא מתחיל בקוד – הוא מתחיל בארכיטקטורה ותכנון מדויק. כל פרויקט חדש
-            מתחיל בשלב אפיון ממוקד (₪600–₪2,000), שבו נגדיר את הארכיטקטורה, הדרישות והתוכנית
-            המלאה – עוד לפני שמתחילים לבנות.
+            פיתוח מוצלח לא מתחיל בקוד – הוא מתחיל בארכיטקטורה ותכנון מדויק. כל
+            פרויקט חדש מתחיל בשלב אפיון ממוקד (₪600–₪2,000), שבו נגדיר את
+            הארכיטקטורה, הדרישות והתוכנית המלאה – עוד לפני שמתחילים לבנות.
           </p>
           <Link href="/project" className="btn-secondary">
             למידע נוסף על תהליך הפרויקטים והאפיון
