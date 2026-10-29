@@ -208,6 +208,88 @@
   }
 }
 
+/* ── Split layout (contact page, when a sidebar is given) ──
+   RTL: column 1 sits on the right. Right: title, quick contact, contact
+   details. Left: the form. No card chrome; the content sits on the section. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 450px);
+  grid-template-rows: auto auto auto 1fr;
+  justify-content: start;
+  align-items: start;
+  column-gap: 64px;
+  row-gap: 24px;
+}
+
+.split .titleGroup {
+  grid-column: 1;
+  grid-row: 1;
+  align-items: flex-start;
+  text-align: right;
+}
+
+.split .quickContactRow {
+  grid-column: 1;
+  grid-row: 2;
+  justify-content: flex-start;
+}
+
+.split .divider {
+  display: none;
+}
+
+.split .contentRow {
+  display: contents;
+}
+
+.split .sidebar {
+  grid-column: 1;
+  grid-row: 3;
+  max-width: none;
+}
+
+.split .formCard,
+.split .formCard:hover {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transform: none;
+  padding: 0;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .split {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .split .titleGroup {
+    align-items: center;
+    text-align: center;
+  }
+
+  .split .quickContactRow {
+    justify-content: center;
+  }
+
+  .split .divider {
+    display: flex;
+  }
+
+  .split .contentRow {
+    display: flex;
+    width: 100%;
+  }
+
+  .split .formCard {
+    max-width: 450px;
+  }
+}
+
 /* ── Form Card ── */
 .formCard {
   cursor: default;
