@@ -55,11 +55,11 @@ const retainerPlans: ServicePlan[] = [
     title: "ריטיינר 5 שעות",
     price: "₪1,100",
     priceNote: "/ חודש",
-    badge: "המסלול המבוקש",
+    badge: "מומלץ",
     highlighted: true,
     serviceValue: "retainer",
     description: "5 שעות פיתוח חודשיות לעסקים שזקוקים לשיפורים שוטפים ותכופים יותר.",
-    included: ["5 שעות פיתוח, עיצוב ותוכן בחודש", "שעות נוספות ב-₪300/שעה"],
+    included: ["5 שעות פיתוח, עיצוב ותוכן בחודש", "שעות נוספות ב-₪270/שעה"],
     suitable: "מתאים לעסקים צומחים הזקוקים לשיפורים מתמידים באתר.",
     focus: "🎯 הבחירה הפופולרית לעסקים צומחים",
   },
@@ -72,7 +72,7 @@ const retainerPlans: ServicePlan[] = [
     included: [
       "10 שעות פיתוח, עיצוב ותוכן בחודש",
       "עבודה אקטיבית על פיצ'רים ושיפורים",
-      "שעות נוספות ב-₪300/שעה",
+      "שעות נוספות ב-₪250/שעה",
     ],
     suitable: "מתאים לאתרי מסחר או לעסקים עם פעילות דיגיטלית אינטנסיבית.",
     focus: "🎯 מחויבות מלאה לצמיחה דיגיטלית",
@@ -119,6 +119,8 @@ export default function PlansPage() {
         id="plans-hosting"
         title="תשתית אחסון ותחזוקה שוטפת"
         plans={hostingManagementPlan}
+        horizontal
+        plain
       />
 
       <ServiceTiers
@@ -127,6 +129,9 @@ export default function PlansPage() {
         subtitle="מתווסף למסלול התחזוקה (או נרכש בנפרד ללקוחות המאוחסנים בשרת חיצוני)"
         tinted={false}
         plans={retainerPlans}
+        collapsible
+        keepDescription
+        syncCards
       />
 
       <GrowthBundle id="plans-growth-bundle" />
@@ -135,6 +140,8 @@ export default function PlansPage() {
         id="plans-secondary"
         title="צריכים פתרון נקודתי?"
         plans={secondaryPlans}
+        titleTop
+        collapsible
       />
 
       <CTABanner />

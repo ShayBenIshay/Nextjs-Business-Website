@@ -32,22 +32,26 @@ export default function GrowthBundle({
 }: GrowthBundleProps) {
   return (
     <section className={styles.section} id={id}>
-      <div className={styles.box}>
-        <span className={styles.eyebrow}>{eyebrow}</span>
-        <h2 className={`h2 ${styles.title}`}>{title}</h2>
-        <p className={styles.lead}>{lead}</p>
-        <div className={styles.priceTag}>
-          {price}
-          <span className={styles.priceNote}>{priceNote}</span>
+      <div className={styles.inner}>
+        <div className={styles.titleGroup}>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 className={`h2 ${styles.title}`}>{title}</h2>
+          <p className={styles.lead}>{lead}</p>
         </div>
-        <ul className={styles.features}>
-          {features.map((feature) => (
-            <li key={feature}>{feature}</li>
-          ))}
-        </ul>
-        <OpenContactModalButton className="btn-primary-large" presetService="growth">
-          {ctaLabel}
-        </OpenContactModalButton>
+        <div className={styles.content}>
+          <div className={styles.priceTag}>
+            {price}
+            <span className={styles.priceNote}>{priceNote}</span>
+          </div>
+          <ul className={styles.features}>
+            {features.map((feature) => (
+              <li key={feature}>{feature}</li>
+            ))}
+          </ul>
+          <OpenContactModalButton className="btn-primary-large" presetService="growth">
+            {ctaLabel}
+          </OpenContactModalButton>
+        </div>
       </div>
     </section>
   );
