@@ -52,6 +52,7 @@
 
 .sceneWrap {
   width: 100%;
+  max-width: 170px;
   aspect-ratio: 1 / 1;
 }
 
