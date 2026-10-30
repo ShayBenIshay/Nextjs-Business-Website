@@ -181,7 +181,9 @@ export default function TalkToMe({ compact = false, sidebar, initialService }: T
       className={`${styles.section} ${compact ? styles.compact : ""}`}
       id="talk-to-me"
     >
-      <div className={`${styles.inner} ${compact ? styles.innerCompact : ""}`}>
+      <div
+        className={`${styles.inner} ${compact ? styles.innerCompact : ""} ${sidebar ? styles.split : ""}`}
+      >
         <div className={styles.titleGroup}>
           <h2 className={`h2 ${styles.headline}`}>בואו נדבר</h2>
           <p className={`h3 ${styles.subtitle}`}>

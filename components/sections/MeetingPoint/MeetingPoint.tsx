@@ -83,6 +83,9 @@ export default function MeetingPoint() {
             fill="#E3A857"
             style={{ animationDelay: "-2s" }}
           />
+          <text x="322" y="202" textAnchor="middle" className={styles.label}>
+            ההצלחה שלך
+          </text>
         </svg>
       </div>
     </section>

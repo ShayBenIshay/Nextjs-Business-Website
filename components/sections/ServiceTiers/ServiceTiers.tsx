@@ -14,6 +14,19 @@ interface ServiceTiersProps {
   notesTitle?: string;
   tinted?: boolean;
   expandable?: boolean;
+  // Title on the right, cards stacked in a column on the left (desktop).
+  horizontal?: boolean;
+  // With horizontal: drop the card chrome (meant for a single plan).
+  plain?: boolean;
+  // Each card starts collapsed (title and price only) with a per-card
+  // "קרא עוד" toggle that reveals the rest.
+  collapsible?: boolean;
+  // Title on the right above the cards, cards side by side in a row.
+  titleTop?: boolean;
+  // With collapsible: keep the description visible when a card is collapsed.
+  keepDescription?: boolean;
+  // With collapsible: all cards expand and collapse together.
+  syncCards?: boolean;
 }
 
 export default function ServiceTiers({
@@ -25,15 +38,25 @@ export default function ServiceTiers({
   notesTitle,
   tinted = true,
   expandable = false,
+  horizontal = false,
+  plain = false,
+  collapsible = false,
+  titleTop = false,
+  keepDescription = false,
+  syncCards = false,
 }: ServiceTiersProps) {
   const [expanded, setExpanded] = useState(false);
+  const [openCards, setOpenCards] = useState<Record<string, boolean>>({});
+  const [allOpen, setAllOpen] = useState(false);
 
   return (
     <section
       className={`${styles.section} ${tinted ? styles.tinted : ""}`}
       id={id}
     >
-      <div className={styles.inner}>
+      <div
+        className={`${styles.inner} ${horizontal ? styles.horizontal : ""} ${horizontal && plain ? styles.plain : ""} ${titleTop ? styles.titleTop : ""}`}
+      >
         {(title || subtitle) && (
           <div className={styles.titleGroup}>
             {title && <h2 className={`h2 ${styles.title}`}>{title}</h2>}
@@ -43,13 +66,34 @@ export default function ServiceTiers({
           </div>
         )}
 
-        <div className={styles.cards}>
+        <div
+          className={`${styles.cards} ${collapsible ? styles.collapsibleCards : ""} ${collapsible && syncCards ? styles.syncedCards : ""}`}
+        >
           {plans.map((plan) => {
             const visibleItems = expandable
               ? plan.included.slice(0, 3)
               : plan.included;
             const hiddenItems = expandable ? plan.included.slice(3) : [];
-            const showExtras = !expandable || expanded;
+            const cardOpen =
+              !collapsible || (syncCards ? allOpen : !!openCards[plan.title]);
+            const showExtras = (!expandable || expanded) && cardOpen;
+            const toggle = (
+              <button
+                type="button"
+                className={`btn-secondary ${styles.btnSmall}`}
+                aria-expanded={cardOpen}
+                onClick={() =>
+                  syncCards
+                    ? setAllOpen((prev) => !prev)
+                    : setOpenCards((prev) => ({
+                        ...prev,
+                        [plan.title]: !prev[plan.title],
+                      }))
+                }
+              >
+                {cardOpen ? "קרא פחות" : "קרא עוד"}
+              </button>
+            );
 
             return (
               <div
@@ -61,23 +105,30 @@ export default function ServiceTiers({
                 )}
                 <div className={styles.cardBody}>
                   <p className={styles.planTitle}>{plan.title}</p>
-                  <p className={styles.price}>
-                    {plan.price}
-                    {plan.priceNote && (
-                      <span className={styles.priceNote}> {plan.priceNote}</span>
-                    )}
-                  </p>
-                  <p className={styles.description}>{plan.description}</p>
-                  <div className={styles.featureList}>
-                    <p className={styles.featureLabel}>מה כלול:</p>
-                    <ul>
-                      {visibleItems.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
-                      {expanded &&
-                        hiddenItems.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
+                  <div className={collapsible ? styles.priceRow : undefined}>
+                    <p className={styles.price}>
+                      {plan.price}
+                      {plan.priceNote && (
+                        <span className={styles.priceNote}> {plan.priceNote}</span>
+                      )}
+                    </p>
+                    {collapsible && !keepDescription && toggle}
                   </div>
+                  {(cardOpen || keepDescription) && (
+                    <p className={styles.description}>{plan.description}</p>
+                  )}
+                  {cardOpen && (
+                    <div className={styles.featureList}>
+                      <p className={styles.featureLabel}>מה כלול:</p>
+                      <ul>
+                        {visibleItems.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                        {expanded &&
+                          hiddenItems.map((item) => <li key={item}>{item}</li>)}
+                      </ul>
+                    </div>
+                  )}
                   {showExtras && plan.suitable && (
                     <p className={styles.suitable}>{plan.suitable}</p>
                   )}
@@ -86,6 +137,7 @@ export default function ServiceTiers({
                   )}
                 </div>
                 <div className={styles.cardFooter}>
+                  {collapsible && keepDescription && toggle}
                   {expandable && (
                     <button
                       type="button"
