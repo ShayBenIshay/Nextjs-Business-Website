@@ -29,6 +29,22 @@ interface ServiceTiersProps {
   syncCards?: boolean;
 }
 
+// Bold the hourly rate inside an included item (e.g. "₪270/שעה"), so the
+// per-plan difference in extra-hour pricing is easy to spot.
+function renderIncluded(item: string) {
+  return item
+    .split(/(₪[\d,]+\/שעה)/)
+    .map((part, i) =>
+      i % 2 === 1 ? (
+        <strong key={i} className={styles.rate}>
+          {part}
+        </strong>
+      ) : (
+        part
+      ),
+    );
+}
+
 export default function ServiceTiers({
   id = "plans",
   title,
@@ -122,10 +138,10 @@ export default function ServiceTiers({
                       <p className={styles.featureLabel}>מה כלול:</p>
                       <ul>
                         {visibleItems.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item}>{renderIncluded(item)}</li>
                         ))}
                         {expanded &&
-                          hiddenItems.map((item) => <li key={item}>{item}</li>)}
+                          hiddenItems.map((item) => <li key={item}>{renderIncluded(item)}</li>)}
                       </ul>
                     </div>
                   )}

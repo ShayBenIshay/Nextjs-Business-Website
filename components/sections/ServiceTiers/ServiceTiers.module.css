@@ -247,6 +247,10 @@
   color: var(--primary);
 }
 
+.rate {
+  font-weight: 700;
+}
+
 .suitable {
   font-family: var(--font-body);
   font-size: 14px;
