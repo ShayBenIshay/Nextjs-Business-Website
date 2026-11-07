@@ -108,8 +108,19 @@
     flex-direction: column;
   }
 
+  .content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
   .textGroup {
     text-align: center;
+  }
+
+  .ctaGroup {
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 
   .laptopWrapper {
