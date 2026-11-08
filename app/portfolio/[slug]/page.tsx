@@ -93,8 +93,8 @@ export default async function CaseStudyPage({
       {/* ── Hero: back link + centered meta ── */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <Link href="/portfolio" className={styles.backLink}>
-            → חזרה לתיק העבודות
+          <Link href="/" className={styles.backLink}>
+            → חזרה לדף הבית
           </Link>
           <div className={styles.heroMeta}>
             <span className={styles.typeBadge}>{cs.type}</span>

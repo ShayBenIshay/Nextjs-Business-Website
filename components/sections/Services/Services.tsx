@@ -7,7 +7,6 @@ const defaultCards = [
   "website-improve",
   "hosting",
   "custom-development",
-  "portfolio-examples",
 ];
 
 interface ServicesProps {
@@ -33,6 +32,9 @@ export default function Services({
     })
     .filter((card): card is NonNullable<typeof card> => Boolean(card));
 
+  // Four cards sit as a 2x2 block; three columns would leave one card alone on a second row.
+  const twoColumns = variant === "pair" || selectedCards.length === 4;
+
   return (
     <section className={styles.section} id={sectionId}>
       <div className={styles.inner}>
@@ -41,7 +43,7 @@ export default function Services({
           <p className={`h3 ${styles.subtitle}`}>{subtitle}</p>
         </div>
         <div
-          className={`${styles.grid} ${variant === "pair" ? styles.gridPair : ""}`}
+          className={`${styles.grid} ${twoColumns ? styles.gridPair : ""}`}
         >
           {selectedCards.map((card) => (
             <ServiceLottieCard key={card.id} service={card} styles={styles} />

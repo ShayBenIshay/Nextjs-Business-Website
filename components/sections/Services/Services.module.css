@@ -39,8 +39,8 @@
   max-width: 900px;
 }
 
-/* "pair" variant: single-service pages (e.g. /services/estore) pairing one
-   service card with the portfolio-examples card. */
+/* Two-column layout: the "pair" variant (single-service pages such as
+   /services/estore), and any grid that has exactly four cards (a 2x2 block). */
 .gridPair {
   grid-template-columns: repeat(2, 1fr);
   max-width: 680px;

@@ -26,7 +26,7 @@ export default function EStorePage() {
       <Services
         title="חנויות אינטרנטיות שמוכרות"
         subtitle="אני בונה חנויות WooCommerce עם חשיבה שיווקית, חוויית משתמש ותשתית יציבה לצמיחה."
-        cards={["estore-pair", "portfolio-examples"]}
+        cards={["estore-pair"]}
         variant="pair"
         sectionId="estore"
       />

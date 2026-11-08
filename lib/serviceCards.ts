@@ -43,16 +43,6 @@ export const serviceCards: ServiceCard[] = [
     showLastFrame: true,
     openModal: true,
   },
-  {
-    id: "portfolio-examples",
-    title: "רוצה לראות דוגמאות",
-    lottieSrc:
-      "https://lottie.host/93c4fa5b-82ef-47f0-a3ba-f04eda19034d/XOtUJ2cvZ5.lottie",
-    showLastFrame: true,
-    lottieScale: 0.7,
-    href: "/portfolio",
-  },
-
   // Same "estore" lottie, first-person CTA phrasing for use on the estore
   // page's own pair section (you're already on the page, so it reads as an
   // action rather than a label). Keep lottieSrc in sync with the "estore"
