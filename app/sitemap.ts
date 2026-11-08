@@ -45,12 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     ...serviceEntries,
-    {
-      url: `${SITE_URL}/portfolio`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+    // /portfolio itself redirects to the recruiter portfolio subdomain (see public/.htaccess),
+    // so it is not listed here. The case studies under /portfolio/<slug> stay.
     ...portfolioEntries,
     {
       url: `${SITE_URL}/about`,
