@@ -24,6 +24,23 @@ redirect, www canonicalization, and security headers.
 npm run build   # outputs to ./out
 ```
 
+### Live `.htaccess` (2026-11)
+
+Hostinger runs this site as a Node.js app under Passenger and generates the live
+`public_html/.htaccess` itself (Passenger block on top, then the rewrite rules). The
+file in `public/.htaccess` is the reference, but a change there does not reliably reach
+the live file, so after changing a rule verify it on the live site.
+
+`/portfolio` redirects to `https://portfolio-site.shaytechsolutions.com/` (the English
+recruiter portfolio, a separate project). That rule was added to the live file by hand:
+
+```apache
+RewriteRule ^portfolio/?$ https://portfolio-site.shaytechsolutions.com/ [R=302,L]
+```
+
+If `/portfolio` shows the Hebrew page again after a deploy, re-add that line after the
+`services` rules. The Hebrew case studies at `/portfolio/<slug>` stay on this site.
+
 ## Project layout
 
 - `app/` - App Router pages (Hebrew, RTL). `layout.js` wires GA4 with Google
