@@ -22,8 +22,8 @@ RewriteRule ^services/?$ /plans [R=301,L]
 
 # ─── Recruiter portfolio lives on its own subdomain (2026-11) ───
 # Only the exact /portfolio URL moves (it is the link on CVs). The Hebrew case studies at
-# /portfolio/<slug> stay here. 302 on purpose while this settles: change R=302 to R=301 once sure.
-RewriteRule ^portfolio/?$ https://portfolio-site.shaytechsolutions.com/ [R=302,L]
+# /portfolio/<slug> stay here. Permanent (301) since 2026-11-09, after the move was verified live.
+RewriteRule ^portfolio/?$ https://portfolio-site.shaytechsolutions.com/ [R=301,L]
 
 # ─── Security headers ───────────────────────────────────────────
 <IfModule mod_headers.c>

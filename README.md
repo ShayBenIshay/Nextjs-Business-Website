@@ -35,8 +35,11 @@ the live file, so after changing a rule verify it on the live site.
 recruiter portfolio, a separate project). That rule was added to the live file by hand:
 
 ```apache
-RewriteRule ^portfolio/?$ https://portfolio-site.shaytechsolutions.com/ [R=302,L]
+RewriteRule ^portfolio/?$ https://portfolio-site.shaytechsolutions.com/ [R=301,L]
 ```
+
+It is a permanent (301) redirect, so browsers and search engines remember it. If it ever has
+to be undone, switch to a 302 first and wait, because cached 301s are slow to clear.
 
 If `/portfolio` shows the Hebrew page again after a deploy, re-add that line after the
 `services` rules. The Hebrew case studies at `/portfolio/<slug>` stay on this site.
